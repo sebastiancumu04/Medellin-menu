@@ -246,10 +246,11 @@ El titular de la cue 1 es **la línea editorial de la marca** y es DISTINTO en c
 | egeo | Comer juntos, siempre | Eat together, always | Todo lo de hoy / Cocina y barra |
 | ocio | Menos carta, más mesa | Less menu, more table | 28 platos / Ni uno de más |
 
-⚠️ **Al regenerar una carta desde el template (`boro/index.html`) NO se arrastran estos valores.**
-Se copian el motor, el CSS y la estructura; el copy de las cues y `--cue-pb` se reponen desde esta
-tabla. Ya pasó una vez: una regeneración propagó el titular de boro a las cinco y las dejó diciendo
-todas lo mismo.
+⚠️ **Esto se pisaba al regenerar.** Una regeneración propagó el titular de boro a las cinco y
+las dejó diciendo todas lo mismo. Ya no: el generador lee del archivo existente el copy de las cues
+(ES y EN, diccionario y fallback) y los tokens `--cue-pb`, `--cue-marca-pb` y `--logo-h`, y los
+reinyecta sobre la salida nueva. Verificado: regenerar las cinco da un archivo byte-idéntico.
+Aun así, esta tabla sigue siendo la fuente de verdad si hay que reponerlos a mano.
 
 Dos lugares por archivo, y hay que dejarlos **en espejo**:
 1. diccionario i18n — `cue1t:"…"` en el bloque ES (~línea 703) y en el EN (~727).
