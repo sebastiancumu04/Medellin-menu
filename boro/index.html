@@ -306,15 +306,24 @@ main{display:block;padding-bottom:var(--s9)}
 /* --- item (plato) — LISTA TIPOGRÁFICA, SIN FOTO --- */
 .item{
   display:grid;grid-template-columns:1fr auto;column-gap:var(--s4);align-items:baseline;
-  padding:var(--s4) 0;border-bottom:1px solid var(--hair-2);
+  padding:var(--s5) 0;border-bottom:1px solid var(--hair-2);
   opacity:0;transform:translateY(14px);
   transition:opacity .55s var(--ease),transform .55s var(--ease);
 }
 .item.vista{opacity:1;transform:translateY(0)}
 .item--ver{cursor:pointer}
-.item__n{font-family:var(--serif);font-weight:400;font-size:var(--fs-m);line-height:1.25}
+/* precios compuestos ("X3 $86.000 COP | X5 $130.000 COP") dejaban el nombre en 8 líneas */
+.item--pl{grid-template-columns:1fr}
+.item--pl .item__p{text-align:left;margin-top:var(--s2);white-space:normal}
+.item__n{
+  font-family:var(--serif);font-weight:400;font-size:var(--fs-m);
+  line-height:1.38;              /* los nombres vienen en caja alta: sin descendentes 1.25 los pega */
+  letter-spacing:.012em;         /* una didone en versales necesita tracking */
+  text-wrap:pretty;
+}
 .item__p{font-size:var(--fs-s);color:var(--gold-2);white-space:nowrap;font-variant-numeric:tabular-nums}
-.item__d{grid-column:1/-1;margin-top:var(--s2);color:var(--ink-3);font-size:var(--fs-2xs);max-width:52ch}
+.item__d{grid-column:1/-1;margin-top:var(--s3);color:var(--ink-3);font-size:var(--fs-2xs);
+  line-height:1.62;max-width:52ch}
 .item__ver{
   display:inline-block;margin-left:var(--s2);vertical-align:middle;
   font-family:var(--sans);font-size:var(--fs-micro);letter-spacing:.24em;text-transform:uppercase;
@@ -1050,7 +1059,8 @@ function precioHTML(f){
 
 function pintaItem(f){
   var i;
-  var h = '<div class="item'+(f.ver?' item--ver':'')+'"'+
+  var largo = f.p && f.p.length > 14;
+  var h = '<div class="item'+(f.ver?' item--ver':'')+(largo?' item--pl':'')+'"'+
           (f.ver?' role="button" tabindex="0" data-ver="'+esc(f.id)+'"':'')+'>';
   h += '<h3 class="item__n">'+esc(tx(f.n))+
        (f.ver?'<span class="item__ver">'+esc(D().ver)+'</span>':'')+'</h3>';
