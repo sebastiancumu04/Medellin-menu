@@ -1,0 +1,1804 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0B0B0C">
+<title>CANNARIO — Carta</title>
+<meta name="description" content="Boro — carta digital. Medellín.">
+<link rel="icon" href="img/favicon.png" type="image/png">
+<link rel="preload" as="image" href="video/intro.jpg">
+<style>
+/* ============================================================
+   BORO — carta digital
+   Un solo archivo. Sin framework, sin build, sin dependencias.
+   Animación = CSS keyframes/transition + rAF + IntersectionObserver
+              + scrubbing de video.currentTime.
+   Para cambiar de marca: tocar SOLO los tokens de :root.
+   ============================================================ */
+
+:root{
+  /* --- COLOR (11 tokens) — identidad CANNARIO, del brand kit --- */
+  --void:#101512;                       /* fondo dominante */
+  --void-2:#18201C;                     /* superficie / tarjeta */
+  --hair:rgba(255,232,195,.14);         /* lineas 12% */
+  --hair-2:rgba(255,232,195,.07);       /* lineas 6% */
+  --ink:#FFE8C3;                        /* texto principal */
+  --ink-2:#C3B79C;                      /* texto secundario */
+  --ink-3:#908A76;                      /* texto terciario · AA verificado */
+  --gold:#EC9F4A;                       /* ACENTO UNICO */
+  --gold-2:#F4BE72;                     /* acento en texto chico (AA) */
+  --gold-deep:#805415;                  /* acento profundo, divisores */
+  --glow:rgba(236,159,74,.28);          /* halo del acento */
+
+  /* --- TIPOGRAFÍA --- */
+  --sans:"Montserrat",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --serif:"Playfair Display",ui-serif,Georgia,"Times New Roman",serif;
+
+  /* --- ESCALA TIPOGRÁFICA --- */
+  --fs-micro:.6875rem; --fs-2xs:.75rem; --fs-xs:.8125rem; --fs-s:.9375rem;
+  --fs-m:1.0625rem;    --fs-l:1.25rem;  --fs-xl:1.625rem;  --fs-2xl:2.25rem;
+
+  /* --- ESPACIO --- */
+  --s1:4px; --s2:8px; --s3:12px; --s4:16px; --s5:24px;
+  --s6:32px; --s7:48px; --s8:68px; --s9:100px; --s10:140px;
+
+  --maxw:640px;
+  --gut:clamp(20px,6vw,38px);
+
+  /* --- LOGO --- */
+  --logo-h:clamp(56px,15vw,86px);
+  --cue-marca-pb:15vh;                  /* cuánto sube la cue del logo sobre el borde inferior */
+  --cue-pb:22vh;               /* separación del texto de la cue al borde inferior */
+
+  /* --- MOTION --- */
+  --ease:cubic-bezier(.19,1,.22,1);
+}
+
+/* === MARCA: FUENTES (auto-hospedadas, sin request externo) === */
+@font-face{font-family:'Playfair Display';font-style:italic;font-weight:400;font-display:swap;src:url(fonts/playfair-display-400i-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}
+@font-face{font-family:'Playfair Display';font-style:normal;font-weight:400;font-display:swap;src:url(fonts/playfair-display-400-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}
+@font-face{font-family:'Playfair Display';font-style:normal;font-weight:700;font-display:swap;src:url(fonts/playfair-display-700-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}
+@font-face{font-family:'Montserrat';font-style:normal;font-weight:300;font-display:swap;src:url(fonts/montserrat-300-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}
+@font-face{font-family:'Montserrat';font-style:normal;font-weight:400;font-display:swap;src:url(fonts/montserrat-400-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}
+@font-face{font-family:'Montserrat';font-style:normal;font-weight:500;font-display:swap;src:url(fonts/montserrat-500-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}
+/* === /MARCA: FUENTES === */
+
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{
+  margin:0;background:var(--void);color:var(--ink);
+  font-family:var(--sans);font-size:var(--fs-s);font-weight:300;line-height:1.55;
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+  overflow-x:hidden;
+}
+/* parche de luz sutil arriba — el contraste AA se verifica CONTRA ESTO */
+body::before{
+  content:"";position:fixed;inset:0 0 auto 0;height:60vh;pointer-events:none;z-index:0;
+  background:radial-gradient(120% 70% at 50% 0%,rgba(255,255,255,.045),transparent 70%);
+}
+body.bloq{position:fixed;width:100%;overflow:hidden}
+img{max-width:100%;display:block}
+button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer}
+h1,h2,h3,p{margin:0}
+:focus-visible{outline:1px solid var(--gold);outline-offset:3px}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;
+  clip:rect(0 0 0 0);white-space:nowrap;border:0}
+.env{width:100%;max-width:var(--maxw);margin-inline:auto;padding-inline:var(--gut)}
+.tab{font-variant-numeric:tabular-nums}
+
+/* ============================================================
+   1. ENTRADA — pin sticky + track 200vh, video scrubbeado
+   ============================================================ */
+.entrada{position:relative;z-index:1}
+.entrada__pin{position:sticky;top:0;height:100svh;overflow:hidden}
+.entrada__track{height:200vh}
+
+.entrada__video{
+  position:absolute;inset:0;
+  background:url("video/intro.jpg") center/cover no-repeat,
+             radial-gradient(120% 80% at 50% 30%,var(--void-2),var(--void) 70%);
+}
+.entrada__video video{
+  position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+  opacity:0;transition:opacity .6s var(--ease);will-change:opacity;
+}
+.entrada.con-video .entrada__video video{opacity:1}
+.entrada__velo{
+  position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(180deg,rgba(0,0,0,.55) 0%,rgba(0,0,0,.10) 32%,
+             rgba(0,0,0,.15) 58%,var(--void) 100%);
+}
+
+.cues{position:absolute;inset:0}
+.cue{
+  position:absolute;inset:0;display:grid;align-content:end;
+  padding:0 var(--gut) var(--cue-pb);will-change:transform,opacity;
+}
+.cue__label{
+  position:absolute;left:var(--gut);right:var(--gut);
+  top:calc(env(safe-area-inset-top,0px) + 10vh);
+  font-size:var(--fs-micro);letter-spacing:.34em;text-transform:uppercase;
+  color:var(--gold-2);font-weight:400;
+}
+.cue__big{
+  font-family:var(--serif);font-weight:400;line-height:1.04;
+  font-size:clamp(2.1rem,11vw,3.6rem);text-wrap:balance;
+  max-width:15ch;margin:0 auto;text-align:center;
+}
+.cue__sub{
+  margin-top:var(--s4);text-align:center;color:var(--ink-2);
+  font-size:var(--fs-xs);letter-spacing:.16em;text-transform:uppercase;
+}
+.cue--marca{align-content:end;padding-bottom:var(--cue-marca-pb)}
+.marca{display:grid;justify-items:center;gap:var(--s3);will-change:transform}
+.marca__img{height:var(--logo-h);width:auto;display:none}
+.marca.marca--img .marca__img{display:block}
+.marca.marca--img .marca__txt{display:none}
+.marca__txt{
+  font-family:var(--serif);font-weight:700;
+  font-size:clamp(2.6rem,15vw,4.6rem);line-height:1;letter-spacing:.08em;
+}
+.marca__pie{
+  font-size:var(--fs-micro);letter-spacing:.42em;text-transform:uppercase;color:var(--gold-2);
+}
+
+/* pista: invitación a scrollear */
+.pista{
+  position:absolute;left:0;right:0;bottom:calc(env(safe-area-inset-bottom,0px) + 22px);
+  display:grid;justify-items:center;gap:var(--s3);
+  transition:opacity .5s var(--ease);animation:llamar 2.8s ease-in-out infinite;
+}
+.pista__t{font-size:var(--fs-micro);letter-spacing:.32em;text-transform:uppercase;color:var(--ink-2)}
+.pista__riel{position:relative;width:1px;height:52px;background:var(--hair);overflow:hidden}
+.pista__riel::after{
+  content:"";position:absolute;left:0;width:1px;height:18px;
+  background:linear-gradient(180deg,transparent,var(--gold));
+  animation:caer 1.9s cubic-bezier(.5,0,.5,1) infinite;
+}
+@keyframes llamar{0%,100%{transform:translateY(0)}50%{transform:translateY(7px)}}
+@keyframes caer{
+  0%{transform:translateY(-110%);opacity:0}
+  25%{opacity:1}
+  75%{opacity:1}
+  100%{transform:translateY(230%);opacity:0}
+}
+
+/* ============================================================
+   2. BARRA DE PROGRESO + OMITIR
+   ============================================================ */
+.bar-top{
+  position:fixed;top:0;left:0;height:2px;width:0;z-index:60;
+  background:var(--gold);box-shadow:0 0 12px var(--glow);
+  transition:opacity .4s var(--ease);
+}
+.omitir{
+  position:fixed;z-index:60;
+  right:var(--gut);bottom:calc(env(safe-area-inset-bottom,0px) + 20px);
+  font-size:var(--fs-micro);letter-spacing:.26em;text-transform:uppercase;
+  color:var(--ink-2);padding:10px 14px;border:1px solid var(--hair);
+  background:var(--void-2);
+  background:color-mix(in srgb, var(--void) 42%, transparent);backdrop-filter:blur(6px);
+  transition:opacity .4s var(--ease),color .3s var(--ease),border-color .3s var(--ease);
+}
+.omitir:hover{color:var(--ink);border-color:var(--gold-deep)}
+
+/* ============================================================
+   3. CABECERA
+   ============================================================ */
+.carta{position:relative;z-index:2;background:var(--void)}
+.cabecera{padding:var(--s9) 0 var(--s6);text-align:center}
+.cabecera .marca__txt{font-size:clamp(2.2rem,12vw,3.4rem)}
+.cabecera__tag{
+  margin-top:var(--s4);font-family:var(--serif);font-style:italic;font-weight:400;
+  color:var(--ink-2);font-size:var(--fs-m);text-wrap:balance;
+}
+
+/* ============================================================
+   4. SERVICIO
+   ============================================================ */
+.servicio{
+  padding:var(--s5) 0 var(--s6);
+  border-top:1px solid var(--hair-2);border-bottom:1px solid var(--hair-2);
+  margin-top:var(--s6);
+}
+.servicio__estado{display:flex;align-items:center;justify-content:center;gap:var(--s3)}
+.punto{width:7px;height:7px;border-radius:50%;background:var(--ink-3);flex:none}
+.punto.vivo{background:var(--gold);animation:latir 2.8s ease-out infinite}
+@keyframes latir{
+  0%{box-shadow:0 0 0 0 var(--glow)}
+  70%{box-shadow:0 0 0 10px transparent}
+  100%{box-shadow:0 0 0 0 transparent}
+}
+.servicio__t{font-size:var(--fs-2xs);letter-spacing:.26em;text-transform:uppercase}
+.servicio__h{margin-top:var(--s3);text-align:center;color:var(--ink-3);font-size:var(--fs-2xs)}
+.servicio__esp{
+  margin-top:var(--s4);text-align:center;color:var(--ink-2);
+  font-size:var(--fs-2xs);letter-spacing:.06em;
+}
+.servicio__esp b{color:var(--gold-2);font-weight:400}
+
+/* ============================================================
+   5. UTILES (sticky) + TAMIZ
+   ============================================================ */
+.utiles{
+  position:sticky;top:0;z-index:40;
+  background:var(--void-2);
+  background:color-mix(in srgb, var(--void) 86%, transparent);backdrop-filter:blur(12px) saturate(120%);
+  border-bottom:1px solid var(--hair-2);
+}
+.utiles__fila{display:flex;align-items:center;gap:var(--s3);padding:var(--s3) 0}
+.busca{flex:1;display:flex;align-items:center;gap:var(--s2);
+  border:1px solid var(--hair);padding:9px var(--s3);background:var(--void-2)}
+.busca svg{flex:none;opacity:.55}
+.busca input{
+  flex:1;min-width:0;background:none;border:0;outline:none;color:var(--ink);
+  font:inherit;font-size:var(--fs-xs);letter-spacing:.04em;
+}
+.busca input::placeholder{color:var(--ink-3)}
+.idioma{display:flex;border:1px solid var(--hair);border-radius:999px;overflow:hidden;flex:none}
+.idioma button{
+  padding:8px 13px;font-size:var(--fs-micro);letter-spacing:.18em;text-transform:uppercase;
+  color:var(--ink-3);transition:color .3s var(--ease),background .3s var(--ease);
+}
+.idioma button[aria-pressed="true"]{color:var(--void);background:var(--gold)}
+
+.tamiz{display:flex;gap:var(--s2);overflow-x:auto;padding:0 0 var(--s3);
+  scrollbar-width:none;-ms-overflow-style:none}
+.tamiz::-webkit-scrollbar{display:none}
+.tamiz button{
+  flex:none;padding:7px 14px;border:1px solid var(--hair);white-space:nowrap;
+  font-size:var(--fs-micro);letter-spacing:.2em;text-transform:uppercase;color:var(--ink-2);
+  transition:color .3s var(--ease),border-color .3s var(--ease);
+}
+.tamiz button.act{color:var(--gold-2);border-color:var(--gold-deep)}
+
+/* ============================================================
+   6. MENÚ
+   ============================================================ */
+main{display:block;padding-bottom:var(--s9)}
+
+/* --- destacado / degustación --- */
+.dest{padding:var(--s8) 0 var(--s7);border-bottom:1px solid var(--hair-2)}
+.dest__ilus{width:100%;height:auto;margin-bottom:var(--s6);opacity:.9}
+.dest__k{font-size:var(--fs-micro);letter-spacing:.34em;text-transform:uppercase;color:var(--gold-2)}
+.dest__t{margin-top:var(--s3);font-family:var(--serif);font-weight:400;
+  font-size:clamp(1.7rem,8vw,2.25rem);line-height:1.12;text-wrap:balance}
+.dest__c{margin-top:var(--s4);color:var(--ink-2);font-size:var(--fs-xs);max-width:46ch}
+
+.deg{display:grid;gap:var(--s3);margin-top:var(--s6)}
+.deg__card{border:1px solid var(--hair);background:var(--void-2);padding:var(--s5)}
+.deg__card h3{font-family:var(--serif);font-weight:400;font-size:var(--fs-l);line-height:1.2}
+.deg__card p{margin-top:var(--s2);color:var(--ink-3);font-size:var(--fs-2xs)}
+.deg__p{margin-top:var(--s4);display:flex;align-items:baseline;justify-content:space-between;
+  border-top:1px solid var(--hair-2);padding-top:var(--s3)}
+.deg__p span:first-child{font-size:var(--fs-micro);letter-spacing:.24em;text-transform:uppercase;color:var(--ink-3)}
+.deg__p b{color:var(--gold-2);font-weight:400;font-size:var(--fs-m)}
+
+.hambre{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s2);margin-top:var(--s6)}
+.hambre__c{border:1px solid var(--hair-2);padding:var(--s4) var(--s3);text-align:center}
+.hambre__i{width:26px;height:26px;margin:0 auto var(--s3);border-radius:10px;
+  display:grid;place-items:center;border:1px solid var(--hair);color:var(--gold)}
+.hambre__c b{display:block;font-size:var(--fs-micro);letter-spacing:.2em;text-transform:uppercase;font-weight:400}
+.hambre__c span{display:block;margin-top:var(--s1);color:var(--ink-3);font-size:var(--fs-micro)}
+
+.maridaje{
+  margin-top:var(--s5);padding-top:var(--s4);border-top:1px solid var(--hair-2);
+  color:var(--ink-2);font-family:var(--serif);font-style:italic;font-size:var(--fs-s);
+}
+
+/* --- acto (sección) --- */
+.acto{padding:var(--s8) 0 var(--s6);border-bottom:1px solid var(--hair-2)}
+.acto__cab{display:flex;align-items:center;gap:var(--s4);margin-bottom:var(--s6)}
+.acto__t{flex:1;font-family:var(--serif);font-weight:400;font-size:var(--fs-xl);line-height:1.15}
+.acto__t::after{content:"";display:block;width:34px;height:2px;background:var(--gold);margin-top:var(--s3)}
+.acto__ilus{flex:none;width:64px;height:64px;position:relative}
+.acto__ilus img{width:100%;height:100%;object-fit:contain;opacity:.85}
+.sello{position:absolute;inset:0;display:grid;place-items:center;border:1px solid var(--hair-2);
+  font-family:var(--serif);font-size:var(--fs-l);color:var(--gold-deep)}
+.acto__ilus.con-img .sello{display:none}
+
+.grupo + .grupo{margin-top:var(--s6)}
+.grupo__s{font-size:var(--fs-micro);letter-spacing:.3em;text-transform:uppercase;color:var(--gold-2)}
+.grupo__n{margin-top:var(--s2);color:var(--ink-3);font-size:var(--fs-micro);font-style:italic}
+.filas{margin-top:var(--s4)}
+
+/* --- item (plato) — LISTA TIPOGRÁFICA, SIN FOTO --- */
+.item{
+  display:grid;grid-template-columns:1fr auto;column-gap:var(--s4);align-items:baseline;
+  padding:var(--s4) 0;border-bottom:1px solid var(--hair-2);
+  opacity:0;transform:translateY(14px);
+  transition:opacity .55s var(--ease),transform .55s var(--ease);
+}
+.item.vista{opacity:1;transform:translateY(0)}
+.item--ver{cursor:pointer}
+.item__n{font-family:var(--serif);font-weight:400;font-size:var(--fs-m);line-height:1.25}
+.item__p{font-size:var(--fs-s);color:var(--gold-2);white-space:nowrap;font-variant-numeric:tabular-nums}
+.item__d{grid-column:1/-1;margin-top:var(--s2);color:var(--ink-3);font-size:var(--fs-2xs);max-width:52ch}
+.item__ver{
+  display:inline-block;margin-left:var(--s2);vertical-align:middle;
+  font-family:var(--sans);font-size:var(--fs-micro);letter-spacing:.24em;text-transform:uppercase;
+  color:var(--gold-2);border-bottom:1px solid var(--gold);
+}
+.item__mk{grid-column:1/-1;margin-top:var(--s2);display:flex;gap:var(--s2);flex-wrap:wrap}
+.item__mk span{font-size:var(--fs-micro);letter-spacing:.18em;text-transform:uppercase;
+  color:var(--ink-3);border:1px solid var(--hair-2);padding:2px 7px}
+
+/* --- vino --- */
+.vino{
+  display:grid;grid-template-columns:1fr auto;column-gap:var(--s4);align-items:baseline;
+  padding:var(--s3) 0;border-bottom:1px solid var(--hair-2);
+  opacity:0;transform:translateY(10px);
+  transition:opacity .5s var(--ease),transform .5s var(--ease);
+}
+.vino.vista{opacity:1;transform:translateY(0)}
+.vino__n{grid-column:1;grid-row:1;font-family:var(--serif);font-weight:400;font-size:var(--fs-s)}
+.vino__d{grid-column:1;grid-row:2;margin-top:2px;color:var(--ink-3);font-size:var(--fs-micro);
+  letter-spacing:.08em;text-transform:uppercase}
+.vino__p{grid-column:2;grid-row:1/span 2;align-self:start;
+  text-align:right;color:var(--ink-2);font-size:var(--fs-2xs);
+  white-space:nowrap;font-variant-numeric:tabular-nums}
+.vino__p b{color:var(--gold-2);font-weight:400}
+
+/* en pantallas angostas el precio doble ahogaba el nombre: se apila */
+@media (max-width:560px){
+  .vino{grid-template-columns:1fr}
+  .vino__p{grid-column:1;grid-row:3;text-align:left;margin-top:var(--s2)}
+}
+
+/* insignias y sublíneas de fila (datos reales) */
+.item__badges{grid-column:1/-1;margin-top:var(--s2);display:flex;gap:var(--s2);flex-wrap:wrap;align-items:center}
+.item__sello,.item__nuevo{
+  font-size:var(--fs-micro);letter-spacing:.2em;text-transform:uppercase;padding:2px 7px;
+}
+.item__sello{color:var(--gold-2);border:1px solid var(--gold-deep)}
+.item__nuevo{color:var(--void);background:var(--gold);font-weight:500}
+.item__sub{
+  grid-column:1/-1;margin-top:var(--s2);display:grid;grid-template-columns:1fr auto;
+  column-gap:var(--s4);align-items:baseline;
+  border-left:1px solid var(--hair);padding-left:var(--s3);
+}
+.item__sub b{font-weight:400;color:var(--ink-2);font-size:var(--fs-2xs);
+  letter-spacing:.1em;text-transform:uppercase}
+.item__sub span{color:var(--ink-2);font-size:var(--fs-2xs);white-space:nowrap;
+  font-variant-numeric:tabular-nums}
+.item__nota{grid-column:1/-1;margin-top:var(--s2);color:var(--ink-3);
+  font-size:var(--fs-micro);font-style:italic;line-height:1.6;max-width:52ch}
+.item__pend{
+  font-size:var(--fs-micro);letter-spacing:.22em;text-transform:uppercase;
+  color:var(--gold-2);border:1px solid var(--gold-deep);padding:3px 8px;white-space:nowrap;
+}
+
+/* cabecera de grupo con precio fijo de menú / pie de sección */
+.grupo__precio{margin-top:var(--s2);color:var(--gold-2);font-size:var(--fs-m);
+  font-variant-numeric:tabular-nums}
+.grupo__pie{margin-top:var(--s4);padding-top:var(--s3);border-top:1px solid var(--hair-2);
+  color:var(--ink-3);font-size:var(--fs-micro);font-style:italic}
+
+/* la última fila de cada grupo no dobla la línea del cierre de sección */
+.filas > .item:last-child,.filas > .vino:last-child{border-bottom:0}
+
+.vacio{padding:var(--s8) 0;text-align:center;color:var(--ink-3);
+  font-family:var(--serif);font-style:italic;font-size:var(--fs-m)}
+
+/* ============================================================
+   8. PIE
+   ============================================================ */
+.pie{padding:var(--s9) 0 var(--s7);text-align:center;border-top:1px solid var(--hair-2)}
+.pie__tag{font-family:var(--serif);font-style:italic;color:var(--ink-2);font-size:var(--fs-m)}
+.pie__cita{margin:var(--s6) auto 0;max-width:34ch;font-family:var(--serif);
+  font-size:var(--fs-s);color:var(--ink-3);line-height:1.7}
+.pie__cita cite{display:block;margin-top:var(--s3);font-style:normal;
+  font-family:var(--sans);font-size:var(--fs-micro);letter-spacing:.26em;
+  text-transform:uppercase;color:var(--gold-deep)}
+.pie__bloque{margin-top:var(--s7)}
+.pie__k{font-size:var(--fs-micro);letter-spacing:.3em;text-transform:uppercase;color:var(--gold-2)}
+.pie__v{margin-top:var(--s2);color:var(--ink-2);font-size:var(--fs-2xs);line-height:1.8}
+.pie__v a{color:var(--ink-2);text-decoration:none;border-bottom:1px solid var(--hair)}
+.pie__notas{text-align:left;border-top:1px solid var(--hair-2);padding-top:var(--s5)}
+.pie__lista{margin:var(--s3) 0 0;padding:0;list-style:none}
+.pie__lista li{color:var(--ink-3);font-size:var(--fs-micro);line-height:1.7;
+  padding-left:var(--s3);border-left:1px solid var(--hair-2);margin-bottom:var(--s3)}
+.pie__legal{margin-top:var(--s8);color:var(--ink-3);font-size:var(--fs-micro);
+  letter-spacing:.14em;opacity:.75}
+
+/* ============================================================
+   9. REVERSO — overlay a pantalla completa, giro 3D
+   ============================================================ */
+.reverso{
+  position:fixed;inset:0;z-index:80;
+  display:grid;grid-template-rows:minmax(38svh,1fr) auto;
+  background:var(--void);perspective:1400px;overflow-y:auto;overscroll-behavior:contain;
+  opacity:0;visibility:hidden;
+  transition:opacity .34s var(--ease),visibility 0s linear .34s;
+}
+.reverso.on{opacity:1;visibility:visible;transition:opacity .34s var(--ease),visibility 0s}
+.reverso__media,.reverso__pie{
+  transform:rotateY(-14deg);opacity:0;transform-origin:50% 50%;
+  transition:transform .52s var(--ease),opacity .38s var(--ease);
+}
+.reverso.on .reverso__media,.reverso.on .reverso__pie{transform:rotateY(0);opacity:1}
+.reverso.on .reverso__pie{transition-delay:.06s}
+
+.reverso__media{position:relative;overflow:hidden;background:var(--void-2)}
+.reverso__img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:none}
+.reverso__media.con-img .reverso__img{display:block}
+.reverso__media.con-img .marco{display:none}
+.reverso__media::after{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(180deg,rgba(0,0,0,.35) 0%,transparent 22%,
+             transparent 60%,var(--void) 100%);
+}
+.reverso__x{
+  position:absolute;z-index:3;
+  top:calc(env(safe-area-inset-top,0px) + 44px);right:44px;
+  width:40px;height:40px;border-radius:50%;border:1px solid var(--hair);
+  background:var(--void-2);
+  background:color-mix(in srgb, var(--void) 50%, transparent);backdrop-filter:blur(8px);
+  display:grid;place-items:center;color:var(--ink);font-size:18px;line-height:1;
+}
+.reverso__pie{
+  margin-top:calc(var(--s8) * -1);position:relative;z-index:2;
+  padding:0 var(--gut) calc(env(safe-area-inset-bottom,0px) + var(--s7));
+  max-width:var(--maxw);width:100%;margin-inline:auto;
+}
+.reverso__n{font-family:var(--serif);font-weight:400;line-height:1.1;
+  font-size:clamp(1.6rem,8vw,2.2rem);text-wrap:balance}
+.reverso__d{margin-top:var(--s3);color:var(--ink-2);font-size:var(--fs-xs);max-width:48ch}
+.reverso__linea{
+  margin-top:var(--s5);padding-top:var(--s3);border-top:1px solid var(--hair);
+  display:flex;align-items:baseline;justify-content:space-between;gap:var(--s4);
+}
+.reverso__mk{display:flex;gap:var(--s2);flex-wrap:wrap}
+.reverso__mk span{font-size:var(--fs-micro);letter-spacing:.2em;text-transform:uppercase;color:var(--ink-3)}
+.reverso__p{color:var(--gold-2);font-size:var(--fs-l);white-space:nowrap;font-variant-numeric:tabular-nums}
+
+/* ------------------------------------------------------------
+   MARCO DE PRODUCCIÓN — se muestra cuando el plato no tiene foto
+   (o cuando la foto todavía no existe). Deliberado, no roto.
+   ------------------------------------------------------------ */
+.marco{
+  position:absolute;inset:0;overflow:hidden;
+  background:
+    radial-gradient(115% 85% at 50% 34%,rgba(255,255,255,.05),transparent 62%),
+    linear-gradient(180deg,var(--void-2) 0%,var(--void) 100%);
+}
+/* trama de líneas finísimas: textura de hoja de producción */
+.marco::before{
+  content:"";position:absolute;inset:0;opacity:.5;
+  background:repeating-linear-gradient(90deg,var(--hair-2) 0 1px,transparent 1px 12px);
+  -webkit-mask-image:radial-gradient(90% 70% at 50% 45%,#000,transparent 72%);
+  mask-image:radial-gradient(90% 70% at 50% 45%,#000,transparent 72%);
+}
+.marco__marcas span{position:absolute;width:16px;height:16px;border:0 solid var(--hair)}
+.marco__marcas span:nth-child(1){top:18px;left:18px;border-top-width:1px;border-left-width:1px}
+.marco__marcas span:nth-child(2){top:18px;right:18px;border-top-width:1px;border-right-width:1px}
+.marco__marcas span:nth-child(3){bottom:18px;left:18px;border-bottom-width:1px;border-left-width:1px}
+.marco__marcas span:nth-child(4){bottom:18px;right:18px;border-bottom-width:1px;border-right-width:1px}
+
+.marco__top{
+  position:absolute;top:24px;left:42px;right:42px;
+  display:flex;justify-content:space-between;gap:var(--s4);
+  font-size:var(--fs-micro);letter-spacing:.3em;text-transform:uppercase;color:var(--ink-3);
+}
+.marco__top b{color:var(--gold-2);font-weight:400;letter-spacing:.3em}
+
+.marco__centro{
+  position:absolute;inset:0;display:grid;place-content:center;justify-items:center;
+  gap:var(--s6);padding:0 var(--gut) 16%;
+}
+.marco__glifo{
+  display:block;font-family:var(--serif);font-weight:400;line-height:.72;
+  font-size:clamp(5rem,21vw,8rem);color:var(--ink);opacity:.10;
+  user-select:none;pointer-events:none;
+}
+.marco__ficha{display:grid;justify-items:center;gap:var(--s3);width:min(100%,268px)}
+.marco__rule{width:44px;height:1px;background:var(--gold-deep)}
+.marco__estado{font-size:var(--fs-micro);letter-spacing:.36em;text-transform:uppercase;color:var(--gold-2)}
+.marco__specs{
+  width:100%;margin-top:var(--s2);display:grid;gap:6px;
+  font-size:var(--fs-micro);letter-spacing:.16em;text-transform:uppercase;
+}
+.marco__specs div{display:flex;justify-content:space-between;gap:var(--s4);
+  border-top:1px solid var(--hair-2);padding-top:5px}
+.marco__specs dt,.marco__specs dd{margin:0}
+.marco__specs dt{color:var(--ink-3)}
+.marco__specs dd{color:var(--ink-2);font-variant-numeric:tabular-nums}
+
+/* ============================================================
+   KILL-SWITCH DE ACCESIBILIDAD
+   ============================================================ */
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{
+    animation-duration:.001ms!important;animation-iteration-count:1!important;
+    transition-duration:.001ms!important;scroll-behavior:auto!important;
+  }
+  .item,.vino{opacity:1;transform:none}
+  .reverso__media,.reverso__pie{transform:none;opacity:1}
+}
+</style>
+</head>
+<body>
+
+<!-- 2. BARRA DE PROGRESO + OMITIR -->
+<div class="bar-top" id="barTop" role="presentation"></div>
+<button class="omitir" id="omitir" data-tx="omitir">Omitir</button>
+
+<div id="fondo">
+
+<!-- 1. ENTRADA — video scrubbeado por scroll -->
+<section class="entrada" id="entrada" aria-label="Intro">
+  <div class="entrada__pin">
+
+    <div class="entrada__video" id="entradaVideo">
+      <video id="intro" playsinline muted preload="auto" poster="video/intro.jpg" tabindex="-1" aria-hidden="true">
+        <source src="video/intro.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="entrada__velo"></div>
+
+    <div class="cues" id="cues">
+      <div class="cue">
+        <span class="cue__label" data-tx="cue1k">Boro</span>
+        <h1 class="cue__big" data-tx="cue1t">El fuego no se apura</h1>
+        <p class="cue__sub" data-tx="cue1s">Medellín</p>
+      </div>
+      <div class="cue">
+        <span class="cue__label" data-tx="cue2k">La carta</span>
+        <p class="cue__big" data-tx="cue2t">Todo lo de hoy</p>
+        <p class="cue__sub" data-tx="cue2s">Cocina y barra</p>
+      </div>
+      <div class="cue cue--marca">
+        <span class="cue__label" data-tx="cue3k">Carta digital</span>
+        <div class="marca" id="marcaIntro">
+          <img class="marca__img" src="img/logo.png" alt="CANNARIO" id="logoIntro">
+          <span class="marca__txt">CANNARIO</span>
+          <span class="marca__pie" data-tx="cue3s">Carta</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="pista" id="pista" aria-hidden="true">
+      <span class="pista__t" data-tx="pista">Deslizá</span>
+      <span class="pista__riel"></span>
+    </div>
+
+  </div>
+  <div class="entrada__track"></div>
+</section>
+
+<!-- CARTA -->
+<div class="carta" id="carta">
+
+  <!-- 3. CABECERA -->
+  <header class="cabecera env">
+    <div class="marca" id="marcaCab">
+      <img class="marca__img" src="img/logo.png" alt="CANNARIO" id="logoCab">
+      <span class="marca__txt">CANNARIO</span>
+    </div>
+    <p class="cabecera__tag" data-tx="tagline">Cocina de fuego y sobremesa larga.</p>
+  </header>
+
+  <!-- 4. SERVICIO -->
+  <section class="servicio env" aria-label="Servicio">
+    <div class="servicio__estado">
+      <span class="punto" id="punto"></span>
+      <span class="servicio__t" id="estadoTxt">—</span>
+    </div>
+    <p class="servicio__h" id="estadoHoy">—</p>
+    <p class="servicio__esp" id="servEsp" hidden></p>
+  </section>
+
+  <!-- 5. UTILES (sticky) -->
+  <div class="utiles">
+    <div class="env">
+      <div class="utiles__fila">
+        <label class="busca">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+            <circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.6-3.6"></path>
+          </svg>
+          <span class="sr-only" data-tx="buscarLbl">Buscar en la carta</span>
+          <input type="search" id="q" autocomplete="off" placeholder="Buscar" data-tx-ph="buscarPh">
+        </label>
+        <div class="idioma" role="group" aria-label="Idioma">
+          <button type="button" data-lang="es" aria-pressed="true">ES</button>
+          <button type="button" data-lang="en" aria-pressed="false">EN</button>
+        </div>
+      </div>
+      <nav class="tamiz" id="tamiz" aria-label="Secciones"></nav>
+    </div>
+  </div>
+
+  <!-- 6. MENÚ -->
+  <main id="menu" class="env"></main>
+
+  <!-- 7. REGIÓN ARIA-LIVE -->
+  <p class="sr-only" id="liveResults" role="status" aria-live="polite"></p>
+
+  <!-- 8. PIE -->
+  <footer class="pie env">
+    <p class="pie__tag" data-tx="tagline">Cocina de fuego y sobremesa larga.</p>
+
+    <div class="pie__bloque">
+      <p class="pie__k" data-tx="fuenteK">Procedencia de la carta</p>
+      <p class="pie__v" id="pieFuente"></p>
+    </div>
+
+    <div class="pie__bloque">
+      <p class="pie__k" data-tx="horarioK">Horario</p>
+      <p class="pie__v tab" id="pieHorario"></p>
+    </div>
+
+    <div class="pie__bloque">
+      <p class="pie__k" data-tx="dirK">Dirección</p>
+      <p class="pie__v" data-tx="dirV">Cra. 00 #00-00 · Medellín, Colombia</p>
+    </div>
+
+    <div class="pie__bloque" id="pieContactoCaja">
+      <p class="pie__k" data-tx="contactoK">Contacto</p>
+      <p class="pie__v" id="pieContacto"></p>
+    </div>
+
+    <div class="pie__bloque pie__notas" id="pieNotas" hidden>
+      <p class="pie__k" data-tx="notasK">Notas de la carta</p>
+      <ul class="pie__lista" id="pieNotasLista"></ul>
+    </div>
+
+    <p class="pie__legal" data-tx="legal">Precios en miles de pesos. Propina voluntaria no incluida. Consultá por alérgenos.</p>
+  </footer>
+
+</div><!-- /carta -->
+</div><!-- /fondo -->
+
+<!-- 9. REVERSO — fuera de #menu porque la lista se redibuja -->
+<div class="reverso" id="reverso" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="revN">
+  <div class="reverso__media" id="revMedia">
+
+    <div class="marco" id="revMarco" aria-hidden="true">
+      <div class="marco__marcas"><span></span><span></span><span></span><span></span></div>
+      <div class="marco__top">
+        <span data-tx="marcoTop">Dirección de arte</span>
+      </div>
+      <div class="marco__centro">
+        <span class="marco__glifo" id="revGlifo">B</span>
+        <div class="marco__ficha">
+          <span class="marco__rule"></span>
+          <span class="marco__estado" data-tx="marcoEstado">Fotografía en producción</span>
+          <dl class="marco__specs">
+            <div><dt data-tx="specRef">Ref</dt><dd id="specRef">—</dd></div>
+            <div><dt data-tx="specFmt">Formato</dt><dd id="specFmt">4:5</dd></div>
+            <div><dt data-tx="specLuz">Luz</dt><dd data-tx="specLuzV">Lateral dura</dd></div>
+          </dl>
+        </div>
+      </div>
+    </div>
+
+    <img class="reverso__img" id="revImg" alt="">
+    <button class="reverso__x" id="revX" type="button" aria-label="Cerrar">&#10005;</button>
+  </div>
+
+  <div class="reverso__pie">
+    <h2 class="reverso__n" id="revN"></h2>
+    <p class="reverso__d" id="revD"></p>
+    <div class="reverso__linea">
+      <span class="reverso__mk" id="revMk"></span>
+      <span class="reverso__p" id="revP"></span>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+'use strict';
+
+/* ============================================================
+   CAPA DE DATOS  —  CANNARIO
+   Platos, descripciones y precios: VERBATIM de data/cannario.json
+   NO reformatear los precios: se muestran tal como los imprime la carta.
+   ============================================================ */
+
+/* ---------- 1. TEXTOS DE INTERFAZ (i18n) ---------- */
+var DICT = {
+  es:{
+    omitir:"Omitir", pista:"Deslizá",
+    cue1k:"Bienvenido", cue1t:"Tomate el tiempo", cue1s:"Medellín",
+    cue2k:"La carta",   cue2t:"Todo lo que hay hoy", cue2s:"301 platos",
+    cue3k:"Carta digital", cue3s:"Carta",
+    tagline:"La carta completa, siempre al día.",
+    abierto:"Abierto ahora", cerrado:"Cerrado ahora",
+    hoyAbre:"Hoy: ", hoyCerrado:"Hoy no abrimos",
+    buscarLbl:"Buscar en la carta", buscarPh:"Buscar",
+    ver:"Ver", cerrar:"Cerrar", destacado:"Destacado",
+    pendiente:"Precio pendiente", nuevo:"Nuevo",
+    resultados:" resultados", unResultado:"1 resultado", sinResultados:"Sin resultados",
+    vacio:"Nada por acá. Probá con otra palabra.",
+    copa:"Copa", botella:"Botella",
+    marcoTop:"Dirección de arte", marcoEstado:"Fotografía en producción",
+    specRef:"Ref", specFmt:"Formato", specLuz:"Luz", specLuzV:"Lateral dura",
+    horarioK:"Horario", dirK:"Dirección", contactoK:"Contacto",
+    fuenteK:"Procedencia de la carta", notasK:"Notas de la carta", consultado:"Consultada el",
+    dirV:"Por completar · Medellín",
+    legal:"Precios en COP, tal como figuran en la carta original. Consultá disponibilidad y alérgenos.",
+    dias:["Domingo","Lunes","Martes","Miércoles","Jueves","Viernes","Sábado"],
+    diasC:["Dom","Lun","Mar","Mié","Jue","Vie","Sáb"],
+    cerradoDia:"cerrado"
+  },
+  en:{
+    omitir:"Skip", pista:"Scroll",
+    cue1k:"Welcome", cue1t:"Take your time", cue1s:"Medellín",
+    cue2k:"The menu", cue2t:"Everything on offer today", cue2s:"301 items",
+    cue3k:"Digital menu", cue3s:"Menu",
+    tagline:"The full menu, always current.",
+    abierto:"Open now", cerrado:"Closed now",
+    hoyAbre:"Today: ", hoyCerrado:"Closed today",
+    buscarLbl:"Search the menu", buscarPh:"Search",
+    ver:"View", cerrar:"Close", destacado:"Featured",
+    pendiente:"Price pending", nuevo:"New",
+    resultados:" results", unResultado:"1 result", sinResultados:"No results",
+    vacio:"Nothing here. Try another word.",
+    copa:"Glass", botella:"Bottle",
+    marcoTop:"Art direction", marcoEstado:"Photography in production",
+    specRef:"Ref", specFmt:"Format", specLuz:"Light", specLuzV:"Hard side light",
+    horarioK:"Hours", dirK:"Address", contactoK:"Contact",
+    fuenteK:"Menu source", notasK:"Menu notes", consultado:"Retrieved",
+    dirV:"To be completed · Medellín",
+    legal:"Prices in COP, exactly as printed on the original menu. Ask us about availability and allergens.",
+    dias:["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
+    diasC:["Sun","Mon","Tue","Wed","Thu","Fri","Sat"],
+    cerradoDia:"closed"
+  }
+};
+
+/* ---------- 2. HORARIO  ·  PLACEHOLDER: reemplazar por el real ----------
+   Índice 0 = domingo. Minutos desde medianoche. null = cerrado.
+   Un fin > 1440 cruza a la madrugada (ej. 1470 = 00:30). */
+var TZ = "America/Bogota";
+var HORARIO = [
+  [[720,960]],    /* Dom 12:00-16:00 */
+  null,           /* Lun cerrado     */
+  [[1080,1380]],  /* Mar 18:00-23:00 */
+  [[1080,1380]],  /* Mié             */
+  [[1080,1380]],  /* Jue             */
+  [[1080,1470]],  /* Vie 18:00-00:30 */
+  [[1080,1470]]   /* Sáb             */
+];
+
+/* ---------- 3. LÍNEA ESPECIAL DEL SERVICIO  ·  null = oculta ----------
+   Ej: { k:{es:"Degustación",en:"Tasting"}, v:{es:"— jueves a sábado",en:"— Thu to Sat"} } */
+var ESPECIAL = null;
+
+/* ---------- 4. CONTACTO  ·  [] = el bloque se oculta ----------
+   Ej: [{t:"+57 300 000 0000", href:"tel:+573000000000"}, {t:"@cuenta", href:"https://..."}] */
+var CONTACTO = [];
+
+/* ---------- 5. PROCEDENCIA (dato real del dataset) ---------- */
+var FUENTE = {"url":"https://cached.cluvi.com/v1/menu/6339/on_table.json?lang=es","etiqueta":"cached.cluvi.com/v1/menu/6339/on_table.json?lang=es","fecha":"2026-08-19"};
+
+/* Avisos del dataset. Vaciar a [] para ocultar el bloque en producción. */
+var AVISOS = [
+  "Los precios vienen del campo 'price' de la API (p.ej. '52000.0'); 'precio' reproduce el formato que muestra la carta ($ 52.000) y 'precio_crudo_api' conserva el valor original sin tocar.",
+  "Todos los 301 productos de la API quedaron mapeados a alguna categoría: no hay ítems sueltos.",
+  "La carta no publica ninguna fecha de vigencia. Sólo se puede afirmar que este contenido estaba en línea el 2026-08-19."
+];
+
+/* ---------- 6. ICONOS Y BLOQUE DESTACADO ---------- */
+var ICONOS = {
+  ligero:'<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="12" r="5"/></svg>',
+  medio:'<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M5 15h14M5 9h14"/></svg>',
+  completo:'<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M5 17h14M5 12h14M5 7h14"/></svg>'
+};
+
+/* Bloque destacado (menú de degustación + grilla + maridaje).
+   null = no se pinta y el chip "Destacado" no aparece. */
+var DEG = null;
+
+/* ---------- 7. ILUSTRACIÓN POR SECCIÓN ----------
+   Vacío = todas las secciones muestran el sello con el número romano.
+   Para activar una, poné su archivo en img/ y descomentá su línea. */
+var ILUS = {};
+/* nombres que espera cada sección de esta carta:
+  "entradas": "img/sec-entradas.webp",
+  "fuertes": "img/sec-fuertes.webp",
+  "postres": "img/sec-postres.webp",
+  "cocteles-cannario": "img/sec-cocteles-cannario.webp",
+  "vinos": "img/sec-vinos.webp",
+  "tardeo-cannario": "img/sec-tardeo-cannario.webp",
+  "licores": "img/sec-licores.webp",
+  "bebidas": "img/sec-bebidas.webp",
+*/
+
+/* ---------- 8. FOTOS DE PLATO ----------
+   id del plato -> archivo. Los platos listados acá muestran la marca "Ver"
+   y abren el reverso. Si el archivo todavía no existe, el reverso muestra
+   el marco de producción. Agregá los que quieras. */
+var FOTOS = {
+  "stracciatella-trufada": "img/stracciatella-trufada.jpg",
+  "burrata-atomatada": "img/burrata-atomatada.jpg",
+  "tartar-de-atun": "img/tartar-de-atun.jpg",
+  "papas-trufada": "img/papas-trufada.jpg"
+};
+
+/* ---------- 9. LA CARTA ---------- */
+var SECCIONES = [
+  { id:"entradas", num:"I", t:{"es":"Entradas","en":"Starters"}, grupos:[
+    { filas:[
+      {id:"stracciatella-trufada", ref:"ENT-01", n:{"es":"Stracciatella trufada","en":"Truffled Stracciatella"}, d:{"es":"Stracciatella fresca, aromatizada con trufa negra y miel picante de la casa.\nAcompañada de focaccia.","en":"Fresh stracciatella, flavoured with black truffle and spicy house honey. Accompanied by focaccia."}, p:"$ 59.000", nuevo:true},
+      {id:"burrata-atomatada", ref:"ENT-02", n:"Burrata Atomatada ", d:"Burrata fresca acompañada de puré de tomates secos, mezclum y focaccia fresca . (vegetariano)", p:"$ 59.000"},
+      {id:"tartar-de-atun", ref:"ENT-03", n:{"es":"Tartar de Atún","en":"Tuna Tartar"}, d:{"es":"Atún fresco colombiano sobre vinagreta de soya y jengibre, laminas de aguacate y semillas de ajonjolí, acompañado de chips de yuca.","en":"Fresh Colombian tuna on a soy and ginger vinaigrette, slices of avocado and sesame seeds, accompanied by yuca chips."}, p:"$ 55.000"},
+      {id:"papas-trufada", ref:"ENT-04", n:{"es":"Papas Trufada","en":"Trufle Fries"}, d:{"es":"Papas crocantes con notas trufadas y parmigiano reggiano.","en":"Crispy French fries with truffle oil , paprika and parmeggiano regiano."}, p:"$ 39.000"},
+      {id:"tacos-de-picana", ref:"ENT-05", n:{"es":"Tacos de Picaña","en":"Picaña Tacos"}, d:{"es":"Tortilla artesanal de maíz colombiano con alioli trufado, cremoso de aguacate, trozos de picaña y ensalada de mango acevichado","en":"Colombian corn tortilla with truffled aioli, avocado slices, pieces of picaña and oiled mango salad"}, p:"$ 59.000"},
+      {id:"tacos-de-pulpo", ref:"ENT-06", n:{"es":"Tacos de pulpo","en":"Octopus Tacos"}, d:{"es":"Tacos de pulpo parrillado glaseado en chimichurri de la casa, sobre cremoso de aguacate y puerro crocante.","en":"Grilled and glazed octopus in chimichurri of the house, on artisan corn tortilla and crispy leek."}, p:"$ 59.000"},
+      {id:"edamames-parrillados", ref:"ENT-07", n:{"es":"Edamames Parrillados","en":"Grilled Edamames"}, d:{"es":"Edamames parrillados glaseados en vinagreta de soya y jengibre, acompañados de miel picante de la casa (vegetariano) (picante)","en":"Grilled edamame glazed in soy and ginger vinaigrette, accompanied by spicy honey."}, p:"$ 39.000"},
+      {id:"crispy-bites-de-salmon", ref:"ENT-08", n:{"es":"Crispy Bites de Salmón","en":"Crispy Salmon Bites"}, d:{"es":"Arroz crocante con salmón fresco en mayo sriracha y láminas de jalapeño. (picante)","en":"Crispy rice with fresh salmon in sriracha mayo and jalapeño slices."}, p:"$ 52.000"},
+      {id:"ceviche-de-solomito", ref:"ENT-09", n:{"es":"Ceviche de solomito","en":"Octopus Tacos"}, d:{"es":"Cubos de solomito fresco, marinado en cítricos, sriracha y cebolla encurtida, acompañado de chips de yuca.","en":"Grilled and glazed octopus in chimichurri of the house, on artisan corn tortilla and crispy leek."}, p:"$ 59.000"},
+      {id:"carpaccio-de-res", ref:"ENT-10", n:{"es":"Carpaccio de res","en":"Beef Ceviche"}, d:{"es":"Finas laminas de solomito, bañadas en una salsa oriental cítrica con mezclum y queso parmessano","en":"Tender sirloin cubes, marinated in citrus, sriracha and pickled onion, accompanied by tortilla chips."}, p:"$ 55.000"},
+      {id:"sopa-de-tomates-rostizados", ref:"ENT-11", n:{"es":"Sopa de Tomates Rostizados","en":"Roasted Tomato Soup"}, d:{"es":"Cremosa sopa hecha a partir de variedad de tomates rostizados a las brasas, acompañada de tostones de pan. (vegano)","en":"Freshly roasted tomatoes soup with a side of toasted focaccia."}, p:"$ 35.000"},
+      {id:"tataki-crispy-bites", ref:"ENT-12", n:"Tataki crispy bites", d:{"es":"Arroz crocante de sushi con tataki de solomito, vinagreta oriental y cremoso de aguacate.","en":"Crispy sushi rice with sirloin tataki, oriental vinaigrette and creamy avocado."}, p:"$ 52.000", nuevo:true},
+      {id:"croquetas-de-tocino", ref:"ENT-13", n:{"es":"Croquetas de tocino","en":"Bacon croquettes"}, d:{"es":"Tradicionales croquetas, crocantes por fuera con relleno cremoso de tocino, acompañadas de alioli trufado.","en":"Traditional Spanish croquettes, crispy on the outside with a creamy bacon filling, accompanied by truffle aioli."}, p:"$ 52.000"},
+      {id:"cannario-burgers", ref:"ENT-14", n:"Cannario burgers ", d:"Dos unidades de pan brioche, carne certified Angus beef, salsa de pepinillos agri dulces , confitura de tocineta y salsa de 3 quesos.", p:"$ 62.000"},
+      {id:"patatas-bravas", ref:"ENT-15", n:"Patatas bravas", d:"Papas francesas con salsa brava tradicional , alioli , queso parmesano y tocino glaseado en salsa de anguila.", p:"$ 59.000"},
+      {id:"tostadas-de-atun", ref:"ENT-16", n:"Tostadas de atún ", d:"2 tostadas de maíz crocante con tartar de atún fresco y mayonesa de miso.", p:"$ 62.000"},
+      {id:"crudo-de-atun", ref:"ENT-17", n:" Crudo de atún ", d:"Láminas de atún fresco, togarashi y ponzu, acompañadas de aguacate y puerro.", p:"$ 69.000", nuevo:true},
+      {id:"crudo-de-res", ref:"ENT-18", n:"Crudo de res ", d:"Láminas de lomito de res, con mayonesa de miso y ponzu, coronadas con alcaparras fritas, semillas de mostaza y brotes frescos.", p:"$ 59.000"},
+      {id:"hashbrown-cannario", ref:"ENT-19", n:"Hashbrown cannario", d:"Hashbrown crujiente coronado con tartar de solomito, notas cítricas y dyonnaise trufada.", p:"$ 65.000"}
+    ]}
+  ]},
+  { id:"fuertes", num:"II", t:{"es":"Fuertes","en":"Strong drinks"}, grupos:[
+    { filas:[
+      {id:"ceviche-de-chicharron", ref:"FUE-01", n:"Ceviche de chicharron ", d:"Tocino crocante bañado en salsa cremosa de rocoto, cebolla acevichada y cilantro fresco.\nAcompañado de chips de yuca.", p:"$ 55.000"},
+      {id:"ceviche-de-coco-y-flores", ref:"FUE-02", n:{"es":"Ceviche de Coco y Flores","en":"Coconut and Flowers Ceviche"}, d:{"es":"Ceviche de pesca blanca, en leche de tigre de coco y cítricos, acompañado de cilantro, cebolla morada, puerro y flores","en":"Red snapper ceviche, in leche de tigre de lulo, cilantro and jalapeño, accompanied by fresh cucumber and red onion. Accompanied by corn chips."}, p:"$ 52.000"},
+      {id:"risotto-trufado", ref:"FUE-03", n:{"es":"Risotto trufado","en":"Truffled risotto"}, d:{"es":"Cremoso risotto de trufa negra y parmeggiano reggiano","en":"Creamy black truffle risotto and parmigiano reggiano"}, p:"$ 73.000"},
+      {id:"salmon-fuerteventura", ref:"FUE-04", n:{"es":"Salmón Fuerteventura","en":"Fuerteventura Salmon"}, d:{"es":"Salmón a la parrilla glaseado con salsa agridulce de nueces, sobre una cama de puré de papa cremoso. (contiene nueces)","en":"Glazed grilled salmon with sweet and sour walnut sauce, on a bed of creamy mashed potatoes."}, p:"$ 77.000"},
+      {id:"risotto-limone", ref:"FUE-05", n:"Risotto Limone", d:{"es":"Cremoso y cítrico risotto de queso parmesano, aromatizado con piel de limón.","en":"Creamy and citric Parmesan cheese risotto, flavored with lemon peel."}, p:"$ 52.000"},
+      {id:"socarrat-rabo-de-toro", ref:"FUE-06", n:"Socarrat Rabo de Toro", d:{"es":"Socarrat de res relleno de cola de res y alioli trufado, finalizado con gremolata fresca","en":"Beef socarrat stuffed with beef tail and truffled aioli, finished with fresh gremolata."}, p:"$ 69.000"},
+      {id:"pollo-lanzarote", ref:"FUE-07", n:{"es":"Pollo Lanzarote","en":"Chicken Lanzarote"}, d:{"es":"Contra muslo de pollo parrillado bañado en miel picante de la casa, sobre ensalada de mango acevichado y puerro crocante.","en":"Grilled chicken thigh bathed in spicy house honey, on mango salad with acevichado and crispy leek."}, p:"$ 58.000"},
+      {id:"pulpo-parrillado", ref:"FUE-08", n:{"es":"Pulpo parrillado","en":"Grilled Octopus"}, d:{"es":"250 gr de pulpo parrillado glaseado en encurtido de cebollin, acompañado de papas criollas corcantes y ensalada fresca.","en":"250 gr of grilled octopus glazed in pickled chives, accompanied by crisp Colombian potatoes and fresh salad."}, p:"$ 240.000"},
+      {id:"ceviche-veggie", ref:"FUE-09", n:"Ceviche Veggie ", d:"Finos cubos de champiñón, pepino, aji dulce, cebolla roja, mango y cilantro, en salsa de mayo sriracha. Acompañado de totopos.", p:"$ 49.000"},
+      {id:"ensalada-cesar", ref:"FUE-10", n:{"es":"Ensalada césar","en":"Caesar salad"}, d:{"es":"Mezclum, pechuga de pollo y aderezo a partir de anchoas y parmeggiano reggiano","en":"Grilled lettuce, chicken breast and dressing made from anchovies and parmigiano reggiano."}, p:"$ 48.000"},
+      {id:"pollo-gomera", ref:"FUE-11", n:"Pollo Gomera", d:{"es":"Pechuga de pollo en cocción lenta, glaseado en salsa agridulce con nueces, sobre una cama de puré de batata, limonaria y coco.","en":"Slow-cooked chicken breast, glazed in sweet and sour sauce, on a bed of mashed sweet potato, lemongrass and coconut."}, p:"$ 58.000"},
+      {id:"arroz-en-tinta-de-calamar", ref:"FUE-12", n:{"es":"Arroz en tinta de calamar","en":"Squid Ink Rice"}, d:{"es":"Arroz cremoso en tinta de calamar, acompañado de cubos de solomito, reducción de balsámico, queso parmesano y puerro caramelizado.","en":"Creamy squid ink rice, accompanied by sirloin cubes, balsamic reduction, parmesan cheese and caramelized leek."}, p:"$ 105.000"},
+      {id:"pasta-tenerife", ref:"FUE-13", n:"Pasta tenerife ", d:"Pasta fresca en salsa cremosa de pesto y ricotta.\n\n\nAdiciones:\nSolomito + $39.000\nSalmón + $39.000\nLangostinos + $42.000\nPollo + $29.000", p:"$ 55.000"},
+      {id:"arroz-de-langosta", ref:"FUE-14", n:{"es":"Arroz de langosta","en":"Lobster Rice"}, d:{"es":"Arroz cremoso en salsa fresca de rocoto, langostinos, pulpo, calamar y cola de langosta.","en":"Creamy rice in fresh rocoto sauce, prawns, octopus, squid and lobster tail."}, p:"$ 169.000"},
+      {id:"risotto-aji-amarillo-y-stracciatel", ref:"FUE-15", n:"Risotto ají amarillo y stracciatella", d:"Risotto cremoso de ají amarillo con notas intensas y sedosas, terminado con stracciatella fresca.", p:"$ 69.000"},
+      {id:"curry-de-pesca-blanca", ref:"FUE-16", n:"Curry de pesca blanca ", d:"Pesca blanca en curry amarillo con aceite de cilantro, acompañada de arroz basmati y nuez del Brasil tostada. (picante suave)", p:"$ 75.000", nuevo:true}
+    ]},
+    { s:{"es":"Parrilla Cannario","en":"Cannario Grill"}, filas:[
+      {id:"costillas-parrilladas", ref:"FUE-01", n:{"es":"Costillas Parrilladas","en":"Cannario Ribs"}, d:{"es":"Costillas st.louis , glaseadas en BBQ de manzanas\n\n\nIncluye una guarnición","en":"St. Luis ribs, glazed in apple BBQ."}, p:"$ 85.000"},
+      {id:"rib-eye", ref:"FUE-02", n:"Rib Eye", d:{"es":"Corte tierno, marmoleado en punto optimo de maduración.\nCertified Angus Beef\n\n\nIncluye una guarnición","en":"Tender cut, marbled at optimum point, accompanied by gremolata."}, p:"$ 195.000"},
+      {id:"picanha", ref:"FUE-03", n:"Picanha", d:{"es":"Corte ubicado en el anca de la res, con alta cobertura de grasa que aporta suavidad y gran sabor.\n\n\n\n\nIncluye una guarnición\n\n\nCertified Angus Beef","en":"Cut located on the haunch of the beef, with high fat coverage that provides softness and great flavor, accompanied by gremolata."}, p:"$ 175.000"},
+      {id:"solomito-en-glaseado-de-nueces", ref:"FUE-04", n:{"es":"Solomito en Glaseado de Nueces","en":"Tenderloin in Walnut Glaze"}, d:{"es":"Corte tierno, jugoso y en su punto óptimo de maduración, acompañado de salsa agridulce y nueces tostada\n\n\nIncluye una guarnición","en":"Tender, juicy and at optimum maturity, accompanied by sweet and sour sauce and toasted walnuts Includes a garnish ."}, p:"$ 77.000"},
+      {id:"entranita", ref:"FUE-05", n:"Entrañita", d:{"es":"Corte certified angus beef, acompañado de gremolata","en":"Cut certified angus beef, accompanied by gremolata"}, p:"$ 175.000"}
+    ]}
+  ]},
+  { id:"postres", num:"III", t:{"es":"Postres","en":"Desserts"}, grupos:[
+    { filas:[
+      {id:"milhoja-de-churro", ref:"POS-01", n:"Milhoja de Churro ", d:"Torre de milhoja con manzanas caramelizadas, helado de dulce de leche, bañados en crema de arequipe y canela caliente", p:"$ 39.000"},
+      {id:"tres-leches-de-alfajor", ref:"POS-02", n:{"es":"Tres leches de alfajor","en":"Three milks of alfajor"}, p:"$ 39.000", nuevo:true},
+      {id:"cheesecake-vasco", ref:"POS-03", n:"Cheesecake Vasco", d:{"es":"Tradicional cheesecake vasco con crema montada de vainilla y salsa de caramelo salado.","en":"Traditional Basque cheesecake with vanilla whipped cream and salted caramel sauce."}, p:"$ 34.000"},
+      {id:"milhojas-de-brownie", ref:"POS-04", n:"Milhojas de brownie ", d:"Torre de milhoja con brownie de chocolate la 53%, helado de vainilla , crumble de cacao y ganche de chocolate caliente", p:"$ 39.000"},
+      {id:"galleta-pecans", ref:"POS-05", n:"Galleta pecans", d:"Galleta caliente con relleno de arquipe salado, helado de vainilla y nueces pecanas.", p:"$ 39.000"}
+    ]}
+  ]},
+  { id:"cocteles-cannario", num:"IV", t:{"es":"Cócteles Cannario","en":"Cannario Cocktails"}, grupos:[
+    { s:{"es":"Cócteles Autor Cannario","en":"Cannario Signature Cocktails"}, filas:[
+      {id:"tipsy-lulada", ref:"COC-01", n:"Tipsy lulada ", d:"Aguardiente Mil Demonios - Lulo - Limoncello - Jack honey - Leche Condensada - Espuma de Lulada. (Coctel Clarificado).\nPerfil: Meloso / Cítrico - ABV: 15%", p:"$ 57.000"},
+      {id:"whiskinder-old-fashioned", ref:"COC-02", n:{"es":"WhisKinder Old Fashioned","en":"Whish Kinder Old Fashioned"}, d:"Jack Daniel’s #7 - Chocolate Kinder - Nahí Rare Chocolate Bitter.\nPerfil: Dulce / Elegante - ABV: 25%", p:"$ 57.000"},
+      {id:"black-cannario", ref:"COC-03", n:"Black Cannario", d:{"es":"Tequila Jimador reposado - Mezcal - Gulupa - Té earl gray - Cointreau - Leche de coco (Coctel Clarificado).\nPerfil: Cítrico / Especiado - ABV: 19%","en":"Clarification of tequila and earl gey tea, notes of passion fruit with the unique flavor of green mezcal."}, p:"$ 57.000"},
+      {id:"salpiconi", ref:"COC-04", n:"Salpiconi", d:"Hendricks gin - Vermouth rosso - Campari - Salpicón Clarificado.\nPerfil: Seco / Afrutado - ABV: 15,5%", p:"$ 57.000"},
+      {id:"brisa-mediterranea", ref:"COC-05", n:"Brisa mediterránea ", d:"Gin Selva - Brandy Domecq 8 años - Ciruela criolla - Licor de hierbas español.\nPerfil: Herbal / Afrutado - ABV: 16,5%", p:"$ 57.000"},
+      {id:"margarita-ruby", ref:"COC-06", n:"Margarita ruby", d:"Tequila Jimador reposado - Uva isabella - Mandarina - Oporto ruby reserva.\nPerfil: Cítrico / Afrutado - ABV: 15%", p:"$ 57.000"},
+      {id:"tzatziki-martini", ref:"COC-07", n:"Tzatziki martini ", d:"Bombay Sapphire - Hierbabuena - Pepino - Limonaria - Vermouth dry - Yogurt griego (Coctel Clarificado).\nPerfil: Dulce / Aromático - ABV: 18%", p:"$ 57.000"}
+    ]},
+    { s:"Cócteles de altamar", filas:[
+      {id:"zafra", ref:"COC-01", n:"Zafra", d:"Ron Quimbaya VSPR - Glenlivet Captain Reserve - Tamarindo - Cointreau - Limonaria.\nPerfil: Citríco / Elegante - ABV: 18%", p:"$ 70.000"},
+      {id:"salvador-paloma", ref:"COC-02", n:"Salvador paloma", d:"Tequila Patrón Cristalino - St. Germain - Vainilla Chocoana - Toronja -\nAzahar - Nahí Old Fashioned Bitters.\nPerfil: Floral / Cítrico - ABV: 16%", p:"$ 79.000"}
+    ]},
+    { s:{"es":"Cócteles Clasicos","en":"Classic Cocktails"}, filas:[
+      {id:"woodford-old-fashioned", ref:"COC-01", n:"Woodford Old Fashioned", d:"Woodford Reserve Bourbon - Azúcar - Aromatic Bitter - Orange Bitter", p:"$ 55.000"},
+      {id:"old-fashioned", ref:"COC-02", n:"Old Fashioned", d:"Gentleman Jack - Azúcar - Aromatic Bitter - Orange Bitter", p:"$ 49.000"},
+      {id:"martini", ref:"COC-03", n:"Martini", p:"$ 49.000"},
+      {id:"mojito", ref:"COC-04", n:"Mojito", d:"Bacardí Carta Blanca - Limón - Menta - Azúcar - Soda - Gotas Amargas", p:"$ 49.000"},
+      {id:"aperol-spritz", ref:"COC-05", n:"Aperol Spritz", p:"$ 49.000"},
+      {id:"moscow-mule", ref:"COC-06", n:"Moscow Mule ", p:"$ 49.000"},
+      {id:"margarita", ref:"COC-07", n:"Margarita", p:"$ 49.000"},
+      {id:"negroni", ref:"COC-08", n:"Negroni", p:"$ 49.000"},
+      {id:"penicilin", ref:"COC-09", n:"Penicilin", p:"$ 49.000"},
+      {id:"espresso-martini", ref:"COC-10", n:"Espresso Martini", p:"$ 49.000"},
+      {id:"cosmopolitan", ref:"COC-11", n:"Cosmopolitan", p:"$ 49.000"},
+      {id:"lychee-martini", ref:"COC-12", n:"Lychee Martini", p:"$ 49.000"},
+      {id:"st-germain-spritz", ref:"COC-13", n:"ST. Germain spritz ", d:"Spritz citrico a base de st. germain, prosecco, limon mandarino y maracuyá.", p:"$ 52.000"},
+      {id:"limoncello-sour", ref:"COC-14", n:"Limoncello sour ", d:"Inspirado en el pisco sour, una preparación vegana a base de limoncello, limón mandarino y limón Tahití.", p:"$ 57.000"}
+    ]},
+    { s:"Clásicos de las Profundidades", filas:[
+      {id:"sazerac", ref:"COC-01", n:"Sazerac", d:"Bulleit Rye - Absenta - Azúcar - Peychaud's Bitter", p:"$ 49.000"},
+      {id:"adonis", ref:"COC-02", n:"Adonis", d:"Jerez Fino - Vermouth Rosso - Orange Bitters", p:"$ 49.000"},
+      {id:"black-manhattan", ref:"COC-03", n:"Black Manhattan", d:"Gentleman Jack - Averna - Aromatic Bitters - Orange Bitters", p:"$ 49.000"},
+      {id:"bobby-burns", ref:"COC-04", n:"Bobby Burns", d:"Whisky Escocés - Vermouth Rosso - Benedictine - Aromatic Bitters", p:"$ 49.000"},
+      {id:"boulevardier", ref:"COC-05", n:"Boulevardier", d:"Bourbon - Vermouth Rosso - Campari - Chocolate Bitters", p:"$ 49.000"},
+      {id:"capitan", ref:"COC-06", n:"Capitán", d:"Pisco Quebranta - Vermouth Rosso - Aromatic Bitters", p:"$ 49.000"},
+      {id:"hanky-panky", ref:"COC-07", n:"Hanky Panky", d:"London Dry Gin - Vermouth Rosso - Fernet Branca", p:"$ 49.000"},
+      {id:"martinez", ref:"COC-08", n:"Martinez", d:"London Dry Gin - Vermouth Rosso - Luxardo Maraschino - Aromatic & Orange Bitters", p:"$ 49.000"},
+      {id:"negroni-sbagliato", ref:"COC-09", n:"Negroni Sbagliato", d:"Campari - Vermouth Rosso - Prosecco - Orange Bitters", p:"$ 49.000"},
+      {id:"oaxaca-old-fashioned", ref:"COC-10", n:"Oaxaca Old Fashioned", d:"Tequila Reposado - Mezcal - Miel de Agave - Aromatic & Chocolate Bitters", p:"$ 49.000"},
+      {id:"old-cuban", ref:"COC-11", n:"Old Cuban", d:"Ron Añejo - Limón - Azúcar - Hierbabuena - Prosecco - Aromatic Bitters", p:"$ 49.000"},
+      {id:"vieux-carre", ref:"COC-12", n:"Vieux Carré", d:"Brandy 8 años - Rye Whiskey - Vermouth Rosso - Benedictine - Peychaud's Bitter", p:"$ 49.000"}
+    ]},
+    { s:"Mocktails", filas:[
+      {id:"mocktail-limoncillo-rangpur", ref:"COC-01", n:{"es":"Mocktail Limoncillo Rangpur","en":"Mocktails Limoncillo Rangpur"}, d:{"es":"Bebida refrescante sin alcohol, a base de soda Bretaña y almíbar de limonaria y limón mandarino","en":"Refreshing non-alcoholic drink made with Bretaña soda and lemongrass syrup with mandarin lemon."}, p:"$ 29.000"},
+      {id:"mocktail-cannario-rosa", ref:"COC-02", n:{"es":"Mocktail Cannario Rosa","en":"Mocktails Cannario Rosa"}, d:{"es":"Bebida refrescante sin alcohol, en base a soda Bretaña, almíbar de uva Isabela, limón y rosas.","en":"Refreshing non-alcoholic drink made with Bretaña soda, Isabela grape syrup, lemon, and roses."}, p:"$ 29.000"},
+      {id:"mocktail-pina-colada", ref:"COC-03", n:{"es":"Mocktail piña colada","en":"Pina Colada Mocktail"}, d:{"es":"Bebida sin licor a base de tonica de coco y zumo de piña.","en":"Non-alcoholic drink made with coconut tonic and pineapple juice."}, p:"$ 29.000"},
+      {id:"mocktail-virgin-jungle", ref:"COC-04", n:"Mocktail Virgin Jungle ", p:"$ 29.000", nuevo:true}
+    ]}
+  ]},
+  { id:"vinos", num:"V", t:{"es":"Vinos","en":"Wines"}, grupos:[
+    { s:{"es":"Vino Tinto","en":"Red Wine"}, filas:[
+      {id:"don-melchor-2022", ref:"VIN-01", n:"Don Melchor 2022", tipoFila:"vino", p:"$ 1.500.000"},
+      {id:"petit-vega-18-meses", ref:"VIN-02", n:"Petit vega 18 meses ", d:"Tempranillo, Ribera del Duero", tipoFila:"vino", p:"$ 730.000"},
+      {id:"angelica-zapata-malbec", ref:"VIN-03", n:"Angelica Zapata Malbec ", tipoFila:"vino", p:"$ 580.000"},
+      {id:"marques-de-casa-concha-carmenere", ref:"VIN-04", n:"Marqués de Casa Concha Carmenere", tipoFila:"vino", p:"$ 350.000"},
+      {id:"tomas-postigo-3er-ano", ref:"VIN-05", n:"Tomas Postigo 3er Año", tipoFila:"vino", p:"$ 490.000"},
+      {id:"emilio-moro-finca-resalso", ref:"VIN-06", n:"Emilio Moro Finca Resalso ", tipoFila:"vino", p:"$ 195.000"},
+      {id:"joel-gott-pinot-noir", ref:"VIN-07", n:"Joel Gott Pinot Noir ", tipoFila:"vino", p:"$ 210.000"},
+      {id:"la-celia-heritage-malbec", ref:"VIN-08", n:"La Celia Heritage Malbec ", tipoFila:"vino", p:"$ 550.000"},
+      {id:"ramon-bilbao-tempranillo", ref:"VIN-09", n:"Ramon Bilbao Tempranillo", tipoFila:"vino", p:"$ 195.000"},
+      {id:"pizzella-malbec", ref:"VIN-10", n:"Pizzella malbec", tipoFila:"vino", p:"$ 210.000"},
+      {id:"pizzela-bonarda", ref:"VIN-11", n:"Pizzela Bonarda", tipoFila:"vino", p:"$ 210.000"},
+      {id:"lello-douro", ref:"VIN-12", n:"Lello Douro", tipoFila:"vino", p:"$ 150.000"},
+      {id:"campillo-el-nino-tempranillo", ref:"VIN-13", n:"Campillo El Niño Tempranillo", tipoFila:"vino", p:"$ 170.000"},
+      {id:"botella-torres-torito", ref:"VIN-14", n:"Botella Torres Torito", tipoFila:"vino", p:"$ 210.000"},
+      {id:"el-coto", ref:"VIN-15", n:"El coto ", d:"Tempranillo\n\n*Vino de copeo de la casa", tipoFila:"vino", p:"$ 165.000"}
+    ]},
+    { s:{"es":"Vino Blanco","en":"White Wine"}, filas:[
+      {id:"vega-sicilia-mandolas", ref:"VIN-01", n:"Vega Sicilia Mandolas", tipoFila:"vino", p:"$ 390.000"},
+      {id:"amelia-chardonnay", ref:"VIN-02", n:"Amelia Chardonnay", tipoFila:"vino", p:"$ 710.000"},
+      {id:"celeste-verdejo", ref:"VIN-03", n:"Celeste Verdejo", tipoFila:"vino", p:"$ 210.000"},
+      {id:"menade-verdejo", ref:"VIN-04", n:"Menade Verdejo ", tipoFila:"vino", p:"$ 189.000"},
+      {id:"mar-de-frades", ref:"VIN-05", n:"Mar de Frades", tipoFila:"vino"},
+      {id:"chan-de-rosas", ref:"VIN-06", n:"Chan de Rosas ", tipoFila:"vino"},
+      {id:"emilio-moro-el-zarzal-godello", ref:"VIN-07", n:"Emilio Moro El Zarzal Godello", tipoFila:"vino", p:"$ 235.000"},
+      {id:"leyda-reserva-saugvignon-blanc", ref:"VIN-08", n:"Leyda Reserva Saugvignon Blanc ", tipoFila:"vino", p:"$ 150.000"},
+      {id:"yellow-tail-chardonnay", ref:"VIN-09", n:"Yellow Tail Chardonnay", tipoFila:"vino", p:"$ 135.000"},
+      {id:"hugel-sylvanner", ref:"VIN-10", n:"Hugel Sylvanner", tipoFila:"vino", p:"$ 260.000"},
+      {id:"ramon-bilbao-verdejo", ref:"VIN-11", n:"Ramon Bilbao verdejo ", tipoFila:"vino", p:"$ 195.000"},
+      {id:"gatao-portugal", ref:"VIN-12", n:"Gatao Portugal", tipoFila:"vino", p:"$ 145.000"},
+      {id:"campillo-verdejo", ref:"VIN-13", n:"Campillo Verdejo", tipoFila:"vino", p:"$ 170.000"},
+      {id:"el-coto-2", ref:"VIN-14", n:"El Coto ", d:"Viura, Verdejo y Sauvignon Blanc\n\n*Vino de copeo de la casa", tipoFila:"vino", p:"$ 165.000"}
+    ]},
+    { s:"Vino Rosé", filas:[
+      {id:"whispering-angel", ref:"VIN-01", n:"Whispering Angel", tipoFila:"vino", p:"$ 330.000"}
+    ]},
+    { s:{"es":"Espumosos","en":"Sparkling wines"}, filas:[
+      {id:"moet-chandon-imperial-brut", ref:"VIN-01", n:"Moet & Chandon Imperial Brut", tipoFila:"vino", p:"$ 1.150.000"},
+      {id:"chandon-brut", ref:"VIN-02", n:"Chandon Brut ", tipoFila:"vino", p:"$ 210.000"},
+      {id:"lambrusco-tinto", ref:"VIN-03", n:"Lambrusco tinto    ", tipoFila:"vino", p:"$ 140.000"},
+      {id:"lambrusco-blanco", ref:"VIN-04", n:"Lambrusco blanco ", tipoFila:"vino", p:"$ 140.000"},
+      {id:"lambrusco-rose", ref:"VIN-05", n:{"es":"Lambrusco rose","en":"Lambrusco Rose"}, tipoFila:"vino", p:"$ 140.000"},
+      {id:"veuve-cliquot-brut", ref:"VIN-06", n:"Veuve Cliquot Brut", tipoFila:"vino", p:"$ 1.200.000"},
+      {id:"mionetto-prosecco", ref:"VIN-07", n:"Mionetto prosecco ", tipoFila:"vino", p:"$ 195.000"}
+    ]}
+  ]},
+  { id:"tardeo-cannario", num:"VI", t:{"es":"TARDEO CANNARIO","en":"CANNARIO EVENING"}, grupos:[
+    { s:"Tardeo Cannario", filas:[
+      {id:"sangria-rose", ref:"TAR-01", n:{"es":"Sangría Rosé","en":"Rosé Sangria"}, p:"$ 160.000"},
+      {id:"sangria-tinta", ref:"TAR-02", n:{"es":"Sangría Tinta","en":"Red Sangria"}, p:"$ 160.000"},
+      {id:"sangria-blanca", ref:"TAR-03", n:{"es":"Sangría Blanca","en":"White Sangria"}, p:"$ 160.000"}
+    ]}
+  ]},
+  { id:"licores", num:"VII", t:{"es":"LICORES","en":"LIQUEURS"}, grupos:[
+    { s:{"es":"Tequila y Mezcal","en":"Tequila and Mezcal"}, filas:[
+      {id:"botella-patron-cristalino", ref:"LIC-01", n:"Botella Patrón Cristalino", p:"$ 830.000"},
+      {id:"trago-patron-cristalino", ref:"LIC-02", n:"Trago Patrón Cristalino", p:"$ 80.000"},
+      {id:"botella-patron-anejo", ref:"LIC-03", n:"Botella Patrón Añejo", p:"$ 620.000"},
+      {id:"botella-patron-reposado", ref:"LIC-04", n:"Botella Patrón Reposado", p:"$ 620.000"},
+      {id:"trago-patron-reposado", ref:"LIC-05", n:"Trago Patrón Reposado", p:"$ 70.000"},
+      {id:"botella-patron-silver", ref:"LIC-06", n:"Botella Patrón Silver", p:"$ 550.000"},
+      {id:"trago-patron-silver", ref:"LIC-07", n:"Trago Patrón Silver", p:"$ 65.000"},
+      {id:"botella-herradura-cristalino", ref:"LIC-08", n:"Botella Herradura Cristalino", p:"$ 730.000"},
+      {id:"trago-herradura-cristalino", ref:"LIC-09", n:"Trago Herradura Cristalino", p:"$ 79.000"},
+      {id:"botella-herradura-reposado", ref:"LIC-10", n:"Botella Herradura Reposado", p:"$ 450.000"},
+      {id:"trago-herradura-reposado", ref:"LIC-11", n:"Trago Herradura Reposado", p:"$ 47.000"},
+      {id:"botella-herradura-plata", ref:"LIC-12", n:"Botella Herradura Plata", p:"$ 290.000"},
+      {id:"trago-herradura-plata", ref:"LIC-13", n:"Trago Herradura Plata", p:"$ 31.000"},
+      {id:"botella-don-julio-1942", ref:"LIC-14", n:"Botella Don Julio 1942", p:"$ 2.300.000"},
+      {id:"trago-don-julio-1942", ref:"LIC-15", n:"Trago Don Julio 1942", p:"$ 200.000"},
+      {id:"botella-don-julio-70", ref:"LIC-16", n:{"es":"Botella Don Julio 70","en":"Don Julio 70"}, p:"$ 850.000"},
+      {id:"botella-don-julio-anejo", ref:"LIC-17", n:{"es":"Botella Don Julio Añejo","en":"Don Julio Añejo"}, p:"$ 550.000"},
+      {id:"trago-don-julio-anejo", ref:"LIC-18", n:"Trago Don Julio Añejo", p:"$ 55.000"},
+      {id:"botella-don-julio-blanco", ref:"LIC-19", n:"Botella Don Julio blanco", p:"$ 520.000"},
+      {id:"trago-don-julio-blanco", ref:"LIC-20", n:"Trago Don Julio Blanco", p:"$ 49.000"},
+      {id:"botella-maestro-dobel-diamante", ref:"LIC-21", n:{"es":"Botella Maestro Dobel Diamante","en":"Bottle Maestro Dobel"}, p:"$ 590.000"},
+      {id:"trago-maestro-dobel-diamante", ref:"LIC-22", n:"Trago Maestro Dobel Diamante", p:"$ 62.000"},
+      {id:"botella-1800-anejo", ref:"LIC-23", n:{"es":"Botella 1800 Añejo","en":"Bottle 1800 Añejo"}, p:"$ 420.000"},
+      {id:"botella-1800-reposado", ref:"LIC-24", n:"Botella 1800 reposado  ", p:"$ 390.000"},
+      {id:"trago-1800-reposado", ref:"LIC-25", n:"Trago 1800 Reposado", p:"$ 42.000"},
+      {id:"trago-1800-anejo", ref:"LIC-26", n:"Trago 1800 Añejo", p:"$ 44.000"},
+      {id:"botella-jimador-reposado", ref:"LIC-27", n:"Botella Jimador Reposado", p:"$ 250.000"},
+      {id:"trago-jimador-reposado", ref:"LIC-28", n:"Trago Jimador Reposado", p:"$ 28.000"},
+      {id:"botella-jimador-cristalino", ref:"LIC-29", n:"Botella Jimador Cristalino", p:"$ 410.000"},
+      {id:"trago-jimador-cristalino", ref:"LIC-30", n:"Trago Jimador Cristalino", p:"$ 45.000"},
+      {id:"botella-patron-anejo-2", ref:"LIC-31", n:"Botella Patrón Añejo", p:"$ 620.000"},
+      {id:"trago-patron-anejo", ref:"LIC-32", n:"Trago Patrón Añejo", p:"$ 65.000"},
+      {id:"botella-mezcal-400-conejos", ref:"LIC-33", n:"Botella Mezcal 400 Conejos ", p:"$ 390.000"},
+      {id:"trago-mezcal-400-conejos", ref:"LIC-34", n:"Trago Mezcal 400 Conejos", p:"$ 42.000"},
+      {id:"botella-mezcal-union", ref:"LIC-35", n:"Botella Mezcal Unión", p:"$ 350.000"},
+      {id:"trago-mezcal-union", ref:"LIC-36", n:"Trago Mezcal Unión", p:"$ 38.000"}
+    ]},
+    { s:{"es":"Cervezas","en":"Beers"}, filas:[
+      {id:"bipolar-red-ipa", ref:"LIC-01", n:"Bipolar Red IPA", p:"$ 23.000"},
+      {id:"corona", ref:"LIC-02", n:"Corona ", p:"$ 15.000"},
+      {id:"stella", ref:"LIC-03", n:"Stella", p:"$ 15.000"},
+      {id:"club-dorada", ref:"LIC-04", n:"Club Dorada", p:"$ 13.000"},
+      {id:"heineken", ref:"LIC-05", n:"Heineken", p:"$ 15.000"},
+      {id:"paulaner-weissbier-500ml", ref:"LIC-06", n:"Paulaner Weissbier (500ml)", p:"$ 35.000"}
+    ]},
+    { s:{"es":"Scotch & Irish Whisky","en":"Whisky and Single Malt"}, filas:[
+      {id:"botella-the-macallan-12-sherry-cas", ref:"LIC-01", n:"Botella The Macallan 12 Sherry Cask", p:"$ 1.100.000"},
+      {id:"trago-the-macallan-12-sherry-cask", ref:"LIC-02", n:"Trago The Macallan 12 Sherry Cask", p:"$ 120.000"},
+      {id:"botella-glenfiddich-15-anos", ref:"LIC-03", n:"Botella Glenfiddich 15 años", p:"$ 630.000"},
+      {id:"trago-glenfiddich-15-anos", ref:"LIC-04", n:"Trago Glenfiddich 15 años", p:"$ 67.000"},
+      {id:"botella-glenfiddich-12-anos", ref:"LIC-05", n:"Botella Glenfiddich 12 años", p:"$ 480.000"},
+      {id:"trago-glenfiddich-12-anos", ref:"LIC-06", n:"Trago Glenfiddich 12 años", p:"$ 51.000"},
+      {id:"botella-balvenie-12-anos", ref:"LIC-07", n:"Botella Balvenie 12 años", p:"$ 1.100.000"},
+      {id:"trago-balvenie-12-anos", ref:"LIC-08", n:"Trago Balvenie 12 años ", p:"$ 120.000"},
+      {id:"botella-johnnie-walker-blue-label", ref:"LIC-09", n:"Botella Johnnie Walker Blue Label ", p:"$ 1.990.000"},
+      {id:"trago-johnnie-walker-blue-label", ref:"LIC-10", n:"Trago Johnnie Walker Blue Label", p:"$ 220.000"},
+      {id:"botella-johnnie-walker-black-label", ref:"LIC-11", n:"Botella Johnnie Walker Black Label ", p:"$ 290.000"},
+      {id:"trago-johnnie-walker-black-label", ref:"LIC-12", n:"Trago Johnnie Walker Black Label", p:"$ 35.000"},
+      {id:"botella-buchanan-s-18-anos", ref:"LIC-13", n:{"es":"Botella Buchanan´s 18 años","en":"Bottle Buchanan's 18"}, p:"$ 690.000"},
+      {id:"trago-buchanan-s-18-anos", ref:"LIC-14", n:"Trago Buchanan's 18 años", p:"$ 72.000"},
+      {id:"botella-buchanan-s-12-anos", ref:"LIC-15", n:{"es":"Botella Buchanan´s 12 años","en":"Bottle Buchanan's 12"}, p:"$ 420.000"},
+      {id:"trago-buchanan-s-12-anos", ref:"LIC-16", n:"Trago Buchanan's 12 años", p:"$ 39.000"},
+      {id:"botella-glenlivet-founder-s-reserv", ref:"LIC-17", n:"Botella Glenlivet Founder's Reserve", p:"$ 510.000"},
+      {id:"trago-glenlivet-founder-s-reserve", ref:"LIC-18", n:"Trago Glenlivet Founder's Reserve", p:"$ 41.000"},
+      {id:"botella-glenlivet-captain-s-reserv", ref:"LIC-19", n:"Botella Glenlivet Captain's Reserve", p:"$ 510.000"},
+      {id:"trago-glenlivet-captain-s-reserve", ref:"LIC-20", n:"Trago Glenlivet Captain's Reserve", p:"$ 53.000"},
+      {id:"botella-old-parr-12-anos", ref:"LIC-21", n:"Botella Old parr 12 años", p:"$ 290.000"},
+      {id:"media-old-parr-12-anos", ref:"LIC-22", n:"Media Old parr 12 años", p:"$ 240.000"},
+      {id:"trago-old-parr-12-anos", ref:"LIC-23", n:"Trago Old Parr 12 años", p:"$ 31.000"},
+      {id:"botella-singleton-12-anos", ref:"LIC-24", n:"Botella Singleton 12 años", p:"$ 520.000"},
+      {id:"trago-singleton-12-anos", ref:"LIC-25", n:"Trago Singleton 12 años", p:"$ 53.000"},
+      {id:"botella-buchanan-s-two-souls", ref:"LIC-26", n:"Botella Buchanan's two souls", p:"$ 580.000"},
+      {id:"botella-johnnie-walker-double-blac", ref:"LIC-27", n:"Botella Johnnie Walker Double Black", p:"$ 345.000"},
+      {id:"trago-johnnie-walker-double-black", ref:"LIC-28", n:"Trago Johnnie Walker Double Black", p:"$ 37.000"},
+      {id:"trago-buchanan-s-two-souls", ref:"LIC-29", n:"Trago Buchanan's two souls", p:"$ 62.000"},
+      {id:"botella-monkey-shoulder", ref:"LIC-30", n:"Botella Monkey Shoulder", p:"$ 320.000"},
+      {id:"trago-monkey-shoulder", ref:"LIC-31", n:"Trago Monkey Shoulder", p:"$ 36.000"},
+      {id:"botella-dewar-s-12-anos", ref:"LIC-32", n:"Botella Dewar's 12 años", p:"$ 320.000"},
+      {id:"trago-dewar-s-12-anos", ref:"LIC-33", n:"Trago Dewar's 12 años", p:"$ 35.000"}
+    ]},
+    { s:"Whiskey Estadounidense", filas:[
+      {id:"botella-michter-s-bourbon", ref:"LIC-01", n:"Botella Michter's Bourbon", p:"$ 690.000"},
+      {id:"trago-michter-s-bourbon", ref:"LIC-02", n:"Trago Michter's Bourbon", p:"$ 75.000"},
+      {id:"botella-woodford-reserve", ref:"LIC-03", n:"Botella Woodford Reserve", p:"$ 390.000"},
+      {id:"trago-woodford-reserve", ref:"LIC-04", n:"Trago Woodford Reserve", p:"$ 45.000"},
+      {id:"botella-gentleman-jack", ref:"LIC-05", n:"Botella Gentleman Jack", p:"$ 365.000"},
+      {id:"trago-gentleman-jack", ref:"LIC-06", n:"Trago Gentleman Jack", p:"$ 41.000"},
+      {id:"trago-jack-daniel-s-n7", ref:"LIC-07", n:"Trago Jack Daniel's N7", p:"$ 32.000"},
+      {id:"botella-jack-daniel-s-n7", ref:"LIC-08", n:"Botella Jack Daniel's N7", p:"$ 280.000"},
+      {id:"botella-jack-daniel-s-apple", ref:"LIC-09", n:"Botella Jack Daniel's Apple", p:"$ 305.000"},
+      {id:"trago-jack-daniel-s-apple", ref:"LIC-10", n:"Trago Jack Daniel's Apple", p:"$ 37.000"},
+      {id:"botella-jack-daniel-s-fire", ref:"LIC-11", n:"Botella Jack Daniel's Fire", p:"$ 305.000"},
+      {id:"trago-jack-daniel-s-fire", ref:"LIC-12", n:"Trago Jack Daniel's Fire", p:"$ 37.000"},
+      {id:"botella-bulleit-bourbon", ref:"LIC-13", n:"Botella Bulleit Bourbon   ", p:"$ 320.000"},
+      {id:"trago-bulleit-bourbon", ref:"LIC-14", n:"Trago Bulleit Bourbon", p:"$ 35.000"},
+      {id:"botella-bulleit-rye", ref:"LIC-15", n:"Botella Bulleit Rye", p:"$ 320.000"},
+      {id:"trago-bulleit-rye", ref:"LIC-16", n:"Trago Bulleit Rye", p:"$ 35.000"}
+    ]},
+    { s:"Ron", filas:[
+      {id:"botella-santa-teresa-1796", ref:"LIC-01", n:"Botella Santa Teresa 1796", p:"$ 480.000"},
+      {id:"trago-santa-teresa-1796", ref:"LIC-02", n:"Trago Santa Teresa 1796", p:"$ 52.000"},
+      {id:"botella-bacardi-8-anos", ref:"LIC-03", n:"Botella Bacardí 8 Años", p:"$ 280.000"},
+      {id:"trago-bacardi-8-anos", ref:"LIC-04", n:"Trago Bacardí 8 Años", p:"$ 32.000"},
+      {id:"botella-ron-parce-8", ref:"LIC-05", n:"Botella Ron Parce 8 ", p:"$ 490.000"},
+      {id:"trago-parce-8", ref:"LIC-06", n:"Trago Parce 8", p:"$ 52.000"},
+      {id:"botella-la-hechicera", ref:"LIC-07", n:"Botella La Hechicera", p:"$ 440.000"},
+      {id:"trago-la-hechicera", ref:"LIC-08", n:"Trago La Hechicera", p:"$ 47.000"},
+      {id:"botella-quimbaya-vspr", ref:"LIC-09", n:"Botella Quimbaya VSPR", p:"$ 510.000"},
+      {id:"trago-quimbaya-vspr", ref:"LIC-10", n:"Trago Quimbaya VSPR", p:"$ 53.000"},
+      {id:"botella-quimbaya-gold", ref:"LIC-11", n:"Botella Quimbaya Gold", p:"$ 330.000"},
+      {id:"trago-quimbaya-gold", ref:"LIC-12", n:"Trago Quimbaya Gold", p:"$ 35.000"},
+      {id:"botella-ron-carbon", ref:"LIC-13", n:"Botella Ron Carbón", p:"$ 315.000"},
+      {id:"botella-zacapa-ambar", ref:"LIC-14", n:"Botella Zacapa ambar ", p:"$ 270.000"},
+      {id:"trago-ron-carbon", ref:"LIC-15", n:"Trago Ron Carbón", p:"$ 35.000"},
+      {id:"trago-zacapa-ambar", ref:"LIC-16", n:"Trago Zacapa Ambar", p:"$ 31.000"},
+      {id:"botella-ron-cacique", ref:"LIC-17", n:"Botella Ron cacique     ", p:"$ 140.000"},
+      {id:"trago-ron-cacique", ref:"LIC-18", n:"Trago Ron Cacique", p:"$ 21.000"},
+      {id:"botella-ron-medellin-5-anos", ref:"LIC-19", n:"Botella Ron Medellín 5 años ", p:"$ 165.000"},
+      {id:"trago-ron-medellin-5-anos", ref:"LIC-20", n:"Trago Ron Medellín 5 Años", p:"$ 19.000"},
+      {id:"botella-ron-medellin-8-anos", ref:"LIC-21", n:"Botella Ron Medellín 8 años ", p:"$ 195.000"},
+      {id:"trago-ron-medellin-8-anos", ref:"LIC-22", n:"Trago Ron Medellín 8 años", p:"$ 21.000"}
+    ]},
+    { s:{"es":"Ginebras","en":"Gins"}, filas:[
+      {id:"botella-hendricks", ref:"LIC-01", n:{"es":"Botella Hendricks","en":"Botella Hendriks"}, p:"$ 470.000"},
+      {id:"trago-hendrick-s", ref:"LIC-02", n:"Trago Hendrick's ", p:"$ 49.000"},
+      {id:"botella-bombay-sapphire", ref:"LIC-03", n:"Botella Bombay Sapphire", p:"$ 290.000"},
+      {id:"trago-bombay-sapphire", ref:"LIC-04", n:"Trago Bombay Sapphire", p:"$ 32.000"},
+      {id:"botella-tanqueray-ten", ref:"LIC-05", n:"Botella Tanqueray Ten ", p:"$ 430.000"},
+      {id:"trago-tanqueray-ten", ref:"LIC-06", n:"Trago Tanqueray Ten", p:"$ 45.000"},
+      {id:"botella-tanqueray-rangpur", ref:"LIC-07", n:"Botella Tanqueray Rangpur ", p:"$ 350.000"},
+      {id:"trago-tanqueray-rangpur", ref:"LIC-08", n:"Trago Tanqueray Rangpur", p:"$ 37.000"},
+      {id:"botella-tanqueray-london", ref:"LIC-09", n:"Botella Tanqueray London ", p:"$ 310.000"},
+      {id:"trago-tanqueray-london", ref:"LIC-10", n:"Trago Tanqueray London", p:"$ 33.000"},
+      {id:"botella-selva", ref:"LIC-11", n:"Botella Selva", p:"$ 380.000"},
+      {id:"trago-selva", ref:"LIC-12", n:"Trago Selva", p:"$ 41.000"},
+      {id:"botella-monkey-47", ref:"LIC-13", n:"Botella Monkey 47", p:"$ 480.000"},
+      {id:"trago-monkey-47", ref:"LIC-14", n:"Trago Monkey 47", p:"$ 54.000"}
+    ]},
+    { s:"Brandy & Cognac", filas:[
+      {id:"botella-remy-martin-vsop", ref:"LIC-01", n:"Botella Remy Martin VSOP", p:"$ 690.000"},
+      {id:"trago-remy-martin-vsop", ref:"LIC-02", n:"Trago Remy Martin VSOP", p:"$ 74.000"},
+      {id:"botella-hennessy-vs", ref:"LIC-03", n:"Botella Hennessy VS", p:"$ 490.000"},
+      {id:"trago-hennessy-vs", ref:"LIC-04", n:"Trago Hennessy VS", p:"$ 55.000"}
+    ]},
+    { s:"Vodka", filas:[
+      {id:"botella-grey-goose", ref:"LIC-01", n:"Botella Grey Goose", p:"$ 440.000"},
+      {id:"trago-grey-goose", ref:"LIC-02", n:"Trago Grey Goose", p:"$ 49.000"},
+      {id:"botella-ketel-one", ref:"LIC-03", n:"Botella Ketel One", p:"$ 370.000"},
+      {id:"trago-ketel-one", ref:"LIC-04", n:"Trago Ketel One", p:"$ 39.000"},
+      {id:"botella-absolut", ref:"LIC-05", n:"Botella Absolut", p:"$ 230.000"}
+    ]},
+    { s:"Aguardiente", filas:[
+      {id:"botella-aguardiente-cumbe", ref:"LIC-01", n:"Botella Aguardiente Cumbé", p:"$ 220.000"},
+      {id:"trago-aguardiente-cumbe", ref:"LIC-02", n:"Trago Aguardiente Cumbé", p:"$ 27.000"},
+      {id:"botella-aguardiente-mil-demonios", ref:"LIC-03", n:"Botella Aguardiente Mil Demonios", p:"$ 270.000"},
+      {id:"trago-aguardiente-mil-demonios", ref:"LIC-04", n:"Trago Aguardiente Mil Demonios", p:"$ 31.000"},
+      {id:"botella-aguardiente-tapa-azul", ref:"LIC-05", n:"Botella Aguardiente tapa azul ", p:"$ 140.000"},
+      {id:"media-aguardiente-tapa-azul", ref:"LIC-06", n:{"es":"Media Aguardiente tapa azul","en":"Half Aguardiente Bottle Blue Cap"}, p:"$ 90.000"},
+      {id:"botella-aguardiente-tapa-roja", ref:"LIC-07", n:"Botella Aguardiente tapa roja ", p:"$ 140.000"},
+      {id:"media-aguardiente-tapa-roja", ref:"LIC-08", n:{"es":"Media Aguardiente tapa roja","en":"Half Aguardiente Bottle Red Cap"}, p:"$ 90.000"}
+    ]},
+    { s:{"es":"Licores","en":"Liqueurs"}, filas:[
+      {id:"trago-st-germain", ref:"LIC-01", n:"Trago St. Germain", p:"$ 45.000"},
+      {id:"trago-cointreau", ref:"LIC-02", n:"Trago Cointreau", p:"$ 32.000"},
+      {id:"trago-frangelico", ref:"LIC-03", n:"Trago Frangelico", p:"$ 28.000"},
+      {id:"trago-disaronno", ref:"LIC-04", n:"Trago Disaronno", p:"$ 35.000"},
+      {id:"trago-disaronno-velvet", ref:"LIC-05", n:"Trago Disaronno Velvet", p:"$ 37.000"},
+      {id:"trago-campari", ref:"LIC-06", n:"Trago Campari", p:"$ 27.000"},
+      {id:"botella-aperol", ref:"LIC-07", n:"Botella Aperol", p:"$ 190.000"},
+      {id:"trago-aperol", ref:"LIC-08", n:"Trago Aperol", p:"$ 35.000"},
+      {id:"botella-drambuie", ref:"LIC-09", n:"Botella Drambuie", p:"$ 390.000"},
+      {id:"trago-drambuie", ref:"LIC-10", n:"Trago Drambuie", p:"$ 43.000"},
+      {id:"botella-licor-43", ref:"LIC-11", n:"Botella Licor 43", p:"$ 255.000"},
+      {id:"trago-licor-43", ref:"LIC-12", n:"Trago Licor 43", p:"$ 27.000"},
+      {id:"trago-fernet-luxardo", ref:"LIC-13", n:"Trago Fernet Luxardo", p:"$ 28.000"},
+      {id:"botella-jagermeister", ref:"LIC-14", n:"Botella Jägermeister", p:"$ 290.000"},
+      {id:"trago-jagermeister", ref:"LIC-15", n:"Trago Jägermeister", p:"$ 37.000"},
+      {id:"botella-baileys", ref:"LIC-16", n:"Botella Baileys", p:"$ 175.000"},
+      {id:"trago-baileys", ref:"LIC-17", n:"Trago Baileys", p:"$ 21.000"},
+      {id:"botella-pacharan", ref:"LIC-18", n:"Botella Pacharán", p:"$ 275.000"},
+      {id:"trago-pacharan", ref:"LIC-19", n:"Trago Pacharán", p:"$ 31.000"}
+    ]}
+  ]},
+  { id:"bebidas", num:"VIII", t:{"es":"Bebidas","en":"Drinks"}, grupos:[
+    { filas:[
+      {id:"san-pellegrino", ref:"BEB-01", n:"San Pellegrino ", p:"$ 23.000"},
+      {id:"acqua-panna", ref:"BEB-02", n:{"es":"Acqua Panna","en":"Panna Water"}, p:"$ 23.000"},
+      {id:"bali-bliss-rose-lemonade", ref:"BEB-03", n:"Bali Bliss Rose Lemonade", p:"$ 16.000"},
+      {id:"agua-hatsu", ref:"BEB-04", n:{"es":"Agua HATSU","en":"Hatsu Water"}, p:"$ 12.000"},
+      {id:"agua-con-gas-hatsu", ref:"BEB-05", n:{"es":"Agua con gas HATSU","en":"Hatsu Sparkling Water"}, p:"$ 12.000"},
+      {id:"te-hatsu", ref:"BEB-06", n:"Te Hatsu "},
+      {id:"soda-bretana", ref:"BEB-07", n:{"es":"Soda Bretaña","en":"Soda"}, p:"$ 10.000"},
+      {id:"limonada-de-coco", ref:"BEB-08", n:{"es":"Limonada de coco","en":"Coconut Lemonade"}, p:"$ 15.000"},
+      {id:"limonada-de-lyches", ref:"BEB-09", n:{"es":"Limonada de Lyches","en":"Lychee Lemonade"}, p:"$ 15.000"},
+      {id:"cafe-americano", ref:"BEB-10", n:"Café Americano ", p:"$ 7.900"},
+      {id:"capuccino-clasico", ref:"BEB-11", n:{"es":"Capuccino Clásico","en":"Classic Cappuccino"}, p:"$ 9.000"},
+      {id:"cappuccino-vainilla", ref:"BEB-12", n:{"es":"Cappuccino Vainilla","en":"Vanilla Cappuccino"}, p:"$ 9.000"},
+      {id:"aromatica-frutos-deshidratados", ref:"BEB-13", n:"Aromatica Frutos Deshidratados ", p:"$ 8.000"},
+      {id:"red-bull-sugarfee", ref:"BEB-14", n:{"es":"Red Bull SugarFee","en":"Red Bull Sugar-Free"}, p:"$ 15.000"}
+    ]}
+  ]}
+];
+
+/* índice id -> plato; aplica FOTOS y marca los que abren el reverso */
+var porId = {};
+(function(){
+  for(var i=0;i<SECCIONES.length;i++){
+    var G = SECCIONES[i].grupos;
+    for(var j=0;j<G.length;j++){
+      for(var k=0;k<G[j].filas.length;k++){
+        var f = G[j].filas[k];
+        if(FOTOS[f.id]) f.img = FOTOS[f.id];   /* con foto: la muestra */
+        f.ver = true;                            /* sin foto: marco de producción */
+        porId[f.id] = f;
+      }
+    }
+  }
+})();
+/* ============================================================
+   MOTOR
+   ============================================================ */
+
+var RM = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+var LANG = "es";
+var D = function(){ return DICT[LANG]; };
+function tx(v){ if(v==null) return ""; return typeof v==="string" ? v : (v[LANG] || v.es || ""); }
+function esc(s){ return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;"); }
+function $(id){ return document.getElementById(id); }
+function plegar(s){
+  return String(s).toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"");
+}
+function hhmm(m){
+  m = m % 1440;
+  var h = Math.floor(m/60), mm = m%60;
+  return (h<10?"0":"")+h+":"+(mm<10?"0":"")+mm;
+}
+
+/* ---------- reveal: IntersectionObserver one-shot ---------- */
+var obs = null;
+if(!RM && "IntersectionObserver" in window){
+  obs = new IntersectionObserver(function(entries){
+    for(var i=0;i<entries.length;i++){
+      if(entries[i].isIntersecting){
+        entries[i].target.classList.add("vista");
+        obs.unobserve(entries[i].target);
+      }
+    }
+  }, { rootMargin:"0px 0px -8% 0px", threshold:0.02 });
+}
+function observar(raiz){
+  var n = raiz.querySelectorAll(".item, .vino");
+  for(var i=0;i<n.length;i++){
+    if(obs) obs.observe(n[i]); else n[i].classList.add("vista");
+  }
+}
+
+/* ---------- pintado ---------- */
+function precioHTML(f){
+  if(f.pend) return '<span class="item__pend">'+esc(D().pendiente)+'</span>';
+  if(f.p)    return '<span class="item__p tab">'+esc(f.p)+'</span>';
+  return '<span class="item__p tab"></span>';
+}
+
+function pintaItem(f){
+  var i;
+  var h = '<div class="item'+(f.ver?' item--ver':'')+'"'+
+          (f.ver?' role="button" tabindex="0" data-ver="'+esc(f.id)+'"':'')+'>';
+  h += '<h3 class="item__n">'+esc(tx(f.n))+
+       (f.ver?'<span class="item__ver">'+esc(D().ver)+'</span>':'')+'</h3>';
+  h += precioHTML(f);
+  if(f.d) h += '<p class="item__d">'+esc(tx(f.d))+'</p>';
+
+  /* variantes y opciones: cada una con su propio precio si lo tiene */
+  if(f.sub && f.sub.length){
+    for(i=0;i<f.sub.length;i++){
+      h += '<div class="item__sub"><b>'+esc(tx(f.sub[i].n))+'</b>'+
+           (f.sub[i].p?'<span>'+esc(f.sub[i].p)+'</span>':'<span></span>')+'</div>';
+    }
+  }
+
+  if(f.mk && f.mk.length || f.sello || f.nuevo){
+    h += '<div class="item__badges">';
+    if(f.nuevo) h += '<span class="item__nuevo">'+esc(D().nuevo)+'</span>';
+    if(f.sello) h += '<span class="item__sello">'+esc(f.sello)+'</span>';
+    h += '</div>';
+    if(f.mk && f.mk.length){
+      h += '<div class="item__mk">';
+      for(i=0;i<f.mk.length;i++) h += '<span>'+esc(f.mk[i])+'</span>';
+      h += '</div>';
+    }
+  }
+
+  if(f.nota)     h += '<p class="item__nota">'+esc(tx(f.nota))+'</p>';
+  if(f.pendNota) h += '<p class="item__nota">'+esc(tx(f.pendNota))+'</p>';
+  return h+'</div>';
+}
+
+function pintaVino(f){
+  var pr = "";
+  var abre = f.ver ? ' role="button" tabindex="0" data-ver="'+esc(f.id)+'"' : '';
+  if(f.copa)    pr += esc(D().copa)+' <b>'+esc(f.copa)+'</b>';
+  if(f.botella) pr += (pr?' &nbsp;·&nbsp; ':"")+esc(D().botella)+' <b>'+esc(f.botella)+'</b>';
+  if(!pr && f.p) pr = '<b>'+esc(f.p)+'</b>';
+  return '<div class="vino'+(f.ver?' item--ver':'')+'"'+abre+'>'+
+    '<h3 class="vino__n">'+esc(tx(f.n))+
+      (f.ver?'<span class="item__ver">'+esc(D().ver)+'</span>':'')+'</h3>'+
+    '<span class="vino__p tab">'+pr+'</span>'+
+    (f.desc?'<p class="vino__d">'+esc(tx(f.desc))+'</p>':'')+
+    (f.d?'<p class="vino__d">'+esc(tx(f.d))+'</p>':'')+
+  '</div>';
+}
+
+function pintaDeg(){
+  if(!DEG) return "";                    /* sin bloque destacado: no se pinta nada */
+  var h = '<section class="dest" id="sec-destacado" aria-labelledby="destT">';
+  if(DEG.ilus) h += '<img class="dest__ilus" src="'+esc(DEG.ilus)+'" alt="" loading="lazy" onerror="this.style.display=\'none\'">';
+  h += '<p class="dest__k">'+esc(tx(DEG.k))+'</p>';
+  h += '<h2 class="dest__t" id="destT">'+esc(tx(DEG.t))+'</h2>';
+  h += '<p class="dest__c">'+esc(tx(DEG.c))+'</p>';
+  h += '<div class="deg">';
+  for(var i=0;i<DEG.menus.length;i++){
+    var m = DEG.menus[i];
+    h += '<article class="deg__card"><h3>'+esc(tx(m.n))+'</h3><p>'+esc(tx(m.d))+'</p>'+
+         '<div class="deg__p"><span>'+esc(D().degK)+'</span><b class="tab">'+esc(m.p)+'</b></div></article>';
+  }
+  h += '</div>';
+  h += '<div class="hambre">';
+  for(var j=0;j<DEG.hambre.length;j++){
+    var x = DEG.hambre[j];
+    h += '<div class="hambre__c"><span class="hambre__i">'+(ICONOS[x.i]||"")+'</span>'+
+         '<b>'+esc(tx(x.n))+'</b><span>'+esc(tx(x.d))+'</span></div>';
+  }
+  h += '</div>';
+  h += '<p class="maridaje">'+esc(tx(DEG.maridaje))+'</p>';
+  return h+'</section>';
+}
+
+function coincide(f, q){
+  if(!q) return true;
+  var s = tx(f.n)+" "+(f.d?tx(f.d):"")+" "+(f.desc?tx(f.desc):"")+" "+(f.sello||"");
+  if(f.sub) for(var i=0;i<f.sub.length;i++) s += " "+tx(f.sub[i].n);
+  return plegar(s).indexOf(q) !== -1;
+}
+
+function render(q){
+  var menu = $("menu");
+  q = plegar(q||"").trim();
+  var html = "", total = 0;
+
+  if(!q) html += pintaDeg();          /* devuelve "" si DEG es null */
+
+  for(var i=0;i<SECCIONES.length;i++){
+    var sec = SECCIONES[i], cuerpo = "", hay = 0;
+
+    for(var j=0;j<sec.grupos.length;j++){
+      var g = sec.grupos[j], filas = "", n = 0;
+      for(var k=0;k<g.filas.length;k++){
+        var f = g.filas[k];
+        if(!coincide(f,q)) continue;
+        filas += (f.tipoFila==="vino" || g.tipo==="vino") ? pintaVino(f) : pintaItem(f);
+        n++;
+      }
+      if(!n) continue;
+      hay += n;
+      cuerpo += '<div class="grupo">';
+      if(g.s)          cuerpo += '<p class="grupo__s">'+esc(tx(g.s))+'</p>';
+      if(g.precioMenu) cuerpo += '<p class="grupo__precio tab">'+esc(g.precioMenu)+'</p>';
+      if(g.nota)       cuerpo += '<p class="grupo__n">'+esc(tx(g.nota))+'</p>';
+      cuerpo += '<div class="filas">'+filas+'</div>';
+      if(g.pie)        cuerpo += '<p class="grupo__pie">'+esc(tx(g.pie))+'</p>';
+      cuerpo += '</div>';
+    }
+
+    if(!hay) continue;
+    total += hay;
+    var il = ILUS[sec.id] || "";
+    html += '<section class="acto" id="sec-'+esc(sec.id)+'" aria-labelledby="t-'+esc(sec.id)+'">'+
+      '<div class="acto__cab">'+
+        '<h2 class="acto__t" id="t-'+esc(sec.id)+'">'+esc(tx(sec.t))+'</h2>'+
+        '<div class="acto__ilus">'+
+          '<span class="sello">'+esc(sec.num)+'</span>'+
+          (il?'<img src="'+esc(il)+'" alt="" loading="lazy" onload="this.parentNode.classList.add(\'con-img\')" onerror="this.remove()">':'')+
+        '</div>'+
+      '</div>'+ cuerpo +'</section>';
+  }
+
+  if(!total) html += '<p class="vacio">'+esc(D().vacio)+'</p>';
+
+  menu.innerHTML = html;
+  observar(menu);
+  pintaNav(!q);
+  observarNav();
+
+  var live = $("liveResults");
+  if(q) live.textContent = total===0 ? D().sinResultados
+        : (total===1 ? D().unResultado : total + D().resultados);
+  else live.textContent = "";
+}
+
+function pintaNav(conDestacado){
+  var nav = $("tamiz"), h = "";
+  if(conDestacado && DEG) h += '<button type="button" data-ir="sec-destacado">'+esc(D().destacado)+'</button>';
+  for(var i=0;i<SECCIONES.length;i++){
+    if(!document.getElementById("sec-"+SECCIONES[i].id)) continue;
+    h += '<button type="button" data-ir="sec-'+esc(SECCIONES[i].id)+'">'+esc(tx(SECCIONES[i].t))+'</button>';
+  }
+  nav.innerHTML = h;
+}
+
+/* ---------- i18n ---------- */
+function aplicarIdioma(l){
+  LANG = l;
+  document.documentElement.lang = l;
+  var n = document.querySelectorAll("[data-tx]"), i;
+  for(i=0;i<n.length;i++){
+    var v = D()[n[i].getAttribute("data-tx")];
+    if(v!=null) n[i].textContent = v;
+  }
+  n = document.querySelectorAll("[data-tx-ph]");
+  for(i=0;i<n.length;i++){
+    var p = D()[n[i].getAttribute("data-tx-ph")];
+    if(p!=null) n[i].setAttribute("placeholder", p);
+  }
+  $("revX").setAttribute("aria-label", D().cerrar);
+  latido();
+  pieExtras();
+  pieProcedencia();
+  pieHorario();
+  render($("q").value);
+}
+
+var btnsLang = document.querySelectorAll(".idioma button");
+for(var bi=0;bi<btnsLang.length;bi++){
+  btnsLang[bi].addEventListener("click", function(){
+    var l = this.getAttribute("data-lang");
+    if(l===LANG) return;
+    for(var i=0;i<btnsLang.length;i++)
+      btnsLang[i].setAttribute("aria-pressed", btnsLang[i]===this ? "true" : "false");
+    aplicarIdioma(l);
+  });
+}
+
+/* ---------- servicio: abierto / cerrado en zona horaria fija ---------- */
+function ahoraTZ(){
+  var f;
+  try{
+    f = new Intl.DateTimeFormat("en-US",{ timeZone:TZ, weekday:"short", hour:"2-digit",
+        minute:"2-digit", hour12:false }).formatToParts(new Date());
+  }catch(e){
+    var d = new Date();
+    return { dia:d.getDay(), min:d.getHours()*60+d.getMinutes() };
+  }
+  var map = {Sun:0,Mon:1,Tue:2,Wed:3,Thu:4,Fri:5,Sat:6}, dia=0, h=0, m=0;
+  for(var i=0;i<f.length;i++){
+    if(f[i].type==="weekday") dia = map[f[i].value] || 0;
+    if(f[i].type==="hour")    h = parseInt(f[i].value,10) % 24;
+    if(f[i].type==="minute")  m = parseInt(f[i].value,10);
+  }
+  return { dia:dia, min:h*60+m };
+}
+
+function abiertoAhora(){
+  var t = ahoraTZ(), hoy = HORARIO[t.dia], ayer = HORARIO[(t.dia+6)%7], i;
+  if(hoy) for(i=0;i<hoy.length;i++)
+    if(t.min >= hoy[i][0] && t.min < hoy[i][1]) return true;
+  if(ayer) for(i=0;i<ayer.length;i++)
+    if(ayer[i][1] > 1440 && (t.min+1440) < ayer[i][1]) return true;
+  return false;
+}
+
+function latido(){
+  var t = ahoraTZ(), on = abiertoAhora(), hoy = HORARIO[t.dia];
+  $("punto").className = "punto" + (on ? " vivo" : "");
+  $("estadoTxt").textContent = on ? D().abierto : D().cerrado;
+  if(!hoy){ $("estadoHoy").textContent = D().hoyCerrado; return; }
+  var partes = [];
+  for(var i=0;i<hoy.length;i++) partes.push(hhmm(hoy[i][0])+"–"+hhmm(hoy[i][1]));
+  $("estadoHoy").textContent = D().hoyAbre + D().dias[t.dia] + " " + partes.join(" · ");
+}
+
+function pieExtras(){
+  /* línea especial del servicio (menú de degustación, sentada única, etc.) */
+  var esp = (typeof ESPECIAL!=="undefined") ? ESPECIAL : null;
+  var e = $("servEsp");
+  if(esp && (tx(esp.k) || tx(esp.v))){
+    e.hidden=false;
+    e.innerHTML = "<b>"+esc(tx(esp.k))+"</b> "+esc(tx(esp.v));
+  } else { e.hidden=true; e.innerHTML=""; }
+
+  /* contacto: se oculta entero si no hay datos cargados */
+  var c = (typeof CONTACTO!=="undefined") ? CONTACTO : [];
+  var caja=$("pieContactoCaja"), cont=$("pieContacto");
+  if(!c.length){ caja.hidden=true; cont.innerHTML=""; }
+  else {
+    caja.hidden=false;
+    var l=[];
+    for(var i=0;i<c.length;i++){
+      l.push(c[i].href ? '<a href="'+esc(c[i].href)+'" rel="noopener">'+esc(c[i].t)+'</a>' : esc(c[i].t));
+    }
+    cont.innerHTML=l.join("<br>");
+  }
+}
+
+function pieProcedencia(){
+  var f = (typeof FUENTE!=="undefined") ? FUENTE : null;
+  var el = $("pieFuente");
+  if(!f){ el.textContent=""; }
+  else {
+    var partes=[];
+    if(f.url)   partes.push('<a href="'+esc(f.url)+'" rel="noopener noreferrer" target="_blank">'+esc(f.etiqueta||f.url)+'</a>');
+    if(f.fecha) partes.push(esc(D().consultado)+" "+esc(f.fecha));
+    el.innerHTML = partes.join("<br>");
+  }
+  var caja=$("pieNotas"), lista=$("pieNotasLista");
+  var av = (typeof AVISOS!=="undefined") ? AVISOS : [];
+  if(!av.length){ caja.hidden=true; lista.innerHTML=""; return; }
+  caja.hidden=false;
+  var h="";
+  for(var i=0;i<av.length;i++) h += "<li>"+esc(av[i])+"</li>";
+  lista.innerHTML=h;
+}
+
+function pieHorario(){
+  var orden = [1,2,3,4,5,6,0], lineas = [], i;
+  function clave(d){
+    var r = HORARIO[d];
+    if(!r) return "x";
+    var s = [];
+    for(var j=0;j<r.length;j++) s.push(hhmm(r[j][0])+"–"+hhmm(r[j][1]));
+    return s.join(" · ");
+  }
+  var iniz = 0;
+  for(i=1;i<=orden.length;i++){
+    if(i===orden.length || clave(orden[i])!==clave(orden[iniz])){
+      var a = D().diasC[orden[iniz]], b = D().diasC[orden[i-1]];
+      var etq = (iniz === i-1) ? a : (a+"–"+b);
+      var v = clave(orden[iniz]);
+      lineas.push(etq+"  "+(v==="x" ? D().cerradoDia : v));
+      iniz = i;
+    }
+  }
+  $("pieHorario").innerHTML = lineas.join("<br>");
+}
+
+/* ---------- buscador (debounce 140ms + plegado de acentos) ---------- */
+var tq = null;
+$("q").addEventListener("input", function(){
+  var v = this.value;
+  clearTimeout(tq);
+  tq = setTimeout(function(){ render(v); }, 140);
+});
+
+/* ---------- navegación por chips ---------- */
+$("tamiz").addEventListener("click", function(e){
+  var b = e.target.closest ? e.target.closest("[data-ir]") : null;
+  if(!b) return;
+  var el = document.getElementById(b.getAttribute("data-ir"));
+  if(!el) return;
+  var off = document.querySelector(".utiles").getBoundingClientRect().height + 8;
+  var y = el.getBoundingClientRect().top + window.pageYOffset - off;
+  window.scrollTo({ top:y, behavior: RM ? "auto" : "smooth" });
+});
+
+var obsNav = null;
+if("IntersectionObserver" in window){
+  obsNav = new IntersectionObserver(function(entries){
+    for(var i=0;i<entries.length;i++){
+      if(!entries[i].isIntersecting) continue;
+      var id = entries[i].target.id;
+      var bs = $("tamiz").querySelectorAll("button");
+      for(var j=0;j<bs.length;j++)
+        bs[j].classList.toggle("act", bs[j].getAttribute("data-ir")===id);
+    }
+  }, { rootMargin:"-30% 0px -60% 0px", threshold:0 });
+}
+function observarNav(){
+  if(!obsNav) return;
+  obsNav.disconnect();
+  var s = document.querySelectorAll("#menu > section[id]");
+  for(var i=0;i<s.length;i++) obsNav.observe(s[i]);
+}
+
+/* ---------- 9. REVERSO ---------- */
+var reverso = $("reverso"), revMedia = $("revMedia"), revImg = $("revImg");
+var scrollY = 0, ultimoFoco = null;
+
+function pintaReverso(f){
+  revMedia.classList.remove("con-img");
+  revImg.removeAttribute("src");
+  revImg.alt = tx(f.n);
+
+  var ref = String(f.ref || f.id).toUpperCase();   /* código corto de sección, no el id largo */
+  $("revGlifo").textContent = (tx(f.n).charAt(0) || "B").toUpperCase();
+  $("specRef").textContent = ref;
+
+  if(f.img){
+    revImg.onload  = function(){ revMedia.classList.add("con-img"); };
+    revImg.onerror = function(){ revMedia.classList.remove("con-img"); };
+    revImg.src = f.img;
+  }
+
+  $("revN").textContent = tx(f.n);
+  var desc = [f.desc?tx(f.desc):"", f.d?tx(f.d):""].filter(Boolean).join(" · ");
+  $("revD").textContent = desc;
+  $("revD").style.display = desc ? "" : "none";
+
+  var precio;
+  if(f.pend) precio = D().pendiente;
+  else if(f.copa || f.botella){
+    var pz=[];
+    if(f.copa)    pz.push(D().copa+" "+f.copa);
+    if(f.botella) pz.push(D().botella+" "+f.botella);
+    precio = pz.join("  ·  ");
+  } else precio = f.p || "";
+  $("revP").textContent = precio;
+
+  var mk = "";
+  if(f.mk) for(var i=0;i<f.mk.length;i++) mk += "<span>"+esc(f.mk[i])+"</span>";
+  $("revMk").innerHTML = mk;
+}
+
+function abrir(id, origen){
+  var f = porId[id];
+  if(!f) return;
+  ultimoFoco = origen || null;
+  pintaReverso(f);
+  scrollY = window.pageYOffset;
+  document.body.style.top = (-scrollY)+"px";
+  document.body.classList.add("bloq");
+  $("fondo").setAttribute("inert","");
+  reverso.classList.add("on");
+  reverso.setAttribute("aria-hidden","false");
+  reverso.scrollTop = 0;
+  $("revX").focus();
+}
+
+function cerrar(){
+  reverso.classList.remove("on");
+  reverso.setAttribute("aria-hidden","true");
+  $("fondo").removeAttribute("inert");
+  document.body.classList.remove("bloq");
+  document.body.style.top = "";
+  var prev = document.documentElement.style.scrollBehavior;
+  document.documentElement.style.scrollBehavior = "auto";
+  window.scrollTo(0, scrollY);
+  document.documentElement.style.scrollBehavior = prev;
+  if(ultimoFoco && ultimoFoco.focus) ultimoFoco.focus();
+}
+
+$("menu").addEventListener("click", function(e){
+  var b = e.target.closest ? e.target.closest("[data-ver]") : null;
+  if(b) abrir(b.getAttribute("data-ver"), b);
+});
+$("menu").addEventListener("keydown", function(e){
+  if(e.key!=="Enter" && e.key!==" " && e.key!=="Spacebar") return;
+  var b = e.target.closest ? e.target.closest("[data-ver]") : null;
+  if(!b) return;
+  e.preventDefault();
+  abrir(b.getAttribute("data-ver"), b);
+});
+$("revX").addEventListener("click", cerrar);
+document.addEventListener("keydown", function(e){
+  if(e.key==="Escape" && reverso.classList.contains("on")) cerrar();
+});
+
+/* cerrar con swipe hacia abajo > 90px */
+var ty0 = null;
+reverso.addEventListener("touchstart", function(e){
+  ty0 = (reverso.scrollTop<=0) ? e.touches[0].clientY : null;
+}, {passive:true});
+reverso.addEventListener("touchend", function(e){
+  if(ty0===null) return;
+  var dy = e.changedTouches[0].clientY - ty0;
+  ty0 = null;
+  if(dy > 90) cerrar();
+}, {passive:true});
+
+/* ---------- logos: si el archivo no existe, queda el wordmark ---------- */
+(function(){
+  var pares = [["logoIntro","marcaIntro"],["logoCab","marcaCab"]];
+  for(var i=0;i<pares.length;i++){
+    (function(img, box){
+      if(!img || !box) return;
+      img.addEventListener("load", function(){ box.classList.add("marca--img"); });
+      img.addEventListener("error", function(){ img.remove(); });
+      if(img.complete && img.naturalWidth) box.classList.add("marca--img");
+    })($(pares[i][0]), $(pares[i][1]));
+  }
+})();
+
+/* ============================================================
+   1. ENTRADA — medir / pintar / seek
+   ============================================================ */
+var entrada = $("entrada"), video = $("intro");
+var barTop = $("barTop"), omitir = $("omitir"), pista = $("pista"), marcaIntro = $("marcaIntro");
+var cues = entrada ? entrada.querySelectorAll(".cue") : [];
+var C = cues.length;
+var p = 0, objetivo = 0, buscando = false, videoOk = false, rafPend = false;
+
+function quitarEntrada(){
+  if(entrada && entrada.parentNode) entrada.parentNode.removeChild(entrada);
+  if(barTop && barTop.parentNode) barTop.parentNode.removeChild(barTop);
+  if(omitir && omitir.parentNode) omitir.parentNode.removeChild(omitir);
+  entrada = null;
+}
+
+/* progreso medido sobre TODA la entrada (pin + track), no sobre el track */
+function medir(){
+  if(!entrada) return 1;
+  var top = entrada.getBoundingClientRect().top;
+  var total = entrada.offsetHeight - document.documentElement.clientHeight;
+  if(total <= 0) return 0;
+  var v = -top / total;
+  return v < 0 ? 0 : (v > 1 ? 1 : v);
+}
+
+function pintarEntrada(){
+  if(!entrada) return;
+  p = medir();
+
+  for(var i=0;i<C;i++){
+    var centro = (i+0.5)/C, dd = (p-centro)*C;
+    var o = 1 - Math.abs(dd)*2;
+    o = o < 0 ? 0 : (o > 1 ? 1 : o);
+    if(i===0   && p < centro) o = 1;   /* la primera sostiene el arranque */
+    if(i===C-1 && p > centro) o = 1;   /* la última sostiene el final     */
+    cues[i].style.opacity = o;
+    cues[i].style.transform = "translateY(" + (dd * -24) + "px)";
+  }
+
+  var z = p*3; z = z < 0 ? 0 : (z > 1 ? 1 : z);
+  if(marcaIntro) marcaIntro.style.transform = "scale(" + (1 + z*0.12) + ")";
+
+  barTop.style.width = (p*100) + "%";
+  pista.style.opacity = p > 0.03 ? 0 : 1;
+
+  var fin = p >= 0.999;
+  barTop.style.opacity = fin ? 0 : 1;
+  omitir.style.opacity = fin ? 0 : 1;
+  omitir.style.pointerEvents = fin ? "none" : "auto";
+
+  if(videoOk){
+    objetivo = p * (video.duration - 0.05);
+    if(!buscando && p < 0.999){ buscando = true; seek(); }
+  }
+}
+
+/* bucle aparte: suaviza currentTime con lerp 0.4 y se apaga al salir del intro */
+function seek(){
+  if(!videoOk || !entrada){ buscando = false; return; }
+  var d = objetivo - video.currentTime;
+  if(Math.abs(d) > 0.015){
+    try{ video.currentTime += d * 0.4; }catch(e){}
+  }
+  if(p < 0.999){ requestAnimationFrame(seek); }
+  else { buscando = false; }
+}
+
+function onScroll(){
+  if(rafPend) return;
+  rafPend = true;
+  requestAnimationFrame(function(){ rafPend = false; pintarEntrada(); });
+}
+
+if(RM){
+  quitarEntrada();
+}else if(entrada){
+  video.addEventListener("loadedmetadata", function(){
+    if(isFinite(video.duration) && video.duration > 0){
+      videoOk = true;
+      entrada.classList.add("con-video");
+      pintarEntrada();
+    }
+  });
+  video.addEventListener("error", function(){ videoOk = false; });
+  var src = video.querySelector("source");
+  if(src) src.addEventListener("error", function(){ videoOk = false; });
+
+  /* iOS: el decoder necesita un play() antes de poder buscar frames */
+  function despertar(){
+    if(!video) return;
+    try{
+      var pr = video.play();
+      if(pr && pr.then) pr.then(function(){ video.pause(); })["catch"](function(){});
+      else video.pause();
+    }catch(e){}
+    window.removeEventListener("pointerdown", despertar);
+    window.removeEventListener("touchstart", despertar);
+  }
+  window.addEventListener("pointerdown", despertar, {passive:true});
+  window.addEventListener("touchstart", despertar, {passive:true});
+
+  window.addEventListener("scroll", onScroll, {passive:true});
+  window.addEventListener("resize", onScroll);
+
+  omitir.addEventListener("click", function(){
+    var el = $("carta");
+    window.scrollTo({ top: el.getBoundingClientRect().top + window.pageYOffset, behavior:"smooth" });
+  });
+
+  pintarEntrada();
+}
+
+/* ============================================================
+   ARRANQUE
+   ============================================================ */
+aplicarIdioma("es");
+observarNav();
+
+
+
+
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,395 @@
+{
+  "slug": "ocio",
+  "restaurante": "OCIO",
+  "ciudad": "Medellín",
+  "moneda": "COP",
+  "extraido_el": "2026-08-19",
+  "fuentes": [
+    {
+      "id": "pagina-carta",
+      "url_indicada": "http://www.restauranteocio.com.co",
+      "url_carta": "https://menuocimde.com/menu-espanol/",
+      "etiqueta_en_el_sitio": "MENÚ",
+      "como_se_llego": "restauranteocio.com.co (Squarespace) redirige a https://restauranteocio.com.co/ y su enlace «MENÚ» apunta a http://www.menuocimde.wordpress.com, que redirige a https://menuocimde.com/. Ahí hay dos botones: «ESPAÑOL» (/menu-espanol/) e «INGLÉS» (/menu-ingles/).",
+      "formato": "Página WordPress + Elementor que sólo embebe imágenes; no hay texto de carta en el HTML.",
+      "fechas": {
+        "impresa_en_la_carta": null,
+        "en_la_url": null,
+        "wp_date": "2024-09-03T21:45:58",
+        "wp_modified": "2026-02-25T17:13:31",
+        "observacion": "Datos de la WP REST API (página id 33). Creada el 3 de septiembre de 2024, última modificación el 25 de febrero de 2026."
+      },
+      "consultado_el": "2026-08-19"
+    },
+    {
+      "id": "img-entradas-1",
+      "url_carta": "https://menuocimde.com/wp-content/uploads/2026/02/Entradas1-1.png",
+      "formato": "PNG 1953 × 2461 px, bilingüe español/inglés, sin capa de texto: se transcribió leyendo la imagen.",
+      "fechas": {
+        "en_la_url": "2026/02 (año/mes en la ruta de subida de WordPress)",
+        "http_last_modified": "2026-02-25T17:13:23Z",
+        "impresa_en_la_carta": null
+      },
+      "consultado_el": "2026-08-19"
+    },
+    {
+      "id": "img-entradas-2",
+      "url_carta": "https://menuocimde.com/wp-content/uploads/2026/02/Entradas-2-2.png",
+      "formato": "PNG 1945 × 2457 px, bilingüe, sin capa de texto.",
+      "fechas": {
+        "en_la_url": "2026/02",
+        "http_last_modified": "2026-02-25T17:13:07Z",
+        "impresa_en_la_carta": null
+      },
+      "consultado_el": "2026-08-19"
+    },
+    {
+      "id": "img-fuertes-1",
+      "url_carta": "https://menuocimde.com/wp-content/uploads/2026/02/Fuertes-1-1.png",
+      "formato": "PNG 1953 × 2457 px, bilingüe, sin capa de texto.",
+      "fechas": {
+        "en_la_url": "2026/02",
+        "http_last_modified": "2026-02-25T17:12:54Z",
+        "impresa_en_la_carta": null
+      },
+      "consultado_el": "2026-08-19"
+    },
+    {
+      "id": "img-fuertes-2",
+      "url_carta": "https://menuocimde.com/wp-content/uploads/2026/02/Fuertes-2-1.png",
+      "formato": "PNG 1949 × 2461 px, bilingüe, sin capa de texto.",
+      "fechas": {
+        "en_la_url": "2026/02",
+        "http_last_modified": "2026-02-25T17:12:40Z",
+        "impresa_en_la_carta": null
+      },
+      "consultado_el": "2026-08-19"
+    },
+    {
+      "id": "img-postres-1",
+      "url_carta": "https://menuocimde.com/wp-content/uploads/2026/02/Postres-1.png",
+      "formato": "PNG 1645 × 2195 px. Portada ilustrada de la sección POSTRES: no contiene platos ni precios.",
+      "fechas": {
+        "en_la_url": "2026/02",
+        "http_last_modified": "2026-02-25T17:12:22Z",
+        "impresa_en_la_carta": null
+      },
+      "consultado_el": "2026-08-19"
+    },
+    {
+      "id": "img-postres-2",
+      "url_carta": "https://menuocimde.com/wp-content/uploads/2026/02/Postres2.png",
+      "formato": "PNG 1637 × 2193 px, bilingüe, sin capa de texto.",
+      "fechas": {
+        "en_la_url": "2026/02",
+        "http_last_modified": "2026-02-25T17:09:38Z",
+        "impresa_en_la_carta": null
+      },
+      "consultado_el": "2026-08-19"
+    }
+  ],
+  "avisos": [
+    "La carta de OCIO son seis imágenes PNG, no texto: no hay capa de texto que extraer ni OCR de por medio. Cada plato se transcribió leyendo las imágenes a resolución completa, partidas en franjas con solape.",
+    "Las imágenes son bilingües (columna izquierda en español, derecha en inglés). Se extrajo la columna en español.",
+    "CONFLICTO SIN RESOLVER — PESCA PLÁTANO: la columna en español marca $89.000 y la inglesa (PLANTAIN CATCH OF THE DAY) $95.000 en la misma imagen. Ambos se leen con nitidez, así que no es un problema de legibilidad sino una contradicción de la carta. El precio quedó en PENDIENTE con las dos lecturas registradas en 'conflicto'. Hay que confirmarlo con el restaurante.",
+    "La lámina de postres no imprime precio por ítem: usa un titular «29.000» para toda la sección. Se replicó ese valor en cada postre marcándolo con 'precio_origen'.",
+    "Postres-1.png es sólo una portada ilustrada, sin platos. Se declara como fuente para dejar constancia de que fue revisada.",
+    "Se respetó la ortografía original sin corregir: «cebollin», «De Atùn» (con acento grave), «aji del Vaupés», «jus citrico», «caramelo tirudo», «SANDUCHE DE LENGUA DE RES», y el doble punto final en «encurtidos..».",
+    "Las marcas dietarias ('marcas') y los sellos de cocción ('sello') vienen de íconos y sellos gráficos de la carta, interpretados con la leyenda que la propia lámina incluye al pie (Vegetariano / Vegano / Libre de gluten)."
+  ],
+  "secciones": [
+    {
+      "seccion": "ENTRADAS - STARTERS (1/2)",
+      "ruta": [
+        "ENTRADAS - STARTERS"
+      ],
+      "fuente": "img-entradas-1",
+      "platos": [
+        {
+          "nombre": "CROCANTES DE ARROZ",
+          "descripcion": "Tartare de res, cebollin y segmentos de limón.",
+          "precio": "$44.000",
+          "precio_valor": 44000,
+          "marcas": [
+            "libre de gluten"
+          ]
+        },
+        {
+          "nombre": "PALMITOS",
+          "descripcion": "Con beurre blanc y crocante de pan.",
+          "precio": "$43.000",
+          "precio_valor": 43000,
+          "marcas": [
+            "vegetariano"
+          ]
+        },
+        {
+          "nombre": "GAMBAS",
+          "descripcion": "Mantequilla de ajo negro y chiles ahumados. (Según disponibilidad)",
+          "precio": "$70.000",
+          "precio_valor": 70000
+        },
+        {
+          "nombre": "BERENJENAS",
+          "descripcion": "Queso de cabra, confitura de tomates y semillas.",
+          "precio": "$43.000",
+          "precio_valor": 43000,
+          "marcas": [
+            "vegetariano",
+            "vegano"
+          ]
+        },
+        {
+          "nombre": "AREPAS",
+          "descripcion": "Hechas en casa (2 ud.) rellenas de papada de cerdo, chimichurri de la casa y puré de aguacate.",
+          "precio": "$44.000",
+          "precio_valor": 44000,
+          "marcas": [
+            "vegetariano",
+            "vegano",
+            "libre de gluten"
+          ],
+          "sello": "6 HORAS DE COCCIÓN"
+        },
+        {
+          "nombre": "SANDUCHE DE LENGUA DE RES",
+          "descripcion": "Pan brioche, salsa verde, mayonesa de ají habanero y encurtidos..",
+          "precio": "$46.000",
+          "precio_valor": 46000,
+          "sello": "8 HORAS DE COCCIÓN"
+        }
+      ]
+    },
+    {
+      "seccion": "ENTRADAS - STARTERS (2/2)",
+      "ruta": [
+        "ENTRADAS - STARTERS"
+      ],
+      "fuente": "img-entradas-2",
+      "platos": [
+        {
+          "nombre": "PULPO",
+          "descripcion": "Chorizo oreado, papas confitadas y mantequilla de algas.",
+          "precio": "$60.000",
+          "precio_valor": 60000,
+          "marcas": [
+            "libre de gluten"
+          ]
+        },
+        {
+          "nombre": "ENSALADA DE MANGO",
+          "descripcion": "Con láminas de solomito, raíces chinas, maní, cebolla roja y vinagreta de tamarindo.",
+          "precio": "$48.000",
+          "precio_valor": 48000,
+          "marcas": [
+            "vegetariano",
+            "vegano"
+          ]
+        },
+        {
+          "nombre": "LANGOSTINOS",
+          "descripcion": "Glaseados en confitura de tomates y rocoto, sobre quinua crocante y albahaca.",
+          "precio": "$48.000",
+          "precio_valor": 48000,
+          "marcas": [
+            "libre de gluten"
+          ]
+        },
+        {
+          "nombre": "ENSALADA DE CHICHARRÓN",
+          "descripcion": "Con toronja, hierbabuena, zanahoria encurtida, cebolla, vinagreta de Ponzu y ají.",
+          "precio": "$46.000",
+          "precio_valor": 46000,
+          "sello": "6 HORAS DE COCCIÓN"
+        },
+        {
+          "nombre": "SASHIMI",
+          "descripcion": "Con vinagreta de soya y coriandro, arroz soplado, sal de algas, mayonesa de miel del Orinoco y wasabi.",
+          "precio": "$48.000",
+          "precio_valor": 48000
+        },
+        {
+          "nombre": "TARTARE",
+          "descripcion": "De Atùn, emulsión de trufas, chips de ajo y marañones caramelizados.",
+          "precio": "$48.000",
+          "precio_valor": 48000
+        }
+      ]
+    },
+    {
+      "seccion": "FUERTES - MAINS (1/2)",
+      "ruta": [
+        "FUERTES - MAINS"
+      ],
+      "fuente": "img-fuertes-1",
+      "platos": [
+        {
+          "nombre": "LOMO DE CERDO",
+          "descripcion": "Lentejas pardinas, guiso criollo y aji del Vaupés.",
+          "precio": "$70.000",
+          "precio_valor": 70000,
+          "marcas": [
+            "libre de gluten"
+          ]
+        },
+        {
+          "nombre": "MAZORCAS BABY",
+          "descripcion": "Del Valle del Cauca, orellanas, kimchi y puré de quesito y marañón.",
+          "precio": "$66.000",
+          "precio_valor": 66000,
+          "marcas": [
+            "vegetariano"
+          ]
+        },
+        {
+          "nombre": "SOLOMITO",
+          "descripcion": "Con jus citrico de res, salteado de arveja, orellana y cebolla ocañera.",
+          "precio": "$88.000",
+          "precio_valor": 88000,
+          "marcas": [
+            "libre de gluten"
+          ]
+        },
+        {
+          "nombre": "PESCA HUMMUS",
+          "descripcion": "Pesca fresca del pacífico con hummus de frijol blanco, zanahorias baby y almendras.",
+          "precio": "$89.000",
+          "precio_valor": 89000,
+          "marcas": [
+            "libre de gluten"
+          ]
+        },
+        {
+          "nombre": "PESCA PLÁTANO",
+          "descripcion": "Pesca fresca del pacífico, puré de plátano maduro, ensalada de palmitos del putumayo y aguacate.",
+          "precio": "PENDIENTE",
+          "precio_valor": null,
+          "marcas": [
+            "libre de gluten"
+          ],
+          "conflicto": {
+            "motivo": "La misma imagen imprime dos precios distintos para este plato según la columna de idioma. No se elige ninguno ni se promedia.",
+            "columna_espanol": {
+              "nombre": "PESCA PLÁTANO",
+              "precio": "$89.000",
+              "valor": 89000
+            },
+            "columna_ingles": {
+              "nombre": "PLANTAIN CATCH OF THE DAY",
+              "precio": "$95.000",
+              "valor": 95000
+            },
+            "verificacion": "Recorte ampliado de menuocimde.com/wp-content/uploads/2026/02/Fuertes-1-1.png revisado el 2026-08-19: ambos valores se leen con nitidez."
+          }
+        }
+      ]
+    },
+    {
+      "seccion": "FUERTES - MAINS (2/2)",
+      "ruta": [
+        "FUERTES - MAINS"
+      ],
+      "fuente": "img-fuertes-2",
+      "platos": [
+        {
+          "nombre": "TRUCHA",
+          "descripcion": "Con mantequilla de limón mandarino, lechuga romana con dátiles, mandarina y vinagreta de anchoas.",
+          "precio": "$73.000",
+          "precio_valor": 73000
+        },
+        {
+          "nombre": "ASADO DE TIRA",
+          "descripcion": "En caramelo de ají y limón. Acompañado de sticky rice con crocante de maní.",
+          "precio": "$90.000",
+          "precio_valor": 90000,
+          "sello": "12 HORAS DE COCCIÓN"
+        },
+        {
+          "nombre": "ENTRAÑA (350 grs)",
+          "descripcion": "Acompañado de puré de papa y ensalada de tomate con reducción de jerez.",
+          "precio": "$170.000",
+          "precio_valor": 170000,
+          "marcas": [
+            "libre de gluten"
+          ]
+        },
+        {
+          "nombre": "CODITO DE CERDO",
+          "descripcion": "En salsa de naranja y tomates con puré cremoso de papa pastusa.",
+          "precio": "$88.000",
+          "precio_valor": 88000,
+          "sello": "12 HORAS DE COCCIÓN"
+        },
+        {
+          "nombre": "POLLO",
+          "descripcion": "En cocción lenta con la piel crocante y especias, acompañado de papa criolla salteada con tocineta, chiles y limonaria.",
+          "precio": "$77.000",
+          "precio_valor": 77000
+        }
+      ]
+    },
+    {
+      "seccion": "POSTRES",
+      "ruta": [
+        "POSTRES"
+      ],
+      "fuente": "img-postres-2",
+      "precio_del_menu": {
+        "texto": "29.000",
+        "valor": 29000
+      },
+      "nota": "La lámina de postres imprime «29.000» como titular único de la sección y ningún postre lleva precio propio. Ese valor se replicó en cada ítem y se marcó con 'precio_origen'.",
+      "platos": [
+        {
+          "nombre": "TORTA DE CHOCOLATE",
+          "descripcion": "Torta de chocolate al vapor con helado de vainilla.",
+          "precio": "$29.000",
+          "precio_valor": 29000,
+          "precio_origen": "precio único de sección"
+        },
+        {
+          "nombre": "BARRA DE MIEL",
+          "descripcion": "Galleta de avena, helado de miel crocante y mascarpone casero.",
+          "precio": "$29.000",
+          "precio_valor": 29000,
+          "precio_origen": "precio único de sección"
+        },
+        {
+          "nombre": "CREPE BRULÉE",
+          "descripcion": "Crepe brulée de arequipe de búfala con helado de yogurt de cabra.",
+          "precio": "$29.000",
+          "precio_valor": 29000,
+          "precio_origen": "precio único de sección"
+        },
+        {
+          "nombre": "HELADOS DE MANGO Y COCO",
+          "descripcion": "Helados de mango y coco (a base de agua), con frutos rojos y crocante de azúcar de palma.",
+          "precio": "$29.000",
+          "precio_valor": 29000,
+          "marcas": [
+            "vegano",
+            "libre de gluten"
+          ],
+          "precio_origen": "precio único de sección"
+        },
+        {
+          "nombre": "MERENGÓN",
+          "descripcion": "Merengón helado de guanábana.",
+          "precio": "$29.000",
+          "precio_valor": 29000,
+          "marcas": [
+            "libre de gluten"
+          ],
+          "precio_origen": "precio único de sección"
+        },
+        {
+          "nombre": "SÁNDWICH DE GALLETA",
+          "descripcion": "Sándwich de galleta, caramelo tirudo, helado de marañón y crema montada.",
+          "precio": "$29.000",
+          "precio_valor": 29000,
+          "precio_origen": "precio único de sección"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,2895 @@
+{
+  "slug": "egeo",
+  "restaurante": "Egeo",
+  "ciudad": "Medellín",
+  "moneda": "COP",
+  "extraido_el": "2026-08-19",
+  "fuentes": [
+    {
+      "id": "carta-digital",
+      "url_indicada": "https://egeorestaurante.co",
+      "url_carta": "https://cached.cluvi.com/v1/menu/18569/on_table.json?lang=es",
+      "como_se_llego": "egeorestaurante.co (WordPress/Elementor) no aloja la carta: el botón «Ver menú» apunta a https://egeo.cluvi.co/egeo/menu-digital/home, una SPA de Cluvi. https://exp2.cluvi.com/domain/config.json?domain=egeo.cluvi.co devuelve el supplier_id 18569.",
+      "formato": "JSON (API de Cluvi). 2 categorías principales (COMIDAS, BEBIDAS), 373 productos.",
+      "identificadores": {
+        "cluvi_domain_id": "06c10b89-3662-493a-b466-3e4a31103372",
+        "cluvi_supplier_id": 18569
+      },
+      "fechas": {
+        "impresa_en_la_carta": null,
+        "en_la_url": null,
+        "http_last_modified": null,
+        "campos_de_fecha_en_el_json": null,
+        "observacion": "Igual que Cannario: la API de Cluvi no expone last-modified ni fechas por producto. La única fecha certificable es la de consulta."
+      },
+      "consultado_el": "2026-08-19"
+    }
+  ],
+  "secciones": [
+    {
+      "seccion": "COMIDAS > ENTRADAS Y COMPARTIR",
+      "ruta": [
+        "COMIDAS",
+        "ENTRADAS Y COMPARTIR"
+      ],
+      "fuente": "carta-digital",
+      "platos": [
+        {
+          "nombre": "TZATZIKI EGEO PICANTE🌶️",
+          "descripcion": "Yogur griego, pepino europeo, hinojo, ajo rostizado, peperoncino, zumo de limón.",
+          "precio": "$ 27.900",
+          "precio_valor": 27900,
+          "precio_crudo_api": "27900.0"
+        },
+        {
+          "nombre": "PAPAS TRUFADAS",
+          "descripcion": "Papas francesas, grana padano, paprika, perejil seco, emulsion de feta, trufa negra,.",
+          "precio": "$ 29.900",
+          "precio_valor": 29900,
+          "precio_crudo_api": "29900.0"
+        },
+        {
+          "nombre": "HUMMUS",
+          "descripcion": "Puré de garbanzos y tahini, garbanzos crocantes, paprika,ajonjoli negro, aceite de oliva, acompañado de pan pita.",
+          "precio": "$ 27.900",
+          "precio_valor": 27900,
+          "precio_crudo_api": "27900.0"
+        },
+        {
+          "nombre": "PULPO PARRILLADO, HUMMUS Y BERENJENA",
+          "descripcion": "Pulpo parrillado, hummus, berenjena, almendra, peperonccino, paprika, aceite de oliva.",
+          "precio": "$ 52.900",
+          "precio_valor": 52900,
+          "precio_crudo_api": "52900.0"
+        },
+        {
+          "nombre": "STRACCIATELLA, JAMÓN SERRANO Y DURAZNO",
+          "descripcion": "Stracciatella, jamón serrano crocante, duraznos grillados caramelizado, almendras. pistachos, miel de hierbas.",
+          "precio": "$ 49.900",
+          "precio_valor": 49900,
+          "precio_crudo_api": "49900.0"
+        },
+        {
+          "nombre": "DUMPLINGS DE BERENJENA Y POLLO",
+          "descripcion": "Dumplings rellenos de berenjenas y pollo, yogur griego, tahini y aceite de limonaria, paprika, ajonjoli negro, e hinojo fresco.",
+          "precio": "$ 35.900",
+          "precio_valor": 35900,
+          "precio_crudo_api": "35900.0"
+        },
+        {
+          "nombre": "PAPAS FETA",
+          "descripcion": "Papas francesas, queso feta, emulsion de queso feta, perejil seco, paprika.",
+          "precio": "$ 33.900",
+          "precio_valor": 33900,
+          "precio_crudo_api": "33900.0"
+        },
+        {
+          "nombre": "CAMARONES ENTOMATADOS🌶️",
+          "descripcion": "Camarones salteados, pasta de tomate artesanal, queso feta, aceitunas kalamata, acompañado de pan pita.",
+          "precio": "$ 55.900",
+          "precio_valor": 55900,
+          "precio_crudo_api": "55900.0"
+        },
+        {
+          "nombre": "BABAGANOUSH",
+          "descripcion": "Puré de berenjena asada, tahini, ajo rostizado y limón, paprika, perejil seco, aceite de oliva, acompañado de pan pita.",
+          "precio": "$ 27.900",
+          "precio_valor": 27900,
+          "precio_crudo_api": "27900.0"
+        },
+        {
+          "nombre": "TZATZIKI EGEO",
+          "descripcion": "Yogur griego, pepino europeo, hinojo, ajo rostizado, zumo de limón.",
+          "precio": "$ 27.900",
+          "precio_valor": 27900,
+          "precio_crudo_api": "27900.0"
+        },
+        {
+          "nombre": "KALAMARIKIA",
+          "descripcion": "Calamares apanados, kale crocante, limón, yogur de alcaparras",
+          "precio": "$ 54.900",
+          "precio_valor": 54900,
+          "precio_crudo_api": "54900.0"
+        },
+        {
+          "nombre": "DUMPLINGS DE PULPO Y CERDO",
+          "descripcion": "Dumpling rellenos de pulpo y cerdo, salsa ponzu, paprika, yogur tahine y aceite de limonaria.",
+          "precio": "$ 35.900",
+          "precio_valor": 35900,
+          "precio_crudo_api": "35900.0"
+        },
+        {
+          "nombre": "PULPO KOKARI",
+          "descripcion": "Pulpo parrillado y salsa de pimientos, chimichurri con alcaparras, perejil, acompañado de pan pita.",
+          "precio": "$ 89.900",
+          "precio_valor": 89900,
+          "precio_crudo_api": "89900.0"
+        },
+        {
+          "nombre": "HUMMUS VEGETARIANO COLIFLOR PARRILLADO",
+          "descripcion": "Coliflor parrillada, hummus de berenjena, yogur de ajo, alcaparras y almendras, paprika, peperonccino y aceite de oliva.",
+          "precio": "$ 35.900",
+          "precio_valor": 35900,
+          "precio_crudo_api": "35900.0"
+        }
+      ]
+    },
+    {
+      "seccion": "COMIDAS > PASTA",
+      "ruta": [
+        "COMIDAS",
+        "PASTA"
+      ],
+      "fuente": "carta-digital",
+      "platos": [
+        {
+          "nombre": "SPAGUETTI TRUFADO",
+          "descripcion": "Spaguetti, puré de trufa, jamón serrano, queso parmesano, vino blanco y champiñón.",
+          "precio": "$ 59.900",
+          "precio_valor": 59900,
+          "precio_crudo_api": "59900.0"
+        },
+        {
+          "nombre": "TORTELLINO CAPRESSE AL BURRO ",
+          "descripcion": "Tortellinis queso philadelphia y tomates secos, mantequilla avellanada, tomates confitados, almendras.",
+          "precio": "$ 58.900",
+          "precio_valor": 58900,
+          "precio_crudo_api": "58900.0"
+        },
+        {
+          "nombre": "RIGATONI ALLA VODKA",
+          "descripcion": "Rigatoni en salsa pomodoro y vodka, guanciale crocante, stracciatella.",
+          "precio": "$ 62.900",
+          "precio_valor": 62900,
+          "precio_crudo_api": "62900.0"
+        }
+      ]
+    },
+    {
+      "seccion": "COMIDAS > FUERTES",
+      "ruta": [
+        "COMIDAS",
+        "FUERTES"
+      ],
+      "fuente": "carta-digital",
+      "platos": [
+        {
+          "nombre": "RIB EYE",
+          "descripcion": "Rib bye (350g), chimichurri de setas, orzo porcini",
+          "precio": "$ 165.900",
+          "precio_valor": 165900,
+          "precio_crudo_api": "165900.0"
+        },
+        {
+          "nombre": "LOMO CREMOSO",
+          "descripcion": "Lomo de res aromatizado con aceite de trufa blanca, orzo en salsa blanca, champiñones.",
+          "precio": "$ 77.900",
+          "precio_valor": 77900,
+          "precio_crudo_api": "77900.0"
+        },
+        {
+          "nombre": "MILANESA DE CERDO Y PARMESANO",
+          "descripcion": "Chuletón de cerdo apanado, pesto de tomates secos, salsa de queso parmesano, acompañado de ensalada fresca o papas francesa.",
+          "precio": "$ 59.900",
+          "precio_valor": 59900,
+          "precio_crudo_api": "59900.0"
+        },
+        {
+          "nombre": "ATÚN GRILLADO",
+          "descripcion": "Atún fresco parrillado, arroz cremoso de mariscos, queso feta, chimichurri de remolacha encurtida.",
+          "precio": "$ 60.500",
+          "precio_valor": 60500,
+          "precio_crudo_api": "60500.0"
+        },
+        {
+          "nombre": "POLLO AL CARBON AGRIDULCE",
+          "descripcion": "Medio pollo al carbón, salsa sweet chili, ensalada de manzana, hierbabuena y cilantro.",
+          "precio": "$ 59.900",
+          "precio_valor": 59900,
+          "precio_crudo_api": "59900.0"
+        },
+        {
+          "nombre": "POLLO AL CARBON FINAS HIERBAS",
+          "descripcion": "Medio pollo al carbón, chimichurri de setas y emulsión de ajo.",
+          "precio": "$ 59.900",
+          "precio_valor": 59900,
+          "precio_crudo_api": "59900.0"
+        },
+        {
+          "nombre": "LOMO DE RES CENIZA",
+          "descripcion": "Lomo de res, zanahorias baby caramelizadas, cremoso de puerro y parmesano",
+          "precio": "$ 77.900",
+          "precio_valor": 77900,
+          "precio_crudo_api": "77900.0"
+        },
+        {
+          "nombre": "SALMÓN STICKY",
+          "descripcion": "Salmón parrillado sticky, arroz cremoso de champiñones. aderezo de salmòn,ligeramente picante (vinagre de jerez y peperoncino)",
+          "precio": "$ 65.900",
+          "precio_valor": 65900,
+          "precio_crudo_api": "65900.0"
+        },
+        {
+          "nombre": "LOMO CACIO E PEPE",
+          "descripcion": "Lomo, orzo en salsa cacio e pepe , queso grana padano, chimichurri de alcaparras, aceite de trufa blanca, brotes.",
+          "precio": "$ 77.900",
+          "precio_valor": 77900,
+          "precio_crudo_api": "77900.0"
+        },
+        {
+          "nombre": "PESCA BLANCA EN ORZO CITRICO",
+          "descripcion": "Pesca de dia, orzo cremoso al limon, ajonjoli negro, kale crocante.\n\nCatch of the day, creamy lemon orzo, black sesame seeds, fried kale.",
+          "precio": "$ 65.900",
+          "precio_valor": 65900,
+          "precio_crudo_api": "65900.0"
+        },
+        {
+          "nombre": "LOMO MERMELADA UVA",
+          "descripcion": "Solomito en mermelada de uva, sobre un encostrado de frutos secos con mermelada de uva, acompañado de media porcion de spaguetini en salsa de queso y queso belgioso.",
+          "precio": "$ 85.900",
+          "precio_valor": 85900,
+          "precio_crudo_api": "85900.0"
+        }
+      ]
+    },
+    {
+      "seccion": "COMIDAS > ENSALADAS",
+      "ruta": [
+        "COMIDAS",
+        "ENSALADAS"
+      ],
+      "fuente": "carta-digital",
+      "platos": [
+        {
+          "nombre": "ENSALADA GRIEGA",
+          "descripcion": "Tomate, queso feta, pepino europeo, cebolla roja, pimentón verde, aceituna kalamata, aceite de oliva, limón y hierbabuena.",
+          "precio": "$ 36.900",
+          "precio_valor": 36900,
+          "precio_crudo_api": "36900.0"
+        },
+        {
+          "nombre": "MEZCLUM Y KALE CROCANTE",
+          "descripcion": "Kale parrillado, garbanzo crocante, cogollo europeo, picadillo de espárragos y setas, alcaparras fritas, almendras tostadas, manzana verde, yogurt griego y vinagreta de manzana",
+          "precio": "$ 36.500",
+          "precio_valor": 36500,
+          "precio_crudo_api": "36500.0"
+        },
+        {
+          "nombre": "ENSALADA DE BURRATA ",
+          "descripcion": "Mezclum con duraznos en almíbar de naranjas, pesto de albahaca y reducción de balsámico, almendras y tomates confitados",
+          "precio": "$ 45.900",
+          "precio_valor": 45900,
+          "precio_crudo_api": "45900.0"
+        },
+        {
+          "nombre": "AD SALMON",
+          "descripcion": "$29.900",
+          "precio": "$ 29.900",
+          "precio_valor": 29900,
+          "precio_crudo_api": "29900.0"
+        },
+        {
+          "nombre": "AD SOLOMITO",
+          "descripcion": "$48.900",
+          "precio": "$ 48.900",
+          "precio_valor": 48900,
+          "precio_crudo_api": "48900.0"
+        },
+        {
+          "nombre": "AD CAMARONES",
+          "descripcion": "$24.900",
+          "precio": "$ 24.900",
+          "precio_valor": 24900,
+          "precio_crudo_api": "24900.0"
+        },
+        {
+          "nombre": "ENSALADA DE QUESO FETA",
+          "descripcion": "mezclun, mermelada de uva en soya vino tinto , praline de pecanas en peperoncino y almendras tostadas, hojaldre, queso de cabra flameado en azucar.\n\nMesclun, red wine and soy grape jam, pecan praline with peperoncino and toasted almonds puff pastry, sugar flambèed goat cheese.",
+          "precio": "$ 49.900",
+          "precio_valor": 49900,
+          "precio_crudo_api": "49900.0"
+        }
+      ]
+    },
+    {
+      "seccion": "COMIDAS > POSTRES",
+      "ruta": [
+        "COMIDAS",
+        "POSTRES"
+      ],
+      "fuente": "carta-digital",
+      "platos": [
+        {
+          "nombre": "TORTA DE ZANAHORIA",
+          "descripcion": "Torta húmeda de zanahoria con nueces de Brasil, frosting de queso philadelphia y nuez de nogal.",
+          "precio": "$ 23.900",
+          "precio_valor": 23900,
+          "precio_crudo_api": "23900.0"
+        },
+        {
+          "nombre": "PECAN PIE",
+          "descripcion": "Porción de pecan pie, helado de yogur, salsa toffe y tierra de alfajor.",
+          "precio": "$ 23.900",
+          "precio_valor": 23900,
+          "precio_crudo_api": "23900.0"
+        },
+        {
+          "nombre": "TORTA VASCA ",
+          "descripcion": "Tarta Vasca en queso philadelphia, crumble mani- pistacho, con helado de yogur griego,",
+          "precio": "$ 24.900",
+          "precio_valor": 24900,
+          "precio_crudo_api": "24900.0"
+        }
+      ]
+    },
+    {
+      "seccion": "BEBIDAS > COCTELES DE LUJO",
+      "ruta": [
+        "BEBIDAS",
+        "COCTELES DE LUJO"
+      ],
+      "fuente": "carta-digital",
+      "platos": [
+        {
+          "nombre": "DE LUJO -MARGARITA PATRON SILVER ",
+          "descripcion": null,
+          "precio": "$ 70.000",
+          "precio_valor": 70000,
+          "precio_crudo_api": "70000.0"
+        },
+        {
+          "nombre": "DE LUJO - PALOMA PATRON",
+          "descripcion": null,
+          "precio": "$ 70.000",
+          "precio_valor": 70000,
+          "precio_crudo_api": "70000.0"
+        },
+        {
+          "nombre": "DE LUJO - ESPRESSO MARTINI GREY GOOSE ",
+          "descripcion": null,
+          "precio": "$ 70.000",
+          "precio_valor": 70000,
+          "precio_crudo_api": "70000.0"
+        },
+        {
+          "nombre": "DE LUJO - MARGARITA TEQ MAESTRO DOBEL ",
+          "descripcion": null,
+          "precio": "$ 85.000",
+          "precio_valor": 85000,
+          "precio_crudo_api": "85000.0"
+        },
+        {
+          "nombre": "DE LUJO - MARGARITA DON JULIO ",
+          "descripcion": null,
+          "precio": "$ 70.000",
+          "precio_valor": 70000,
+          "precio_crudo_api": "70000.0"
+        },
+        {
+          "nombre": "DE LUJO - PALOMA DON JULIO ",
+          "descripcion": null,
+          "precio": "$ 70.000",
+          "precio_valor": 70000,
+          "precio_crudo_api": "70000.0"
+        },
+        {
+          "nombre": "DE LUJO - PALOMA DOBEL ",
+          "descripcion": "Con Tequila Maestro Dobel.",
+          "precio": "$ 85.000",
+          "precio_valor": 85000,
+          "precio_crudo_api": "85000.0"
+        },
+        {
+          "nombre": "DE LUJO- ESPRESSO MARTINI  BELVEDERE",
+          "descripcion": null,
+          "precio": "$ 70.000",
+          "precio_valor": 70000,
+          "precio_crudo_api": "70000.0"
+        },
+        {
+          "nombre": "DE LUJO - MANHATHAN - WOODFORD",
+          "descripcion": null,
+          "precio": "$ 70.000",
+          "precio_valor": 70000,
+          "precio_crudo_api": "70000.0"
+        }
+      ]
+    },
+    {
+      "seccion": "BEBIDAS > COCTELES INSIGNIAS",
+      "ruta": [
+        "BEBIDAS",
+        "COCTELES INSIGNIAS"
+      ],
+      "fuente": "carta-digital",
+      "platos": [
+        {
+          "nombre": "MILOS",
+          "descripcion": "Bombay, licor de naranja, mermelada de higos, zumo de cítricos y tomillo.",
+          "precio": "$ 55.000",
+          "precio_valor": 55000,
+          "precio_crudo_api": "55000.0"
+        },
+        {
+          "nombre": "NAXOS",
+          "descripcion": "Tequila Cazadores, aguamiel de pimientos y vegetales, zumo de limón, polvo de cítricos, clara de huevo y frutos amarillos.",
+          "precio": "$ 55.000",
+          "precio_valor": 55000,
+          "precio_crudo_api": "55000.0"
+        },
+        {
+          "nombre": "MYKONOS",
+          "descripcion": "Vodka Smirnoff, almíbar de tomate, solución cítrica de albahaca, cordial de habanero, carbón activado, tomate confitado.",
+          "precio": "$ 55.000",
+          "precio_valor": 55000,
+          "precio_crudo_api": "55000.0"
+        },
+        {
+          "nombre": "SANTORINI",
+          "descripcion": "Mezcal Ojo de Tigre, Aperol, almíbar de mandarina, solución cítrica y tónica indi.",
+          "precio": "$ 55.000",
+          "precio_valor": 55000,
+          "precio_crudo_api": "55000.0"
+        },
+        {
+          "nombre": "KOS",
+          "descripcion": "Bacardi 8, zumo de piña, limón mandarino, horchata de maní.",
+          "precio": "$ 60.000",
+          "precio_valor": 60000,
+          "precio_crudo_api": "60000.0"
+        }
+      ]
+    },
+    {
+      "seccion": "BEBIDAS > COCTELES CLÁSICOS",
+      "ruta": [
+        "BEBIDAS",
+        "COCTELES CLÁSICOS"
+      ],
+      "fuente": "carta-digital",
+      "platos": [
+        {
+          "nombre": "MARGARITA PATRÓN",
+          "descripcion": "Tequila Patrón Silver, triple sec, limón, sal.",
+          "precio": "$ 70.000",
+          "precio_valor": 70000,
+          "precio_crudo_api": "70000.0"
+        },
+        {
+          "nombre": "MARGARITA",
+          "descripcion": "Tequila Cazadores Plata, zumo de limón, Cointreau y sal.",
+          "precio": "$ 55.000",
+          "precio_valor": 55000,
+          "precio_crudo_api": "55000.0"
+        },
+        {
+          "nombre": "PALOMA",
+          "descripcion": "Tequila Cazadores Plata, pelete de toronja, limón, gaseosa de toronja y escarcha de Jamaica.",
+          "precio": "$ 55.000",
+          "precio_valor": 55000,
+          "precio_crudo_api": "55000.0"
+        },
+        {
+          "nombre": "ESPRESSO MARTINI",
+          "descripcion": "Grey Goose, licor de café, café espresso, almibar de vainilla, granos de café.",
+          "precio": "$ 55.000",
+          "precio_valor": 55000,
+          "precio_crudo_api": "55000.0"
+        },
+        {
+          "nombre": "NEGRONI",
+          "descripcion": "Bombay, vermut rosso, campari, twist de naranja.",
+          "precio": "$ 55.000",
+          "precio_valor": 55000,
+          "precio_crudo_api": "55000.0"
+        },
+        {
+          "nombre": "PENICILLIN",
+          "descripcion": "Dewars 12, almíbar de caramelo de jengibre, limón.",
+          "precio": "$ 55.000",
+          "precio_valor": 55000,
+          "precio_crudo_api": "55000.0"
+        },
+        {
+          "nombre": "MOJITO",
+          "descripcion": "Ron Bacardí Carta Blanca, limón, azúcar, hierbabuena, soda bretaña.",
+          "precio": "$ 55.000",
+          "precio_valor": 55000,
+          "precio_crudo_api": "55000.0"
+        },
+        {
+          "nombre": "ST-GERMAIN SPRITZ",
+          "descripcion": "St-Germain, Martini prosecco, soda bretaña, hierbabuena, casco de limón.",
+          "precio": "$ 55.000",
+          "precio_valor": 55000,
+          "precio_crudo_api": "55000.0"
+        },
+        {
+          "nombre": "FRENCH 75",
+          "descripcion": "Bombay, limón, almíbar simple, prosecco, twist de limón.",
+          "precio": "$ 55.000",
+          "precio_valor": 55000,
+          "precio_crudo_api": "55000.0"
+        },
+        {
+          "nombre": "MOSCOW MULE",
+          "descripcion": "Vodka Smirnoff, ginger beer, limón, hierbabuena.",
+          "precio": "$ 55.000",
+          "precio_valor": 55000,
+          "precio_crudo_api": "55000.0"
+        },
+        {
+          "nombre": "COSMOPOLITAN",
+          "descripcion": "Vodka Smirnoff, Cointreau, jugo de arándanos, limón, twist de naranja.",
+          "precio": "$ 55.000",
+          "precio_valor": 55000,
+          "precio_crudo_api": "55000.0"
+        },
+        {
+          "nombre": "BLOODY MARY",
+          "descripcion": "Vodka Smirnoff, Clamato, Salsa Inglesa, Tabasco, Zumo de Limon, Sal y Pimienta.",
+          "precio": "$ 55.000",
+          "precio_valor": 55000,
+          "precio_crudo_api": "55000.0"
+        },
+        {
+          "nombre": "OLD FASHIONED",
+          "descripcion": "Bulleit rye, azucar, bitters, twist de naranja.",
+          "precio": "$ 55.000",
+          "precio_valor": 55000,
+          "precio_crudo_api": "55000.0"
+        },
+        {
+          "nombre": "MARGARITA DON JULIO ",
+          "descripcion": "Tequila Don Julio Blanco, triple sec, limón, sal.",
+          "precio": "$ 70.000",
+          "precio_valor": 70000,
+          "precio_crudo_api": "70000.0"
+        },
+        {
+          "nombre": "MANHATTAN",
+          "descripcion": "Bulleit Bourbon, vermouth rosso, bitters, cereza.",
+          "precio": "$ 55.000",
+          "precio_valor": 55000,
+          "precio_crudo_api": "55000.0"
+        },
+        {
+          "nombre": "DRY MARTINI",
+          "descripcion": "Bombay, vermouth dry, aceituna.",
+          "precio": "$ 55.000",
+          "precio_valor": 55000,
+          "precio_crudo_api": "55000.0"
+        },
+        {
+          "nombre": "APEROL SPRITZ ",
+          "descripcion": "Aperol, Cinzano to spritz, soda bretaña, naranja.",
+          "precio": "$ 45.000",
+          "precio_valor": 45000,
+          "precio_crudo_api": "45000.0"
+        },
+        {
+          "nombre": "TOMMY'S MARGARITA",
+          "descripcion": "Tequila Jimador reposado, zumo de limón y miel de ágave.",
+          "precio": "$ 55.000",
+          "precio_valor": 55000,
+          "precio_crudo_api": "55000.0"
+        },
+        {
+          "nombre": "CARAJILLO",
+          "descripcion": "Licor 43, café espresso.",
+          "precio": "$ 55.000",
+          "precio_valor": 55000,
+          "precio_crudo_api": "55000.0"
+        },
+        {
+          "nombre": "PISCO SOUR",
+          "descripcion": "Pisco, limón, azúcar, clara de huevo, bitters.",
+          "precio": "$ 48.000",
+          "precio_valor": 48000,
+          "precio_crudo_api": "48000.0"
+        }
+      ]
+    },
+    {
+      "seccion": "BEBIDAS > TEQUILA",
+      "ruta": [
+        "BEBIDAS",
+        "TEQUILA"
+      ],
+      "fuente": "carta-digital",
+      "platos": [
+        {
+          "nombre": "PATRON SILVER",
+          "descripcion": "Trago $64.000\nBoltella $865.000",
+          "precio": "$ 0",
+          "precio_valor": 0,
+          "precio_crudo_api": "0.0"
+        },
+        {
+          "nombre": "PATRON REPOSADO",
+          "descripcion": "Trago $69.000\nBotella $920.000",
+          "precio": "$ 0",
+          "precio_valor": 0,
+          "precio_crudo_api": "0.0"
+        },
+        {
+          "nombre": "PATRON CRISTALINO",
+          "descripcion": "Trago $82.000\nBotella $1.035.000",
+          "precio": "$ 0",
+          "precio_valor": 0,
+          "precio_crudo_api": "0.0"
+        },
+        {
+          "nombre": "PATRON AÑEJO",
+          "descripcion": "Trago $75.000",
+          "precio": "$ 980.000",
+          "precio_valor": 980000,
+          "precio_crudo_api": "980000.0"
+        },
+        {
+          "nombre": "DON JULIO REPOSADO",
+          "descripcion": "Trago $69.000\nBotella $980.000",
+          "precio": "$ 0",
+          "precio_valor": 0,
+          "precio_crudo_api": "0.0"
+        },
+        {
+          "nombre": "PATRON CIELO ",
+          "descripcion": "Trago $230.000\nBotella $2.185.000",
+          "precio": "$ 0",
+          "precio_valor": 0,
+          "precio_crudo_api": "0.0"
+        },
+        {
+          "nombre": "CAZADORES CRISTALINO",
+          "descripcion": "Trago $42.000\nBotella $600.000",
+          "precio": "$ 0",
+          "precio_valor": 0,
+          "precio_crudo_api": "0.0"
+        },
+        {
+          "nombre": "CAZADORES BLANCO",
+          "descripcion": "Trago $35.000\nBotella $405.000",
+          "precio": "$ 0",
+          "precio_valor": 0,
+          "precio_crudo_api": "0.0"
+        },
+        {
+          "nombre": "DON JULIO AÑEJO",
+          "descripcion": "Trago $82.000\nBotella $1.035.000",
+          "precio": "$ 0",
+          "precio_valor": 0,
+          "precio_crudo_api": "0.0"
+        },
+        {
+          "nombre": "DON JULIO 1942",
+          "descripcion": "Trago $265.000\nBotella $2.415.000",
+          "precio": "$ 0",
+          "precio_valor": 0,
+          "precio_crudo_api": "0.0"
+        },
+        {
+          "nombre": "DON JULIO BLANCO",
+          "descripcion": "Trago $64.000\nBotella $965.000",
+          "precio": "$ 0",
+          "precio_valor": 0,
+          "precio_crudo_api": "0.0"
+        },
+        {
+          "nombre": "DON JULIO 70",
+          "descripcion": "Trago $92.000\nBotella $1.090.000",
+          "precio": "$ 0",
+          "precio_valor": 0,
+          "precio_crudo_api": "0.0"
+        },
+        {
+          "nombre": "HERRADURA ULTRA",
+          "descripcion": "Trago $82.000\nBotella $1.035.000",
+          "precio": "$ 0",
+          "precio_valor": 0,
+          "precio_crudo_api": "0.0"
+        },
+        {
+          "nombre": "HERRADURA PLATA",
+          "descripcion": "Trago $52.000\nBotella $750.000",
+          "precio": "$ 0",
+          "precio_valor": 0,
+          "precio_crudo_api": "0.0"
+        },
+        {
+          "nombre": "JIMADOR CRISTALINO",
+          "descripcion": "Trago $64.000\nBotella $600.000",
+          "precio": "$ 0",
+          "precio_valor": 0,
+          "precio_crudo_api": "0.0"
+        },
+        {
+          "nombre": "ALTOS PLATA",
+          "descripcion": "Trago $52.000\nBotella $735.000",
+          "precio": "$ 0",
+          "precio_valor": 0,
+          "precio_crudo_api": "0.0"
+        },
+        {
+          "nombre": "MAESTRO DOBEL",
+          "descripcion": "Trago $80.000\nBotella $1.035.000",
+          "precio": "$ 0",
+          "precio_valor": 0,
+          "precio_crudo_api": "0.0"
+        },
+        {
+          "nombre": "1800 REPOSADO",
+          "descripcion": "Trago $52.000\nBotella $830.000",
+          "precio": "$ 0",
+          "precio_valor": 0,
+          "precio_crudo_api": "0.0"
+        },
+        {
+          "nombre": "1800 SILVER",
+          "descripcion": "Trago $46.000\nBotella $690.000",
+          "precio": "$ 0",
+          "precio_valor": 0,
+          "precio_crudo_api": "0.0"
+        },
+        {
+          "nombre": "1800 AÑEJO",
+          "descripcion": "Trago $64.000\nBotella $910.000",
+          "precio": "$ 0",
+          "precio_valor": 0,
+          "precio_crudo_api": "0.0"
+        },
+        {
+          "nombre": "1800 CRISTALINO",
+          "descripcion": "Trago $75.000\nBotella $980.000",
+          "precio": "$ 0",
+          "precio_valor": 0,
+          "precio_crudo_api": "0.0"
+        },
+        {
+          "nombre": "JOSE CUERVO RESERVA DE LA FAMILIA PLATINO",
+          "descripcion": "Trago $80.000\nBotella $1.035.000",
+          "precio": "$ 0",
+          "precio_valor": 0,
+          "precio_crudo_api": "0.0"
+        },
+        {
+          "nombre": "JOSE CUERVO TRADICIONAL",
+          "descripcion": "Trago $35.000\nBotella $460.000",
+          "precio": "$ 0",
+          "precio_valor": 0,
+          "precio_crudo_api": "0.0"
+        },
+        {
+          "nombre": "TEQUILA CORRALEJO BLANCO ",
+          "descripcion": "Trago $58.000\nBotella $830.000",
+          "precio": "$ 0",
+          "precio_valor": 0,
+          "precio_crudo_api": "0.0"
+        },
+        {
+          "nombre": "CLASE AZUL  REPOSADO",
+          "descripcion": "Trago $220.000\nBotella $3.450.000",
+          "precio": "$ 0",
+          "precio_valor": 0,
+          "precio_crudo_api": "0.0"
+        }
+      ]
+    },
+    {
+      "seccion": "BEBIDAS > MEZCAL",
+      "ruta": [
+        "BEBIDAS",
+        "MEZCAL"
+      ],
+      "fuente": "carta-digital",
+      "platos": [
+        {
+          "nombre": "OJO DE TIGRE",
+          "descripcion": "Trago $46.000\nBotellas $670.000",
+          "precio": "$ 0",
+          "precio_valor": 0,
+          "precio_crudo_api": "0.0"
+        },
+        {
+          "nombre": "UNIÓN EL JOVEN",
+          "descripcion": "Trago $42.000\nBotella $565.000",
+          "precio": "$ 0",
+          "precio_valor": 0,
+          "precio_crudo_api": "0.0"
+        },
+        {
+          "nombre": "UNIÓN EL VIEJO",
+          "descripcion": "Trago $64.000\nBotella $760.000",
+          "precio": "$ 0",
+          "precio_valor": 0,
+          "precio_crudo_api": "0.0"
+        },
+        {
+          "nombre": "SIETE MISTERIOS",
+          "descripcion": "Trago $64.000\nBotella $865.000",
+          "precio": "$ 0",
+          "precio_valor": 0,
+          "precio_crudo_api": "0.0"
+        },
+        {
+          "nombre": "AMORES",
+          "descripcion": "Trago $65.000",
+          "precio": "$ 0",
+          "precio_valor": 0,
+          "precio_crudo_api": "0.0"
+        },
+        {
+          "nombre": "MONTELOBOS",
+          "descripcion": "Trago $69.000\nBotella $865.000",
+          "precio": "$ 0",
+          "precio_valor": 0,
+          "precio_crudo_api": "0.0"
+        },
+        {
+          "nombre": "CONTRALUZ",
+          "descripcion": "Trago $80.000\nBotella $1.035.000",
+          "precio": "$ 0",
+          "precio_valor": 0,
+          "precio_crudo_api": "0.0"
+        }
+      ]
+    },
+    {
+      "seccion": "BEBIDAS > WHISKY SINGLE MALT",
+      "ruta": [
+        "BEBIDAS",
+        "WHISKY SINGLE MALT"
+      ],
+      "fuente": "carta-digital",
+      "platos": [
+        {
+          "nombre": "MACALLAN DOUBLE CASK 12 AÑOS",
+          "descripcion": "Trago $60.000\nBotella $720.000",
+          "precio": "$ 0",
+          "precio_valor": 0,
+          "precio_crudo_api": "0.0"
+        },
+        {
+          "nombre": "MACALLAN SHERRY OAK 12 AÑOS",
+          "descripcion": "Trago $115.000\nBotella $1.265.000",
+          "precio": "$ 0",
+          "precio_valor": 0,
+          "precio_crudo_api": "0.0"
+        },
+        {
+          "nombre": "MACALLAN DOUBLE CASK 15 AÑOS",
+          "descripcion": "Trago $195.000\nBotella $2.070.000",
+          "precio": "$ 0",
+          "precio_valor": 0,
+          "precio_crudo_api": "0.0"
+        },
+        {
+          "nombre": "GLENLIVET 12",
+          "descripcion": "Trago $55.000\nBotella $795.000",
+          "precio": "$ 0",
+          "precio_valor": 0,
+          "precio_crudo_api": "0.0"
+        },
+        {
+          "nombre": "MACALLAN 18 AÑOS",
+          "descripcion": "Trago $460.000\nBotella $4.600.000",
+          "precio": "$ 0",
+          "precio_valor": 0,
+          "precio_crudo_api": "0.0"
+        },
+        {
+          "nombre": "THE GLENLIVET FOUNDERS",
+          "descripcion": "Botella $750.000\nTrago $48.000",
+          "precio": "$ 0",
+          "precio_valor": 0,
+          "precio_crudo_api": "0.0"
+        },
+        {
+          "nombre": "THE GLENLIVET CARIBBEAN RESERVE",
+          "descripcion": "Botella $750.000\nTrago $52.000",
+          "precio": "$ 0",
+          "precio_valor": 0,
+          "precio_crudo_api": "0.0"
+        }
+      ]
+    },
+    {
+      "seccion": "BEBIDAS > WHISKEY",
+      "ruta": [
+        "BEBIDAS",
+        "WHISKEY"
+      ],
+      "fuente": "carta-digital",
+      "platos": [
+        {
+          "nombre": "BULLEIT RYE",
+          "descripcion": "Trago $42.000\nBotella $598.000",
+          "precio": "$ 0",
+          "precio_valor": 0,
+          "precio_crudo_api": "0.0"
+        },
+        {
+          "nombre": "BULLEIT BOURBON",
+          "descripcion": "Trago $42.000\nBotella $565.000",
+          "precio": "$ 0",
+          "precio_valor": 0,
+          "precio_crudo_api": "0.0"
+        },
+        {
+          "nombre": "JACK DANIEL'S N7",
+          "descripcion": "Trago $42.000\nBotella $440.000",
+          "precio": "$ 0",
+          "precio_valor": 0,
+          "precio_crudo_api": "0.0"
+        },
+        {
+          "nombre": "JACK DANIEL'S HONEY",
+          "descripcion": "Trago $35.000\nBotella $425.000",
+          "precio": "$ 0",
+          "precio_valor": 0,
+          "precio_crudo_api": "0.0"
+        },
+        {
+          "nombre": "GENTLEMAN JACK",
+          "descripcion": "Trago $42.000\nBotella $610.000",
+          "precio": "$ 0",
+          "precio_valor": 0,
+          "precio_crudo_api": "0.0"
+        },
+        {
+          "nombre": "WOODFORD RESERVE",
+          "descripcion": "Trago $58.000\nBotella $715.000",
+          "precio": "$ 0",
+          "precio_valor": 0,
+          "precio_crudo_api": "0.0"
+        }
+      ]
+    },
+    {
+      "seccion": "BEBIDAS > WHISKYS",
+      "ruta": [
+        "BEBIDAS",
+        "WHISKYS"
+      ],
+      "fuente": "carta-digital",
+      "platos": [
+        {
+          "nombre": "DEWAR'S 15 AÑOS",
+          "descripcion": "Trago $52.000\nBotella $690.000",
+          "precio": "$ 0",
+          "precio_valor": 0,
+          "precio_crudo_api": "0.0"
+        },
+        {
+          "nombre": "DEWAR'S 12 AÑOS",
+          "descripcion": "Trago $42.000\nBotella $540.000",
+          "precio": "$ 0",
+          "precio_valor": 0,
+          "precio_crudo_api": "0.0"
+        },
+        {
+          "nombre": "BUCHANAN'S 12",
+          "descripcion": "Trago $42.000\nBotella $565.000",
+          "precio": "$ 0",
+          "precio_valor": 0,
+          "precio_crudo_api": "0.0"
+        },
+        {
+          "nombre": "BUCHANAN'S 18",
+          "descripcion": "Trago $92.000\nBotella $1.095.000",
+          "precio": "$ 0",
+          "precio_valor": 0,
+          "precio_crudo_api": "0.0"
+        },
+        {
+          "nombre": "J. W BLUE LABEL",
+          "descripcion": "Trago $230.000\nbotella $1.955.000",
+          "precio": "$ 0",
+          "precio_valor": 0,
+          "precio_crudo_api": "0.0"
+        },
+        {
+          "nombre": "OLD PARR 12",
+          "descripcion": "Trago $40.000\nBotella $530.000",
+          "precio": "$ 0",
+          "precio_valor": 0,
+          "precio_crudo_api": "0.0"
+        },
+        {
+          "nombre": "J. W BLACK LABEL",
+          "descripcion": "Trago $42.000\nBotella $530.000",
+          "precio": "$ 0",
+          "precio_valor": 0,
+          "precio_crudo_api": "0.0"
+        },
+        {
+          "nombre": "J. W DOUBLE BLACK",
+          "descripcion": "Trago $44.000\nBotella $644.000",
+          "precio": "$ 0",
+          "precio_valor": 0,
+          "precio_crudo_api": "0.0"
+        },
+        {
+          "nombre": "GLENFIDDICH GRAND CRU",
+          "descripcion": "Trago $400.000\nBotella $3.335.000",
+          "precio": "$ 0",
+          "precio_valor": 0,
+          "precio_crudo_api": "0.0"
+        },
+        {
+          "nombre": "GLENFIDDICH 15",
+          "descripcion": "Trago $86.000\nBotella $1.035.000",
+          "precio": "$ 0",
+          "precio_valor": 0,
+          "precio_crudo_api": "0.0"
+        },
+        {
+          "nombre": "GLENFIDDICH 12",
+          "descripcion": "Trago $46.000\nBotella $690.000",
+          "precio": "$ 0",
+          "precio_valor": 0,
+          "precio_crudo_api": "0.0"
+        },
+        {
+          "nombre": "THE GLENLIVET 12",
+          "descripcion": "Trago $46.000\nBotella $550.000",
+          "precio": "$ 0",
+          "precio_valor": 0,
+          "precio_crudo_api": "0.0"
+        },
+        {
+          "nombre": "THE BALVENIE 12",
+          "descripcion": "Trago $80.000\nBotella $1.035.000",
+          "precio": "$ 0",
+          "precio_valor": 0,
+          "precio_crudo_api": "0.0"
+        },
+        {
+          "nombre": "GLENFIDDICH 18",
+          "descripcion": "Trago $115.000\nBotella $1.265.000",
+          "precio": "$ 0",
+          "precio_valor": 0,
+          "precio_crudo_api": "0.0"
+        },
+        {
+          "nombre": "MONKEY SHOULDER",
+          "descripcion": "Trago $44.000\nBotella $540.000",
+          "precio": "$ 0",
+          "precio_valor": 0,
+          "precio_crudo_api": "0.0"
+        },
+        {
+          "nombre": "Jack Daniel Single Barrel",
+          "descripcion": "Trago $75.000\nBotella $920.000",
+          "precio": "$ 0",
+          "precio_valor": 0,
+          "precio_crudo_api": "0.0"
+        },
+        {
+          "nombre": "GENTLEMAN JACK",
+          "descripcion": "Trago $42.000\nBotella $610.000",
+          "precio": "$ 0",
+          "precio_valor": 0,
+          "precio_crudo_api": "0.0"
+        },
+        {
+          "nombre": "CHIVAS 18",
+          "descripcion": "Trago $82.000\nBotella $1030.000",
+          "precio": "$ 0",
+          "precio_valor": 0,
+          "precio_crudo_api": "0.0"
+        }
+      ]
+    },
+    {
+      "seccion": "BEBIDAS > GIN & TONICS",
+      "ruta": [
+        "BEBIDAS",
+        "GIN & TONICS"
+      ],
+      "fuente": "carta-digital",
+      "platos": [
+        {
+          "nombre": "BOMBAY SAPPHIRE",
+          "descripcion": "Casco de naranja",
+          "precio": "$ 64.000",
+          "precio_valor": 64000,
+          "precio_crudo_api": "64000.0"
+        },
+        {
+          "nombre": "TANQUERAY ",
+          "descripcion": "Casco de naranja y limón",
+          "precio": "$ 66.000",
+          "precio_valor": 66000,
+          "precio_crudo_api": "66000.0"
+        },
+        {
+          "nombre": "GORDON'S",
+          "descripcion": "Limón deshidratado.",
+          "precio": "$ 52.000",
+          "precio_valor": 52000,
+          "precio_crudo_api": "52000.0"
+        },
+        {
+          "nombre": "TANQUERAY RANGPUR",
+          "descripcion": "Cubo de jengibre, laurel",
+          "precio": "$ 69.000",
+          "precio_valor": 69000,
+          "precio_crudo_api": "69000.0"
+        },
+        {
+          "nombre": "BULLDOG",
+          "descripcion": "Casco de limòn",
+          "precio": "$ 75.000",
+          "precio_valor": 75000,
+          "precio_crudo_api": "75000.0"
+        },
+        {
+          "nombre": "SELVA GIN",
+          "descripcion": "Casco de limón mandarino",
+          "precio": "$ 69.000",
+          "precio_valor": 69000,
+          "precio_crudo_api": "69000.0"
+        },
+        {
+          "nombre": "TANQUERAY TEN",
+          "descripcion": "Toronja deshidratada",
+          "precio": "$ 92.000",
+          "precio_valor": 92000,
+          "precio_crudo_api": "92000.0"
+        },
+        {
+          "nombre": "THE LONDON N° 1",
+          "descripcion": "Manzana deshidratada y twist de naranja",
+          "precio": "$ 98.000",
+          "precio_valor": 98000,
+          "precio_crudo_api": "98000.0"
+        },
+        {
+          "nombre": "MOM",
+          "descripcion": "Toronja deshidratada.",
+          "precio": "$ 98.000",
+          "precio_valor": 98000,
+          "precio_crudo_api": "98000.0"
+        },
+        {
+          "nombre": "MARTTIN MILLER'S",
+          "descripcion": "Casco de limòn tahiti.",
+          "precio": "$ 75.000",
+          "precio_valor": 75000,
+          "precio_crudo_api": "75000.0"
+        },
+        {
+          "nombre": "MONKEY 47",
+          "descripcion": "Casco Toronja.",
+          "precio": "$ 102.000",
+          "precio_valor": 102000,
+          "precio_crudo_api": "102000.0"
+        },
+        {
+          "nombre": "BEEFEATER LONDON DRY",
+          "descripcion": null,
+          "precio": "$ 58.000",
+          "precio_valor": 58000,
+          "precio_crudo_api": "58000.0"
+        }
+      ]
+    },
+    {
+      "seccion": "BEBIDAS > GIN",
+      "ruta": [
+        "BEBIDAS",
+        "GIN"
+      ],
+      "fuente": "carta-digital",
+      "platos": [
+        {
+          "nombre": "BOMBAY SAPPHIRE ",
+          "descripcion": "Trago $44.000\nBotella $499.000",
+          "precio": "$ 0",
+          "precio_valor": 0,
+          "precio_crudo_api": "0.0"
+        },
+        {
+          "nombre": "TANQUERAY LONDON DRY",
+          "descripcion": "Trago $46.000",
+          "precio": "$ 520.000",
+          "precio_valor": 520000,
+          "precio_crudo_api": "520000.0"
+        },
+        {
+          "nombre": "TANQUERAY RANGPUR",
+          "descripcion": "Trago $46.000",
+          "precio": "$ 635.000",
+          "precio_valor": 635000,
+          "precio_crudo_api": "635000.0"
+        },
+        {
+          "nombre": "TANQUERAY TEN",
+          "descripcion": "Trago $58.000",
+          "precio": "$ 836.000",
+          "precio_valor": 836000,
+          "precio_crudo_api": "836000.0"
+        },
+        {
+          "nombre": "GORDON'S",
+          "descripcion": "Trago $29.000",
+          "precio": "$ 290.000",
+          "precio_valor": 290000,
+          "precio_crudo_api": "290000.0"
+        },
+        {
+          "nombre": "BULLDOG GIN 750ml",
+          "descripcion": "Trago $46.000\nBotella $715.000",
+          "precio": "$ 0",
+          "precio_valor": 0,
+          "precio_crudo_api": "0.0"
+        },
+        {
+          "nombre": "BEEFEATER LONDON DRY",
+          "descripcion": "Trago $40.000\nBotella $400.000",
+          "precio": "$ 0",
+          "precio_valor": 0,
+          "precio_crudo_api": "0.0"
+        },
+        {
+          "nombre": "MARTIN MILLERS",
+          "descripcion": "Trago $46.000",
+          "precio": "$ 715.000",
+          "precio_valor": 715000,
+          "precio_crudo_api": "715000.0"
+        },
+        {
+          "nombre": "THE LONDON N° 1",
+          "descripcion": "Trago $69.000\nBotella $920.000",
+          "precio": "$ 0",
+          "precio_valor": 0,
+          "precio_crudo_api": "0.0"
+        },
+        {
+          "nombre": "MOM",
+          "descripcion": "Trago $64.000\nBotella $860.000",
+          "precio": "$ 0",
+          "precio_valor": 0,
+          "precio_crudo_api": "0.0"
+        },
+        {
+          "nombre": "SELVA GIN",
+          "descripcion": "Trago $44.000\nBotella $570.000",
+          "precio": "$ 0",
+          "precio_valor": 0,
+          "precio_crudo_api": "0.0"
+        },
+        {
+          "nombre": "MONKEY 47",
+          "descripcion": "Trago $94.000\nBotella $999.000",
+          "precio": "$ 0",
+          "precio_valor": 0,
+          "precio_crudo_api": "0.0"
+        }
+      ]
+    },
+    {
+      "seccion": "BEBIDAS > VODKA",
+      "ruta": [
+        "BEBIDAS",
+        "VODKA"
+      ],
+      "fuente": "carta-digital",
+      "platos": [
+        {
+          "nombre": "GREY GOOSE",
+          "descripcion": "Trago $58.000\nBotella $795.000",
+          "precio": "$ 0",
+          "precio_valor": 0,
+          "precio_crudo_api": "0.0"
+        },
+        {
+          "nombre": "SMIRNOFF NO 21",
+          "descripcion": "Trago $30.000\nBotella $335.000",
+          "precio": "$ 0",
+          "precio_valor": 0,
+          "precio_crudo_api": "0.0"
+        },
+        {
+          "nombre": "KETEL ONE",
+          "descripcion": "Trago $42.000\nBotella $600.000",
+          "precio": "$ 0",
+          "precio_valor": 0,
+          "precio_crudo_api": "0.0"
+        },
+        {
+          "nombre": "ABSOLUT",
+          "descripcion": "Trago $32.000\nBotella $370.000",
+          "precio": "$ 0",
+          "precio_valor": 0,
+          "precio_crudo_api": "0.0"
+        },
+        {
+          "nombre": "BELVEDERE",
+          "descripcion": "Trago $64.000\nBotella $830.000",
+          "precio": "$ 0",
+          "precio_valor": 0,
+          "precio_crudo_api": "0.0"
+        },
+        {
+          "nombre": "TITO´S",
+          "descripcion": "Trago $52.000\nBotella $805.000",
+          "precio": "$ 0",
+          "precio_valor": 0,
+          "precio_crudo_api": "0.0"
+        }
+      ]
+    },
+    {
+      "seccion": "BEBIDAS > RON",
+      "ruta": [
+        "BEBIDAS",
+        "RON"
+      ],
+      "fuente": "carta-digital",
+      "platos": [
+        {
+          "nombre": "SANTA TERESA 1796",
+          "descripcion": "Trago $52.000\nBotella $855.000",
+          "precio": "$ 0",
+          "precio_valor": 0,
+          "precio_crudo_api": "0.0"
+        },
+        {
+          "nombre": "FLOR DE CAÑA 7 AÑOS ",
+          "descripcion": "Trago $30.000\nBotella $325.000",
+          "precio": "$ 0",
+          "precio_valor": 0,
+          "precio_crudo_api": "0.0"
+        },
+        {
+          "nombre": "BACARDI AÑEJO 750",
+          "descripcion": "Trago $30.000\nBotella $207.000",
+          "precio": "$ 0",
+          "precio_valor": 0,
+          "precio_crudo_api": "0.0"
+        },
+        {
+          "nombre": "BACARDI RESERVA 8 AÑOS",
+          "descripcion": "Trago $35.000\nBotella $495.000",
+          "precio": "$ 0",
+          "precio_valor": 0,
+          "precio_crudo_api": "0.0"
+        },
+        {
+          "nombre": "BACARDI CARTA BLANCA",
+          "descripcion": "Trago $30.000\nBotella $220.000",
+          "precio": "$ 0",
+          "precio_valor": 0,
+          "precio_crudo_api": "0.0"
+        },
+        {
+          "nombre": "ZACAPA 23",
+          "descripcion": "Trago $64.000",
+          "precio": "$ 978.000",
+          "precio_valor": 978000,
+          "precio_crudo_api": "978000.0"
+        },
+        {
+          "nombre": "ZACAPA AMBAR",
+          "descripcion": "Trago $36.000",
+          "precio": "$ 520.000",
+          "precio_valor": 520000,
+          "precio_crudo_api": "520000.0"
+        },
+        {
+          "nombre": "FLOR DE CAÑA 12 AÑOS ",
+          "descripcion": "Trago $35.000\nBotella $485.000",
+          "precio": "$ 0",
+          "precio_valor": 0,
+          "precio_crudo_api": "0.0"
+        },
+        {
+          "nombre": "FLOR DE CAÑA 18 AÑOS ",
+          "descripcion": "Trago $58.000\nBotella $8650.000",
+          "precio": "$ 0",
+          "precio_valor": 0,
+          "precio_crudo_api": "0.0"
+        },
+        {
+          "nombre": "RON LA HECHICERA",
+          "descripcion": "Trago $64.000",
+          "precio": "$ 920.000",
+          "precio_valor": 920000,
+          "precio_crudo_api": "920000.0"
+        },
+        {
+          "nombre": "RON MEDELLIN 8 AÑOS",
+          "descripcion": "Trago $32.000\nBotella $290.000",
+          "precio": "$ 20.000",
+          "precio_valor": 20000,
+          "precio_crudo_api": "20000.0"
+        },
+        {
+          "nombre": "RON CARBON ",
+          "descripcion": "Trago $40.000\nBotella $485.000",
+          "precio": "$ 0",
+          "precio_valor": 0,
+          "precio_crudo_api": "0.0"
+        }
+      ]
+    },
+    {
+      "seccion": "BEBIDAS > COGNAC",
+      "ruta": [
+        "BEBIDAS",
+        "COGNAC"
+      ],
+      "fuente": "carta-digital",
+      "platos": [
+        {
+          "nombre": "HENNESSY VSOP ",
+          "descripcion": "Trago $115.000\nBotella $1.270.000",
+          "precio": "$ 0",
+          "precio_valor": 0,
+          "precio_crudo_api": "0.0"
+        },
+        {
+          "nombre": "HENNESSY VS",
+          "descripcion": "Trago $75.000\nBotella $978.000",
+          "precio": "$ 0",
+          "precio_valor": 0,
+          "precio_crudo_api": "0.0"
+        },
+        {
+          "nombre": "REMY MARTINI VSOP ",
+          "descripcion": "Trago $80.000\nBotella $1.092.000",
+          "precio": "$ 0",
+          "precio_valor": 0,
+          "precio_crudo_api": "0.0"
+        }
+      ]
+    },
+    {
+      "seccion": "BEBIDAS > AGUARDIENTE",
+      "ruta": [
+        "BEBIDAS",
+        "AGUARDIENTE"
+      ],
+      "fuente": "carta-digital",
+      "platos": [
+        {
+          "nombre": "AGUARDIENTE AZUL",
+          "descripcion": "Trago $24.000\nMedia $110.000\nBotella $190.000",
+          "precio": "$ 0",
+          "precio_valor": 0,
+          "precio_crudo_api": "0.0"
+        },
+        {
+          "nombre": "AGUARDIENTE ROJO",
+          "descripcion": "Trago $24.000\nMedia $110.000\nBotella $190.000",
+          "precio": "$ 0",
+          "precio_valor": 0,
+          "precio_crudo_api": "0.0"
+        }
+      ]
+    },
+    {
+      "seccion": "BEBIDAS > OTROS LICORES",
+      "ruta": [
+        "BEBIDAS",
+        "OTROS LICORES"
+      ],
+      "fuente": "carta-digital",
+      "platos": [
+        {
+          "nombre": "BAILEYS",
+          "descripcion": "Trago $30.000\nBotella $255.000",
+          "precio": "$ 0",
+          "precio_valor": 0,
+          "precio_crudo_api": "0.0"
+        },
+        {
+          "nombre": "APEROL",
+          "descripcion": "Trago $30.000",
+          "precio": "$ 0",
+          "precio_valor": 0,
+          "precio_crudo_api": "0.0"
+        },
+        {
+          "nombre": "COINTREAU",
+          "descripcion": null,
+          "precio": "$ 40.000",
+          "precio_valor": 40000,
+          "precio_crudo_api": "40000.0"
+        },
+        {
+          "nombre": "JÄGERMEISTER",
+          "descripcion": "Trago $35.000\nBotella $390.000",
+          "precio": "$ 35.000",
+          "precio_valor": 35000,
+          "precio_crudo_api": "35000.0"
+        },
+        {
+          "nombre": "DISARONNO",
+          "descripcion": "Trago",
+          "precio": "$ 40.000",
+          "precio_valor": 40000,
+          "precio_crudo_api": "40000.0"
+        },
+        {
+          "nombre": "LICOR LIMONCELLO LUXARDO",
+          "descripcion": "Trago:",
+          "precio": "$ 40.000",
+          "precio_valor": 40000,
+          "precio_crudo_api": "40000.0"
+        },
+        {
+          "nombre": "LICOR 43",
+          "descripcion": "Trago $30.000",
+          "precio": "$ 35.000",
+          "precio_valor": 35000,
+          "precio_crudo_api": "35000.0"
+        },
+        {
+          "nombre": "JEREZ TÍO PEPE",
+          "descripcion": "Trago $40.000\nBotella $450.000",
+          "precio": "$ 0",
+          "precio_valor": 0,
+          "precio_crudo_api": "0.0"
+        },
+        {
+          "nombre": "SAMBUCA LUXARDO",
+          "descripcion": null,
+          "precio": "$ 40.000",
+          "precio_valor": 40000,
+          "precio_crudo_api": "40000.0"
+        },
+        {
+          "nombre": "CAMPARI",
+          "descripcion": "Trago $32000",
+          "precio": "$ 0",
+          "precio_valor": 0,
+          "precio_crudo_api": "0.0"
+        },
+        {
+          "nombre": "FERNET BRANCA",
+          "descripcion": null,
+          "precio": "$ 41.000",
+          "precio_valor": 41000,
+          "precio_crudo_api": "41000.0"
+        },
+        {
+          "nombre": "MARTINI ROJO VERMOUTH",
+          "descripcion": null,
+          "precio": "$ 30.000",
+          "precio_valor": 30000,
+          "precio_crudo_api": "30000.0"
+        }
+      ]
+    },
+    {
+      "seccion": "BEBIDAS > COLOMBIA BAR",
+      "ruta": [
+        "BEBIDAS",
+        "COLOMBIA BAR"
+      ],
+      "fuente": "carta-digital",
+      "platos": [
+        {
+          "nombre": "AGUARDIENTE VERDE",
+          "descripcion": "Trago $24.000\nMedia $110.000\nBotella $190.000",
+          "precio": "$ 0",
+          "precio_valor": 0,
+          "precio_crudo_api": "0.0"
+        },
+        {
+          "nombre": "AGUARDIENTE CUMBE ",
+          "descripcion": "Botella $380.000\nTrago $35.000",
+          "precio": "$ 0",
+          "precio_valor": 0,
+          "precio_crudo_api": "0.0"
+        },
+        {
+          "nombre": "RON CARBON",
+          "descripcion": "Botella $485.000\nTrago $40.000",
+          "precio": "$ 0",
+          "precio_valor": 0,
+          "precio_crudo_api": "0.0"
+        },
+        {
+          "nombre": "RON MEDELLIN 8 AÑOS",
+          "descripcion": "Botella $290.000\nTrago $32.000",
+          "precio": "$ 0",
+          "precio_valor": 0,
+          "precio_crudo_api": "0.0"
+        },
+        {
+          "nombre": "L,A HECHICERA",
+          "descripcion": "Botella $920.000\nTrago $64.000",
+          "precio": "$ 0",
+          "precio_valor": 0,
+          "precio_crudo_api": "0.0"
+        },
+        {
+          "nombre": "SELVA ",
+          "descripcion": "Botella $570.000\nTrago $44.000",
+          "precio": "$ 0",
+          "precio_valor": 0,
+          "precio_crudo_api": "0.0"
+        },
+        {
+          "nombre": "AGUARDIENTE DESQUITE TRAD ROJO ",
+          "descripcion": "Botella $290.000\nTrago $35.000",
+          "precio": "$ 0",
+          "precio_valor": 0,
+          "precio_crudo_api": "0.0"
+        },
+        {
+          "nombre": "AGUARDIENTE DESQUITE ART AMARILLO",
+          "descripcion": "Botella $235.000\nTrago $28.000",
+          "precio": "$ 0",
+          "precio_valor": 0,
+          "precio_crudo_api": "0.0"
+        },
+        {
+          "nombre": "RON AMULETO AÑEJO  BLANCO ",
+          "descripcion": "Botella $290.000\nTrago $35.000",
+          "precio": "$ 0",
+          "precio_valor": 0,
+          "precio_crudo_api": "0.0"
+        },
+        {
+          "nombre": "BRANDY DON PEDRO GRAN RESERVA",
+          "descripcion": null,
+          "precio": "$ 35.000",
+          "precio_valor": 35000,
+          "precio_crudo_api": "35000.0"
+        },
+        {
+          "nombre": "RON QUIMBAYA ARTESANAL ",
+          "descripcion": "Trago $45.000\nBotella $675.000",
+          "precio": "$ 675.000",
+          "precio_valor": 675000,
+          "precio_crudo_api": "675000.0"
+        }
+      ]
+    },
+    {
+      "seccion": "BEBIDAS > VINO TINTO",
+      "ruta": [
+        "BEBIDAS",
+        "VINO TINTO"
+      ],
+      "fuente": "carta-digital",
+      "platos": [
+        {
+          "nombre": "MASTROJANNI BRUNELLO DI MONTALCINO SANGIOVESE DOCG",
+          "descripcion": "Sangiovese, Brunello Di Montalcino, Italia.",
+          "precio": "$ 1.060.000",
+          "precio_valor": 1060000,
+          "precio_crudo_api": "1060000.0"
+        },
+        {
+          "nombre": "JOEL GOTT ",
+          "descripcion": "Pinot Noir, California, USA.",
+          "precio": "$ 305.000",
+          "precio_valor": 305000,
+          "precio_crudo_api": "305000.0"
+        },
+        {
+          "nombre": "PRIMA SAN ROMAN",
+          "descripcion": "Toro - Garnacha, Toro, Español.",
+          "precio": "$ 370.000",
+          "precio_valor": 370000,
+          "precio_crudo_api": "370000.0"
+        },
+        {
+          "nombre": "MUGA SELECCIÓN ESPECIAL",
+          "descripcion": "Tempranillo - Garnacha - Mazuelo - Graciano, D.O Rioja, Español.",
+          "precio": "$ 805.000",
+          "precio_valor": 805000,
+          "precio_crudo_api": "805000.0"
+        },
+        {
+          "nombre": "MONTES ALPHA ",
+          "descripcion": "Carmenere V. De Colchagua, Chile.",
+          "precio": "$ 540.000",
+          "precio_valor": 540000,
+          "precio_crudo_api": "540000.0"
+        },
+        {
+          "nombre": "MARQUES DE RISCAL RESERVA",
+          "descripcion": "Tempranillo Graciano, D.O Rioja, Chile.",
+          "precio": "$ 450.000",
+          "precio_valor": 450000,
+          "precio_crudo_api": "450000.0"
+        },
+        {
+          "nombre": "COYAM BLEND",
+          "descripcion": "Blend V. De Colchagua Chile.",
+          "precio": "$ 525.000",
+          "precio_valor": 525000,
+          "precio_crudo_api": "525000.0"
+        },
+        {
+          "nombre": "RAMÓN BILBAO CRIANZA",
+          "descripcion": null,
+          "precio": "$ 210.000",
+          "precio_valor": 210000,
+          "precio_crudo_api": "210000.0"
+        },
+        {
+          "nombre": "DE MARTINO ESTATE CARMENERE",
+          "descripcion": null,
+          "precio": "$ 230.000",
+          "precio_valor": 230000,
+          "precio_crudo_api": "230000.0"
+        },
+        {
+          "nombre": "FAT BASTARD MERLOT",
+          "descripcion": null,
+          "precio": "$ 265.000",
+          "precio_valor": 265000,
+          "precio_crudo_api": "265000.0"
+        },
+        {
+          "nombre": "MONTES CLASSIC SERIES CABERNET SAUVIGNON",
+          "descripcion": null,
+          "precio": "$ 270.000",
+          "precio_valor": 270000,
+          "precio_crudo_api": "270000.0"
+        },
+        {
+          "nombre": "OSTATU CRIANZA",
+          "descripcion": null,
+          "precio": "$ 220.000",
+          "precio_valor": 220000,
+          "precio_crudo_api": "220000.0"
+        },
+        {
+          "nombre": "MONTES CLASSIC SERIES MERLOT",
+          "descripcion": null,
+          "precio": "$ 310.000",
+          "precio_valor": 310000,
+          "precio_crudo_api": "310000.0"
+        },
+        {
+          "nombre": "MILLA CALLA CABERNET SAUVIGNON",
+          "descripcion": null,
+          "precio": "$ 650.000",
+          "precio_valor": 650000,
+          "precio_crudo_api": "650000.0"
+        },
+        {
+          "nombre": "BELLECLOS PINOT NOIR",
+          "descripcion": null,
+          "precio": "$ 920.000",
+          "precio_valor": 920000,
+          "precio_crudo_api": "920000.0"
+        },
+        {
+          "nombre": "EL COTO CRIANZA TEMPRANILLO ",
+          "descripcion": "Cepa Tempranillo - Rioja España",
+          "precio": "$ 199.000",
+          "precio_valor": 199000,
+          "precio_crudo_api": "199000.0"
+        },
+        {
+          "nombre": "LA MALDITA TINTO",
+          "descripcion": null,
+          "precio": "$ 210.000",
+          "precio_valor": 210000,
+          "precio_crudo_api": "210000.0"
+        },
+        {
+          "nombre": "LOUIS JADOT PINOT NOIR",
+          "descripcion": null,
+          "precio": "$ 505.000",
+          "precio_valor": 505000,
+          "precio_crudo_api": "505000.0"
+        },
+        {
+          "nombre": "SANGRE TORO RESERVA ",
+          "descripcion": "ESPAÑA, CATALUÑA, elaborado con uvas garnacha y syrah",
+          "precio": "$ 0",
+          "precio_valor": 0,
+          "precio_crudo_api": "0.0"
+        },
+        {
+          "nombre": "TORRES PURGATORI CRIANZA ",
+          "descripcion": "ESPAÑA, CATALUÑA.",
+          "precio": "$ 630.000",
+          "precio_valor": 630000,
+          "precio_crudo_api": "630000.0"
+        },
+        {
+          "nombre": "COPA LUIGI BOSCA MALBEC ",
+          "descripcion": null,
+          "precio": "$ 50.000",
+          "precio_valor": 50000,
+          "precio_crudo_api": "50000.0"
+        },
+        {
+          "nombre": "LES GRAINS MERLOT",
+          "descripcion": "Cepa Merlot - Francia",
+          "precio": "$ 265.000",
+          "precio_valor": 265000,
+          "precio_crudo_api": "265000.0"
+        },
+        {
+          "nombre": "GRAND MARRENON ROUGE ",
+          "descripcion": "Cepa: Syrha- Garnacha negra - Francia",
+          "precio": "$ 405.000",
+          "precio_valor": 405000,
+          "precio_crudo_api": "405000.0"
+        },
+        {
+          "nombre": "ALSACE FREY SOHLER SILVANER",
+          "descripcion": "100% Silvaner",
+          "precio": "$ 295.000",
+          "precio_valor": 295000,
+          "precio_crudo_api": "295000.0"
+        },
+        {
+          "nombre": "KILLKA MALBEC ",
+          "descripcion": null,
+          "precio": "$ 225.000",
+          "precio_valor": 225000,
+          "precio_crudo_api": "225000.0"
+        },
+        {
+          "nombre": "LAN CRIANZA ",
+          "descripcion": null,
+          "precio": "$ 275.000",
+          "precio_valor": 275000,
+          "precio_crudo_api": "275000.0"
+        },
+        {
+          "nombre": "LUIGI BOSCA MALBEC",
+          "descripcion": "Malbec\nCopa $50.000\nBotella $190.000",
+          "precio": "$ 0",
+          "precio_valor": 0,
+          "precio_crudo_api": "0.0"
+        },
+        {
+          "nombre": "CALVET SAINT EMILION GRAND",
+          "descripcion": "Merlot - Cabernet Frank",
+          "precio": "$ 355.000",
+          "precio_valor": 355000,
+          "precio_crudo_api": "355000.0"
+        },
+        {
+          "nombre": "LUIGI BOSCA MALBEC DESANGRE",
+          "descripcion": null,
+          "precio": "$ 335.000",
+          "precio_valor": 335000,
+          "precio_crudo_api": "335000.0"
+        },
+        {
+          "nombre": "EMILIO MORO FINCA RESALSO ",
+          "descripcion": "Tempranillo",
+          "precio": "$ 235.000",
+          "precio_valor": 235000,
+          "precio_crudo_api": "235000.0"
+        },
+        {
+          "nombre": "ENATE CABERNET SAUVIGNON - MERLOT",
+          "descripcion": null,
+          "precio": "$ 235.000",
+          "precio_valor": 235000,
+          "precio_crudo_api": "235000.0"
+        },
+        {
+          "nombre": "FINO HITO",
+          "descripcion": "Tempranillo",
+          "precio": "$ 235.000",
+          "precio_valor": 235000,
+          "precio_crudo_api": "235000.0"
+        },
+        {
+          "nombre": "ESCORIHUELA GASCON MALBEC",
+          "descripcion": null,
+          "precio": "$ 230.000",
+          "precio_valor": 230000,
+          "precio_crudo_api": "230000.0"
+        },
+        {
+          "nombre": "ESCORIHUELA GASCON PINOT NOIR ",
+          "descripcion": null,
+          "precio": "$ 230.000",
+          "precio_valor": 230000,
+          "precio_crudo_api": "230000.0"
+        },
+        {
+          "nombre": "ESCORIHUELA GASCON SYRAH",
+          "descripcion": null,
+          "precio": "$ 230.000",
+          "precio_valor": 230000,
+          "precio_crudo_api": "230000.0"
+        },
+        {
+          "nombre": "RAMON BILBAO ED LIMITED",
+          "descripcion": "Tempranillo",
+          "precio": "$ 225.000",
+          "precio_valor": 225000,
+          "precio_crudo_api": "225000.0"
+        },
+        {
+          "nombre": "PURGATORI",
+          "descripcion": "Garnacha- cariñena y Syrah",
+          "precio": "$ 630.000",
+          "precio_valor": 630000,
+          "precio_crudo_api": "630000.0"
+        },
+        {
+          "nombre": "LA CREMA PINOT NOIR ",
+          "descripcion": null,
+          "precio": "$ 520.000",
+          "precio_valor": 520000,
+          "precio_crudo_api": "520000.0"
+        },
+        {
+          "nombre": "MARQUES CABERNET SAUVIGNON",
+          "descripcion": null,
+          "precio": "$ 360.000",
+          "precio_valor": 360000,
+          "precio_crudo_api": "360000.0"
+        },
+        {
+          "nombre": "MARQUES CARMENERE",
+          "descripcion": null,
+          "precio": "$ 355.000",
+          "precio_valor": 355000,
+          "precio_crudo_api": "355000.0"
+        },
+        {
+          "nombre": "TRIVENTO GOLDEN RESERVE CABERNET FRANC",
+          "descripcion": null,
+          "precio": "$ 340.000",
+          "precio_valor": 340000,
+          "precio_crudo_api": "340000.0"
+        },
+        {
+          "nombre": "ROBERT MONDAVI CABERNET SAUVIGNON",
+          "descripcion": null,
+          "precio": "$ 300.000",
+          "precio_valor": 300000,
+          "precio_crudo_api": "300000.0"
+        },
+        {
+          "nombre": "LA MALDITA GARNACHA TINTA",
+          "descripcion": null,
+          "precio": "$ 210.000",
+          "precio_valor": 210000,
+          "precio_crudo_api": "210000.0"
+        },
+        {
+          "nombre": "COYAM BLEND",
+          "descripcion": null,
+          "precio": "$ 525.000",
+          "precio_valor": 525000,
+          "precio_crudo_api": "525000.0"
+        },
+        {
+          "nombre": "NORTON ALTURA CABERNET FRANC",
+          "descripcion": null,
+          "precio": "$ 395.000",
+          "precio_valor": 395000,
+          "precio_crudo_api": "395000.0"
+        },
+        {
+          "nombre": "PASQUA PRIMITIVO PUGLIA",
+          "descripcion": null,
+          "precio": "$ 195.000",
+          "precio_valor": 195000,
+          "precio_crudo_api": "195000.0"
+        },
+        {
+          "nombre": "MORANDE TERROIR CINSAULT",
+          "descripcion": "Cepa Cinsault - Chile",
+          "precio": "$ 145.000",
+          "precio_valor": 145000,
+          "precio_crudo_api": "145000.0"
+        },
+        {
+          "nombre": "LAN CRIANZA",
+          "descripcion": "Rioja España",
+          "precio": "$ 275.000",
+          "precio_valor": 275000,
+          "precio_crudo_api": "275000.0"
+        },
+        {
+          "nombre": "KILLKA MALBEC",
+          "descripcion": "Cepa Malbec - Valle del uco Argentina",
+          "precio": "$ 225.000",
+          "precio_valor": 225000,
+          "precio_crudo_api": "225000.0"
+        },
+        {
+          "nombre": "OSTATU CRIANZA",
+          "descripcion": "Rioja España",
+          "precio": "$ 220.000",
+          "precio_valor": 220000,
+          "precio_crudo_api": "220000.0"
+        },
+        {
+          "nombre": "PETIT VEGA TEMPRANILLO",
+          "descripcion": "Cepa tempranillo - Ribera del duero España",
+          "precio": "$ 320.000",
+          "precio_valor": 320000,
+          "precio_crudo_api": "320000.0"
+        }
+      ]
+    },
+    {
+      "seccion": "BEBIDAS > VINO BLANCO",
+      "ruta": [
+        "BEBIDAS",
+        "VINO BLANCO"
+      ],
+      "fuente": "carta-digital",
+      "platos": [
+        {
+          "nombre": "MARQUES DE RISCAL RUEDA VERDEJO",
+          "descripcion": "Cepa: Verdejo, D.O Rueda España .",
+          "precio": "$ 180.000",
+          "precio_valor": 180000,
+          "precio_crudo_api": "180000.0"
+        },
+        {
+          "nombre": "MUGA VIURA MALVASIA",
+          "descripcion": "Viura - Garnacha - Malvasia Rioja, España.",
+          "precio": "$ 310.000",
+          "precio_valor": 310000,
+          "precio_crudo_api": "310000.0"
+        },
+        {
+          "nombre": "PAZO DE SAN MAURO ALBARIÑO",
+          "descripcion": "Albariño, D.O Riax Baixas, España.",
+          "precio": "$ 410.000",
+          "precio_valor": 410000,
+          "precio_crudo_api": "410000.0"
+        },
+        {
+          "nombre": "MAR DE FRADES ALBARIÑO",
+          "descripcion": "Albariño, D.O Riax Baixas, España .",
+          "precio": "$ 390.000",
+          "precio_valor": 390000,
+          "precio_crudo_api": "390000.0"
+        },
+        {
+          "nombre": "SANTIAGO RUIZ",
+          "descripcion": "Albariño, España.",
+          "precio": "$ 438.000",
+          "precio_valor": 438000,
+          "precio_crudo_api": "438000.0"
+        },
+        {
+          "nombre": "RAMÓN BILBAO VERDEJO",
+          "descripcion": "Cepa: Verdejo - Rueda España",
+          "precio": "$ 210.000",
+          "precio_valor": 210000,
+          "precio_crudo_api": "210000.0"
+        },
+        {
+          "nombre": "EL ZARZAL GODELLO",
+          "descripcion": "Cepa Godello - España",
+          "precio": "$ 360.000",
+          "precio_valor": 360000,
+          "precio_crudo_api": "360000.0"
+        },
+        {
+          "nombre": "JOEL GOTT SAUVIGNON BLANC",
+          "descripcion": "Cepa: Sauvignon Blanc - California USA",
+          "precio": "$ 295.000",
+          "precio_valor": 295000,
+          "precio_crudo_api": "295000.0"
+        },
+        {
+          "nombre": "MENADE SAUVIGNON BLANC ",
+          "descripcion": null,
+          "precio": "$ 290.000",
+          "precio_valor": 290000,
+          "precio_crudo_api": "290000.0"
+        },
+        {
+          "nombre": "MENADE VERDEJO ECOLÓGICO ",
+          "descripcion": null,
+          "precio": "$ 290.000",
+          "precio_valor": 290000,
+          "precio_crudo_api": "290000.0"
+        },
+        {
+          "nombre": "OSTATU BLANCO",
+          "descripcion": null,
+          "precio": "$ 220.000",
+          "precio_valor": 220000,
+          "precio_crudo_api": "220000.0"
+        },
+        {
+          "nombre": "AMELIA CHARDONNAY",
+          "descripcion": null,
+          "precio": "$ 875.000",
+          "precio_valor": 875000,
+          "precio_crudo_api": "875000.0"
+        },
+        {
+          "nombre": "MARQUES CHARDONNAY ",
+          "descripcion": null,
+          "precio": "$ 375.000",
+          "precio_valor": 375000,
+          "precio_crudo_api": "375000.0"
+        },
+        {
+          "nombre": "LA MALDITA GARNACHA BLANCA",
+          "descripcion": "Rioja - España",
+          "precio": "$ 195.000",
+          "precio_valor": 195000,
+          "precio_crudo_api": "195000.0"
+        },
+        {
+          "nombre": "LOUIS JADOT BOURGOGNE",
+          "descripcion": null,
+          "precio": "$ 435.000",
+          "precio_valor": 435000,
+          "precio_crudo_api": "435000.0"
+        },
+        {
+          "nombre": "LOUIS JADOT CHABLIS",
+          "descripcion": "Cepa: Chardonnay - Borgoña Francia",
+          "precio": "$ 545.000",
+          "precio_valor": 545000,
+          "precio_crudo_api": "545000.0"
+        },
+        {
+          "nombre": "PAZO DE BRUXAS ALBARIÑO ",
+          "descripcion": "100% Albariño, D.O Rias Baixas",
+          "precio": "$ 410.000",
+          "precio_valor": 410000,
+          "precio_crudo_api": "410000.0"
+        },
+        {
+          "nombre": "TORRES VIÑA ESMERALDA BLANCO",
+          "descripcion": "Cepa, Moscatel y Gewürztraminer - España",
+          "precio": "$ 165.000",
+          "precio_valor": 165000,
+          "precio_crudo_api": "165000.0"
+        },
+        {
+          "nombre": "COPA - LUIGI BOSCA CHARDONNAY ",
+          "descripcion": null,
+          "precio": "$ 50.000",
+          "precio_valor": 50000,
+          "precio_crudo_api": "50000.0"
+        },
+        {
+          "nombre": "CHAN DE ROSAS ",
+          "descripcion": "Albariño, Español",
+          "precio": "$ 380.000",
+          "precio_valor": 380000,
+          "precio_crudo_api": "380000.0"
+        },
+        {
+          "nombre": "KILLKA CHARDONNAY ",
+          "descripcion": null,
+          "precio": "$ 230.000",
+          "precio_valor": 230000,
+          "precio_crudo_api": "230000.0"
+        },
+        {
+          "nombre": "PORTILLO SAUVIGNON BLANC",
+          "descripcion": null,
+          "precio": "$ 175.000",
+          "precio_valor": 175000,
+          "precio_crudo_api": "175000.0"
+        },
+        {
+          "nombre": "EL COTO BLANCO ",
+          "descripcion": "Cepa Viura - Rioja España\nCOPA: 50.000",
+          "precio": "$ 199.000",
+          "precio_valor": 199000,
+          "precio_crudo_api": "199000.0"
+        },
+        {
+          "nombre": "LOUIS JADOT CHABLIS",
+          "descripcion": null,
+          "precio": "$ 545.000",
+          "precio_valor": 545000,
+          "precio_crudo_api": "545000.0"
+        },
+        {
+          "nombre": "EL ZARZAL EMILIO MORO GODELLO",
+          "descripcion": null,
+          "precio": "$ 360.000",
+          "precio_valor": 360000,
+          "precio_crudo_api": "360000.0"
+        },
+        {
+          "nombre": "ENATE CHARDONAY",
+          "descripcion": null,
+          "precio": "$ 235.000",
+          "precio_valor": 235000,
+          "precio_crudo_api": "235000.0"
+        },
+        {
+          "nombre": "ESCORIHUELA GASCON VIOGNIER",
+          "descripcion": "Cepa Viognier - Argentina",
+          "precio": "$ 230.000",
+          "precio_valor": 230000,
+          "precio_crudo_api": "230000.0"
+        },
+        {
+          "nombre": "ESCORIHUELA GASCON SAUVIGNON BLANC",
+          "descripcion": "Cepa: Sauvignon Blanc - Argentina",
+          "precio": "$ 230.000",
+          "precio_valor": 230000,
+          "precio_crudo_api": "230000.0"
+        },
+        {
+          "nombre": "LA CREMA CHARDONNAY",
+          "descripcion": "Cepa: Chardonnay - California",
+          "precio": "$ 550.000",
+          "precio_valor": 550000,
+          "precio_crudo_api": "550000.0"
+        },
+        {
+          "nombre": "VEGA SICILIA MANDOLAS FURMINT",
+          "descripcion": "Cepa Furmint - Hungria",
+          "precio": "$ 540.000",
+          "precio_valor": 540000,
+          "precio_crudo_api": "540000.0"
+        },
+        {
+          "nombre": "TORRES PAZO DAS BRUXAS ALBARIÑO",
+          "descripcion": "Cepa Albariño - Galicia España",
+          "precio": "$ 410.000",
+          "precio_valor": 410000,
+          "precio_crudo_api": "410000.0"
+        },
+        {
+          "nombre": "MARQUES CHARDONNAY ",
+          "descripcion": "Cepa Chardonnay - Chile",
+          "precio": "$ 375.000",
+          "precio_valor": 375000,
+          "precio_crudo_api": "375000.0"
+        },
+        {
+          "nombre": "ROBERT MONDAVI CHARDONNAY",
+          "descripcion": "Cepa: Chardonnay - California USA",
+          "precio": "$ 285.000",
+          "precio_valor": 285000,
+          "precio_crudo_api": "285000.0"
+        },
+        {
+          "nombre": "TORRES CELESTE VERDEJO ",
+          "descripcion": "Cepa: Verdejo - Rueda España",
+          "precio": "$ 225.000",
+          "precio_valor": 225000,
+          "precio_crudo_api": "225000.0"
+        },
+        {
+          "nombre": "LUIGI BOSCA CHARDONNAY",
+          "descripcion": "Cepa chardonnay - Mendoza Argentina",
+          "precio": "$ 190.000",
+          "precio_valor": 190000,
+          "precio_crudo_api": "190000.0"
+        },
+        {
+          "nombre": "ENATE CHARDONNAY",
+          "descripcion": "Cepa Chardonnay - España",
+          "precio": "$ 235.000",
+          "precio_valor": 235000,
+          "precio_crudo_api": "235000.0"
+        },
+        {
+          "nombre": "NORTON ALTURA WHITE BLEND",
+          "descripcion": "Cepa: blend de Sauvignon Blanc, Grüner Veltliner y Semillón - Mendoza Argentina",
+          "precio": "$ 370.000",
+          "precio_valor": 370000,
+          "precio_crudo_api": "370000.0"
+        },
+        {
+          "nombre": "PASQUA PASSIMENTO BLANCO GARGANEGA",
+          "descripcion": "Cepa Garganega - Vèneto Italia",
+          "precio": "$ 215.000",
+          "precio_valor": 215000,
+          "precio_crudo_api": "215000.0"
+        },
+        {
+          "nombre": "ALSACE FREY SOHLER SILVANER",
+          "descripcion": "Cepa Silvaner - Francia",
+          "precio": "$ 295.000",
+          "precio_valor": 295000,
+          "precio_crudo_api": "295000.0"
+        },
+        {
+          "nombre": "NUESTRO VERDEJO",
+          "descripcion": "Cepa Verdejo: Rueda España",
+          "precio": "$ 320.000",
+          "precio_valor": 320000,
+          "precio_crudo_api": "320000.0"
+        },
+        {
+          "nombre": "MONTELEIVA VIURA",
+          "descripcion": "Cepa Viura: Rioja España",
+          "precio": "$ 190.000",
+          "precio_valor": 190000,
+          "precio_crudo_api": "190000.0"
+        }
+      ]
+    },
+    {
+      "seccion": "BEBIDAS > VINO ROSADO",
+      "ruta": [
+        "BEBIDAS",
+        "VINO ROSADO"
+      ],
+      "fuente": "carta-digital",
+      "platos": [
+        {
+          "nombre": "RAMÓN BILBAO ROSADO",
+          "descripcion": "Garnacha - Viura, D.O Rioja, España.",
+          "precio": "$ 210.000",
+          "precio_valor": 210000,
+          "precio_crudo_api": "210000.0"
+        },
+        {
+          "nombre": "COPA RAMÓN BILBAO ROSADO ",
+          "descripcion": "Garnacha - Viura, D.O Rioja, España.",
+          "precio": "$ 50.000",
+          "precio_valor": 50000,
+          "precio_crudo_api": "50000.0"
+        },
+        {
+          "nombre": "IZADI LA ROSA",
+          "descripcion": "Garnacha, D.O Rioja España.",
+          "precio": "$ 290.000",
+          "precio_valor": 290000,
+          "precio_crudo_api": "290000.0"
+        },
+        {
+          "nombre": "EL COTO ROSADO ",
+          "descripcion": "Botella $",
+          "precio": "$ 185.000",
+          "precio_valor": 185000,
+          "precio_crudo_api": "185000.0"
+        },
+        {
+          "nombre": "CHATEAU DESCLAINS WHISPERING ANGEL",
+          "descripcion": "Cepa: Garnacha, Cinsault y Rolle - Provenza Francia",
+          "precio": "$ 440.000",
+          "precio_valor": 440000,
+          "precio_crudo_api": "440000.0"
+        },
+        {
+          "nombre": "TAIS ORGANICO PINOT NOIR",
+          "descripcion": "Cepa Pinot Noir - Valle de Casablanca Chile",
+          "precio": "$ 240.000",
+          "precio_valor": 240000,
+          "precio_crudo_api": "240000.0"
+        }
+      ]
+    },
+    {
+      "seccion": "BEBIDAS > SANGRÍAS",
+      "ruta": [
+        "BEBIDAS",
+        "SANGRÍAS"
+      ],
+      "fuente": "carta-digital",
+      "platos": [
+        {
+          "nombre": "BLANCA",
+          "descripcion": "Vino blanco, gin, almíbar de hierbabuena, zumo de naranja, soda Hatsu de uva albahaca, sandía, piña y albahaca.",
+          "precio": "$ 130.000",
+          "precio_valor": 130000,
+          "precio_crudo_api": "130000.0"
+        },
+        {
+          "nombre": "BLANCA ESPUMANTE",
+          "descripcion": "Bacardi Carta Blanca, Vino blanco espumante, gin, almíbar de jengibre, limón, piña, albahaca, manzana verde, zumo de naranja.",
+          "precio": "$ 140.000",
+          "precio_valor": 140000,
+          "precio_crudo_api": "140000.0"
+        }
+      ]
+    },
+    {
+      "seccion": "BEBIDAS > BURBUJAS",
+      "ruta": [
+        "BEBIDAS",
+        "BURBUJAS"
+      ],
+      "fuente": "carta-digital",
+      "platos": [
+        {
+          "nombre": "VEUVE CLIQUOT YELLOW LABEL",
+          "descripcion": "Champagne, Francia.",
+          "precio": "$ 1.385.000",
+          "precio_valor": 1385000,
+          "precio_crudo_api": "1385000.0"
+        },
+        {
+          "nombre": "RIVAROSE BRUT PRESTIGE",
+          "descripcion": "Cepa: Syrah - Provenze Mediterraneo, Francia.",
+          "precio": "$ 305.000",
+          "precio_valor": 305000,
+          "precio_crudo_api": "305000.0"
+        },
+        {
+          "nombre": "PROSECO BRUT MIONETTO ",
+          "descripcion": "Italia.",
+          "precio": "$ 230.000",
+          "precio_valor": 230000,
+          "precio_crudo_api": "230000.0"
+        },
+        {
+          "nombre": "MOET & CHANDON BRUT IMPERIAL ",
+          "descripcion": "Champagne, Francia.",
+          "precio": "$ 1.255.000",
+          "precio_valor": 1255000,
+          "precio_crudo_api": "1255000.0"
+        },
+        {
+          "nombre": "CHAMPAGNE VEUVE CLICQUOT ROSE",
+          "descripcion": "Champagne, Francia",
+          "precio": "$ 1.670.000",
+          "precio_valor": 1670000,
+          "precio_crudo_api": "1670000.0"
+        },
+        {
+          "nombre": "CHANDON EXTRA BRUT",
+          "descripcion": "Copa: 40.000",
+          "precio": "$ 190.000",
+          "precio_valor": 190000,
+          "precio_crudo_api": "190000.0"
+        },
+        {
+          "nombre": "CHAMPAGNE LAURENT P. BRUT ROSE",
+          "descripcion": "Champagne, Francia",
+          "precio": "$ 1.640.000",
+          "precio_valor": 1640000,
+          "precio_crudo_api": "1640000.0"
+        }
+      ]
+    },
+    {
+      "seccion": "BEBIDAS > SOFT DRINKS",
+      "ruta": [
+        "BEBIDAS",
+        "SOFT DRINKS"
+      ],
+      "fuente": "carta-digital",
+      "platos": [
+        {
+          "nombre": "AGUA VOSS",
+          "descripcion": null,
+          "precio": "$ 35.000",
+          "precio_valor": 35000,
+          "precio_crudo_api": "35000.0"
+        },
+        {
+          "nombre": "SODA SANDÍA Y PEPINO",
+          "descripcion": "Zumo de sandía, cubitos de pepino y soda Hatsu de frambuesa y rosas.",
+          "precio": "$ 16.000",
+          "precio_valor": 16000,
+          "precio_crudo_api": "16000.0"
+        },
+        {
+          "nombre": "GINGER ALE CANADA",
+          "descripcion": null,
+          "precio": "$ 10.000",
+          "precio_valor": 10000,
+          "precio_crudo_api": "10000.0"
+        },
+        {
+          "nombre": "AGUA HATSU CON GAS 300ml",
+          "descripcion": null,
+          "precio": "$ 10.000",
+          "precio_valor": 10000,
+          "precio_crudo_api": "10000.0"
+        },
+        {
+          "nombre": "AGUA VOSS GAS",
+          "descripcion": null,
+          "precio": "$ 35.000",
+          "precio_valor": 35000,
+          "precio_crudo_api": "35000.0"
+        },
+        {
+          "nombre": "SODA BRETAÑA",
+          "descripcion": null,
+          "precio": "$ 10.000",
+          "precio_valor": 10000,
+          "precio_crudo_api": "10000.0"
+        },
+        {
+          "nombre": "PEPSI - PEPSI LIGHT",
+          "descripcion": null,
+          "precio": "$ 10.000",
+          "precio_valor": 10000,
+          "precio_crudo_api": "10000.0"
+        },
+        {
+          "nombre": "MANZANA",
+          "descripcion": null,
+          "precio": "$ 10.000",
+          "precio_valor": 10000,
+          "precio_crudo_api": "10000.0"
+        },
+        {
+          "nombre": "COLOMBIANA",
+          "descripcion": null,
+          "precio": "$ 10.000",
+          "precio_valor": 10000,
+          "precio_crudo_api": "10000.0"
+        },
+        {
+          "nombre": "RED BULL ENERGY DRINK ",
+          "descripcion": null,
+          "precio": "$ 23.000",
+          "precio_valor": 23000,
+          "precio_crudo_api": "23000.0"
+        },
+        {
+          "nombre": "RED BULL SUGAR FREE ",
+          "descripcion": null,
+          "precio": "$ 23.000",
+          "precio_valor": 23000,
+          "precio_crudo_api": "23000.0"
+        },
+        {
+          "nombre": "HATSU",
+          "descripcion": null,
+          "precio": "$ 13.000",
+          "precio_valor": 13000,
+          "precio_crudo_api": "13000.0"
+        },
+        {
+          "nombre": "SODA HATSU",
+          "descripcion": null,
+          "precio": "$ 10.000",
+          "precio_valor": 10000,
+          "precio_crudo_api": "10000.0"
+        }
+      ]
+    },
+    {
+      "seccion": "BEBIDAS > EXTRAS",
+      "ruta": [
+        "BEBIDAS",
+        "EXTRAS"
+      ],
+      "fuente": "carta-digital",
+      "platos": [
+        {
+          "nombre": "ADICIÓN DE ZUMO DE PIÑA",
+          "descripcion": null,
+          "precio": "$ 9.000",
+          "precio_valor": 9000,
+          "precio_crudo_api": "9000.0"
+        },
+        {
+          "nombre": "MICHELADA",
+          "descripcion": null,
+          "precio": "$ 5.000",
+          "precio_valor": 5000,
+          "precio_crudo_api": "5000.0"
+        },
+        {
+          "nombre": "ZUMO DE LIMÓN",
+          "descripcion": null,
+          "precio": "$ 5.000",
+          "precio_valor": 5000,
+          "precio_crudo_api": "5000.0"
+        },
+        {
+          "nombre": "JUGO DE NARANJA",
+          "descripcion": null,
+          "precio": "$ 11.000",
+          "precio_valor": 11000,
+          "precio_crudo_api": "11000.0"
+        },
+        {
+          "nombre": "JUGO DE ARÁNDANOS",
+          "descripcion": null,
+          "precio": "$ 11.000",
+          "precio_valor": 11000,
+          "precio_crudo_api": "11000.0"
+        },
+        {
+          "nombre": "ADICIÓN DE ACEITUNAS",
+          "descripcion": null,
+          "precio": "$ 15.000",
+          "precio_valor": 15000,
+          "precio_crudo_api": "15000.0"
+        },
+        {
+          "nombre": "SANGRITA PEQUEÑA",
+          "descripcion": null,
+          "precio": "$ 15.000",
+          "precio_valor": 15000,
+          "precio_crudo_api": "15000.0"
+        },
+        {
+          "nombre": "SANGRITA GRANDE",
+          "descripcion": null,
+          "precio": "$ 21.000",
+          "precio_valor": 21000,
+          "precio_crudo_api": "21000.0"
+        }
+      ]
+    },
+    {
+      "seccion": "BEBIDAS > CERVEZAS",
+      "ruta": [
+        "BEBIDAS",
+        "CERVEZAS"
+      ],
+      "fuente": "carta-digital",
+      "platos": [
+        {
+          "nombre": "CLUB COLOMBIA DORADA",
+          "descripcion": "Esta cerveza dorada tipo lager tiene la combinacion de maltas que le dan un aroma y sabor fresco, y ese cuerpo medio, justo a la medida.",
+          "precio": "$ 17.000",
+          "precio_valor": 17000,
+          "precio_crudo_api": "17000.0"
+        },
+        {
+          "nombre": "CORONA",
+          "descripcion": "Cerveza mexicana reconocida mundialmente como icono de relax y refrescancia. Presentada en su exclusiva botella transparente, siempre coronada con una rodaja de limón.",
+          "precio": "$ 17.000",
+          "precio_valor": 17000,
+          "precio_crudo_api": "17000.0"
+        },
+        {
+          "nombre": "STELLA ARTOIS",
+          "descripcion": "Sofisticada lager de origen europeo con más de 600 años de tradición cervecera. Caracterizada por un sutil amargor. Perfectamente servida en su exclusivo cáliz de cristal.",
+          "precio": "$ 17.000",
+          "precio_valor": 17000,
+          "precio_crudo_api": "17000.0"
+        },
+        {
+          "nombre": "BBC CAJICÁ MIEL",
+          "descripcion": "BBC Cajicá Miel - Cerveza artesanal, elaborada en pequeñas cantidades, con ingredientes provenientes de los mejores cultivos del mundo.",
+          "precio": "$ 17.000",
+          "precio_valor": 17000,
+          "precio_crudo_api": "17000.0"
+        },
+        {
+          "nombre": "CORONA 0.0",
+          "descripcion": null,
+          "precio": "$ 17.000",
+          "precio_valor": 17000,
+          "precio_crudo_api": "17000.0"
+        },
+        {
+          "nombre": "CLUB COLOMBIA TRIGO",
+          "descripcion": "Es una cerveza suave y cremosa, con un nivel bajo de amargor con 4.7% de alcohol. Lo cual hace que se mas facil de tomar.",
+          "precio": "$ 17.000",
+          "precio_valor": 17000,
+          "precio_crudo_api": "17000.0"
+        },
+        {
+          "nombre": "MICHELOB",
+          "descripcion": null,
+          "precio": "$ 17.000",
+          "precio_valor": 17000,
+          "precio_crudo_api": "17000.0"
+        },
+        {
+          "nombre": "BBC LAGER",
+          "descripcion": null,
+          "precio": "$ 17.000",
+          "precio_valor": 17000,
+          "precio_crudo_api": "17000.0"
+        }
+      ]
+    },
+    {
+      "seccion": "BEBIDAS > MIXERS",
+      "ruta": [
+        "BEBIDAS",
+        "MIXERS"
+      ],
+      "fuente": "carta-digital",
+      "platos": [
+        {
+          "nombre": "1976 INDI",
+          "descripcion": null,
+          "precio": "$ 18.000",
+          "precio_valor": 18000,
+          "precio_crudo_api": "18000.0"
+        },
+        {
+          "nombre": "1976 OCEAN",
+          "descripcion": null,
+          "precio": "$ 18.000",
+          "precio_valor": 18000,
+          "precio_crudo_api": "18000.0"
+        },
+        {
+          "nombre": "MIL976 GINGER BEER",
+          "descripcion": null,
+          "precio": "$ 18.000",
+          "precio_valor": 18000,
+          "precio_crudo_api": "18000.0"
+        },
+        {
+          "nombre": "1976 CERO CALORÍAS",
+          "descripcion": null,
+          "precio": "$ 18.000",
+          "precio_valor": 18000,
+          "precio_crudo_api": "18000.0"
+        },
+        {
+          "nombre": "1976 JENGIBRE LIMÓN",
+          "descripcion": null,
+          "precio": "$ 18.000",
+          "precio_valor": 18000,
+          "precio_crudo_api": "18000.0"
+        },
+        {
+          "nombre": "JUNIPER GINGER BEER INDIVIDUAL",
+          "descripcion": null,
+          "precio": "$ 18.000",
+          "precio_valor": 18000,
+          "precio_crudo_api": "18000.0"
+        },
+        {
+          "nombre": "JUNIPER TORONJA",
+          "descripcion": null,
+          "precio": "$ 18.000",
+          "precio_valor": 18000,
+          "precio_crudo_api": "18000.0"
+        }
+      ]
+    },
+    {
+      "seccion": "BEBIDAS > ADICIONES",
+      "ruta": [
+        "BEBIDAS",
+        "ADICIONES"
+      ],
+      "fuente": "carta-digital",
+      "platos": [
+        {
+          "nombre": "AD ZUMO DE LIMON",
+          "descripcion": null,
+          "precio": "$ 5.000",
+          "precio_valor": 5000,
+          "precio_crudo_api": "5000.0"
+        },
+        {
+          "nombre": "AD ZUMO NARANJA ",
+          "descripcion": null,
+          "precio": "$ 11.000",
+          "precio_valor": 11000,
+          "precio_crudo_api": "11000.0"
+        },
+        {
+          "nombre": "MICHELADA ",
+          "descripcion": null,
+          "precio": "$ 5.000",
+          "precio_valor": 5000,
+          "precio_crudo_api": "5000.0"
+        },
+        {
+          "nombre": "SANGRITA PEQUEÑA ",
+          "descripcion": "Jugo tomate clamato, zumo limon, pimienta sal, salsa inglesa, tabasco, (picante)",
+          "precio": "$ 15.000",
+          "precio_valor": 15000,
+          "precio_crudo_api": "15000.0"
+        },
+        {
+          "nombre": "AD ACEITUNAS",
+          "descripcion": null,
+          "precio": "$ 15.000",
+          "precio_valor": 15000,
+          "precio_crudo_api": "15000.0"
+        },
+        {
+          "nombre": "AD LECHE ALMENDRAS ",
+          "descripcion": null,
+          "precio": "$ 8.000",
+          "precio_valor": 8000,
+          "precio_crudo_api": "8000.0"
+        }
+      ]
+    },
+    {
+      "seccion": "BEBIDAS > BEBIDAS CALIENTES",
+      "ruta": [
+        "BEBIDAS",
+        "BEBIDAS CALIENTES"
+      ],
+      "fuente": "carta-digital",
+      "platos": [
+        {
+          "nombre": "ESPRESSO",
+          "descripcion": null,
+          "precio": "$ 8.000",
+          "precio_valor": 8000,
+          "precio_crudo_api": "8000.0"
+        },
+        {
+          "nombre": "AMERICANO",
+          "descripcion": null,
+          "precio": "$ 9.000",
+          "precio_valor": 9000,
+          "precio_crudo_api": "9000.0"
+        },
+        {
+          "nombre": "MACCIATO",
+          "descripcion": null,
+          "precio": "$ 9.000",
+          "precio_valor": 9000,
+          "precio_crudo_api": "9000.0"
+        },
+        {
+          "nombre": "LATTE",
+          "descripcion": null,
+          "precio": "$ 12.000",
+          "precio_valor": 12000,
+          "precio_crudo_api": "12000.0"
+        },
+        {
+          "nombre": "CAPUCCINO",
+          "descripcion": null,
+          "precio": "$ 12.000",
+          "precio_valor": 12000,
+          "precio_crudo_api": "12000.0"
+        },
+        {
+          "nombre": "TISANA",
+          "descripcion": null,
+          "precio": "$ 12.000",
+          "precio_valor": 12000,
+          "precio_crudo_api": "12000.0"
+        }
+      ]
+    }
+  ],
+  "productos_no_visibles_en_la_carta": {
+    "explicacion": "Estos productos existen en menu.products de la API pero ninguna categoría los referencia, así que no aparecen en la carta que ve el comensal. Se listan sólo como constancia; no se cuentan como platos de la carta.",
+    "items": [
+      "APEROL SPRITZ",
+      "BELLE GLOS CLARK & TELEPHONE PINOT NOIR",
+      "BRUNELLO DI MONTALCINO MASTRO JANNI",
+      "BRUNELLO DI MONTALCINO PICCINI",
+      "CARMIN DE PEUMO CARMENERE",
+      "DON MELCHOR CABERNET SAUVIGNON",
+      "EMILIO MORO MALLEOLUS TEMPRANILLO",
+      "GENEROSO SPRITZ",
+      "LA PIU BELLE BLEND",
+      "LIMONCELLO SPRITZ",
+      "MARQUES HERITAGE BLEND",
+      "MILLA CALA BLEND",
+      "ST GERMAIN"
+    ]
+  },
+  "avisos": [
+    "Los precios vienen del campo 'price' de la API; 'precio' reproduce el formato que muestra la carta ($ 65.900) y 'precio_crudo_api' conserva el valor original.",
+    "360 de los 373 productos de la API están referenciados por alguna categoría. Los 13 restantes quedaron en 'productos_no_visibles_en_la_carta'.",
+    "Verificado contra la carta renderizada el 2026-08-19: PESCA BLANCA EN ORZO CITRICO $ 65.900, PULPO KOKARI $ 89.900, ATÚN GRILLADO $ 60.500 y TORTA DE ZANAHORIA $ 23.900 coinciden con lo extraído.",
+    "Las secciones 'ENSALADAS' y 'ADICIONES' incluyen adiciones (AD SALMON, AD SOLOMITO, AD CAMARONES) tal como las agrupa la carta; se dejan donde el restaurante las puso.",
+    "La carta no publica ninguna fecha de vigencia."
+  ]
+}

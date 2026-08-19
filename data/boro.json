@@ -1,0 +1,1247 @@
+{
+  "slug": "boro",
+  "restaurante": "Boro",
+  "ciudad": "Medellín",
+  "moneda": "COP",
+  "extraido_el": "2026-08-19",
+  "fuentes": [
+    {
+      "id": "menu-comida",
+      "url_indicada": "https://bororestaurante.mesa247.la",
+      "url_carta": "https://cdn.mesa247.io/archivos/ficheros/2909/1782340593.pdf",
+      "etiqueta_en_el_sitio": "Menú",
+      "formato": "PDF, 6 páginas, 396 × 612 pt, texto vectorial (no escaneado).",
+      "metadatos_pdf": {
+        "title": "boro - menu digital ",
+        "creator": "Adobe Illustrator 30.5 (Macintosh)",
+        "producer": "Adobe PDF library 18.00",
+        "creation_date": "2026-06-24T15:06:15-05:00",
+        "mod_date": "2026-06-24T15:06:15-05:00"
+      },
+      "fechas": {
+        "impresa_en_la_carta": null,
+        "en_la_url": null,
+        "http_last_modified": "2026-06-24T22:36:35Z",
+        "pdf_creation_date": "2026-06-24T15:06:15-05:00",
+        "pdf_mod_date": "2026-06-24T15:06:15-05:00",
+        "observacion": "La URL sólo lleva un id numérico (1782340593), sin fecha legible. La carta no imprime fecha. La fecha más confiable es la del PDF: 24 de junio de 2026."
+      },
+      "consultado_el": "2026-08-19"
+    },
+    {
+      "id": "menu-bebidas",
+      "url_indicada": "https://bororestaurante.mesa247.la",
+      "url_carta": "https://cdn.mesa247.io/archivos/ficheros/2909/1783106462.pdf",
+      "etiqueta_en_el_sitio": "Menú Bebidas",
+      "formato": "PDF, 5 páginas, 425,197 × 850,394 pt, texto vectorial (no escaneado).",
+      "metadatos_pdf": {
+        "title": null,
+        "creator": null,
+        "producer": "Pdftools SDK",
+        "creation_date": null,
+        "mod_date": "2026-07-03T14:20:26-05:00"
+      },
+      "fechas": {
+        "impresa_en_la_carta": null,
+        "en_la_url": null,
+        "http_last_modified": "2026-07-03T19:21:05Z",
+        "pdf_creation_date": null,
+        "pdf_mod_date": "2026-07-03T14:20:26-05:00",
+        "observacion": "Sin título ni fecha de creación en los metadatos; sólo ModDate. La fecha más confiable es el 3 de julio de 2026."
+      },
+      "consultado_el": "2026-08-19"
+    }
+  ],
+  "secciones": [
+    {
+      "seccion": "ENTRADAS",
+      "ruta": [
+        "ENTRADAS"
+      ],
+      "fuente": "menu-comida",
+      "pagina_pdf": 2,
+      "platos": [
+        {
+          "nombre": "CEVICHE BORO",
+          "descripcion": "Con rambután, pera, cidra, coco biche, pitaya, leche de tigre de moringa y algas marinas.",
+          "precio": "$55.000 COP",
+          "precio_valor": 55000,
+          "marcas": [
+            "VEGANO."
+          ]
+        },
+        {
+          "nombre": "KALE A LA BRASA Y YOGURT DE COCO",
+          "descripcion": "Con granola de cereales andinos y vinagreta de huacatay.",
+          "precio": "$55.000 COP",
+          "precio_valor": 55000,
+          "marcas": [
+            "VEGANO."
+          ]
+        },
+        {
+          "nombre": "BURRATA DE BÚFALA CON MIRTÁCEAS",
+          "descripcion": "Guayaba roja pasa, guayaba agria lactofermentada, gazpacho de feijoa con albahaca, aceite de hoja de guayaba y raspado de acedera, acompañado con pan de masa madre.",
+          "precio": "$58.000 COP",
+          "precio_valor": 58000,
+          "marcas": [
+            "VEGETARIANO."
+          ]
+        },
+        {
+          "nombre": "CRUDO DE ATÚN Y FRUTOS ROJOS",
+          "descripcion": "Caldo de mora de castilla, fresas lacto fermentadas y fermentadas, pastrami de remolacha y flores rojas.",
+          "precio": "$65.000 COP",
+          "precio_valor": 65000,
+          "variantes": [
+            {
+              "nombre": "VERSIÓN VEGANA",
+              "precio": "$55.000 COP",
+              "precio_valor": 55000
+            }
+          ]
+        },
+        {
+          "nombre": "OSTIONES A LA BRASA GLASEADOS CON MIEL DE ALGARROBO Y YACÓN",
+          "descripcion": "Chimichurri de piña, mantequilla avellanada y ensaladilla fresca de pétalos de girasol y cebollín.",
+          "precio": "X3 $86.000 COP | X5 $130.000 COP",
+          "precio_valor": null,
+          "precios": [
+            {
+              "etiqueta": "X3",
+              "texto": "$86.000 COP",
+              "valor": 86000
+            },
+            {
+              "etiqueta": "X5",
+              "texto": "$130.000 COP",
+              "valor": 130000
+            }
+          ]
+        },
+        {
+          "nombre": "ENSALADA TIBIA DE MEJILLONES EN ESCABECHE Y LEGUMINOSAS",
+          "descripcion": "Habas, arvejas y guisantes a la brasa con cremoso de puerro y macadamia, acompañado de casabe achiotado.",
+          "precio": "$75.000 COP",
+          "precio_valor": 75000,
+          "variantes": [
+            {
+              "nombre": "VERSIÓN VEGANA",
+              "precio": "$60.000 COP",
+              "precio_valor": 60000
+            }
+          ]
+        },
+        {
+          "nombre": "LANGOSTINOS A LA BRASA Y TEXTURAS DE MAÍCES CRIOLLOS",
+          "descripcion": "Choclo cocido, crumble de maíz cariaco, espuma de maíz biche, millo toteado y caldo de cabezas de langostinos con tusa ahumada.",
+          "precio": "$100.000 COP",
+          "precio_valor": 100000,
+          "variantes": [
+            {
+              "nombre": "VERSIÓN VEGETARIANA",
+              "precio": "$60.000 COP",
+              "precio_valor": 60000
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "seccion": "FUERTES",
+      "ruta": [
+        "FUERTES"
+      ],
+      "fuente": "menu-comida",
+      "pagina_pdf": 3,
+      "platos": [
+        {
+          "nombre": "HONGOS DE TEMPORADA A LA BRASA",
+          "descripcion": "Glaseados con miso y miel, ajo blanco de nuez de marañón, macha de la casa y pan de maíz.",
+          "precio": "$65.000 COP",
+          "precio_valor": 65000,
+          "marcas": [
+            "VEGANO"
+          ]
+        },
+        {
+          "nombre": "PESCA BLANCA",
+          "descripcion": "Pescado de temporada glaseado con miso de frijol palomita, cremoso de palmito del Putumayo, leche de macambo y ensaladilla de palmito y coliflor fresca.",
+          "precio": "$95.000 COP",
+          "precio_valor": 95000,
+          "variantes": [
+            {
+              "nombre": "VERSIÓN VEGANA",
+              "precio": "$70.000 COP",
+              "precio_valor": 70000
+            }
+          ]
+        },
+        {
+          "nombre": "PATO Y ROSÁCEAS",
+          "descripcion": "Terrin de pato confitado, jamón de pato ahumado, duraznos asados, ciruela claudia fresca, ciruela criolla lacto fermentada, camote asado y salsa de vino de corozo",
+          "precio": "$115.000 COP",
+          "precio_valor": 115000
+        },
+        {
+          "nombre": "LANGOSTA A LA BRASA CON BISQUE DE CHONTADURO",
+          "descripcion": "Ñoquis de ahuyama y almidón de yuca agria, zanahorias crujientes y semillas de calabaza tostadas.",
+          "precio": "$200.000 COP",
+          "precio_valor": 200000
+        },
+        {
+          "nombre": "CERDO SAN PEDREÑO EN TRES COCCIONES",
+          "descripcion": "Brazo confitado con estofado de orejero y pasta de ajonjolí sabanera, centro de pierna a la brasa con rub de pulantana, piel suflada y vegetales de temporada.",
+          "precio": "$96.000 COP",
+          "precio_valor": 96000
+        },
+        {
+          "nombre": "TRUCHA Y BEURRE BLANC DE UCHUVAS",
+          "descripcion": "Con alcachofa cremosa con queso paipa y cogollos braseados con vinagreta de mostaza.",
+          "precio": "$120.000 COP",
+          "precio_valor": 120000
+        },
+        {
+          "nombre": "GIGOT DE CORDERO ESTOFADO EN SALSA DE PIPILONGO Y CERVEZA NEGRA",
+          "descripcion": "Con tubérculos andinos en texturas, puré de habas y verdes frescos.",
+          "precio": "$150.000 COP",
+          "precio_valor": 150000
+        }
+      ]
+    },
+    {
+      "seccion": "ADICIONES",
+      "ruta": [
+        "ADICIONES"
+      ],
+      "fuente": "menu-comida",
+      "pagina_pdf": 4,
+      "nota": "La carta titula la sección «ADICIONES | $20.000 COP»: el precio es único para toda la sección y no se repite en cada línea.",
+      "platos": [
+        {
+          "nombre": "PAN DE MAIZ",
+          "descripcion": null,
+          "precio": "$20.000 COP",
+          "precio_valor": 20000,
+          "precio_origen": "precio único de sección"
+        },
+        {
+          "nombre": "PAN DE MASA MADRE",
+          "descripcion": null,
+          "precio": "$20.000 COP",
+          "precio_valor": 20000,
+          "precio_origen": "precio único de sección"
+        },
+        {
+          "nombre": "COGOLLOS A LA BRASA",
+          "descripcion": null,
+          "precio": "$20.000 COP",
+          "precio_valor": 20000,
+          "precio_origen": "precio único de sección"
+        },
+        {
+          "nombre": "CASABE",
+          "descripcion": null,
+          "precio": "$20.000 COP",
+          "precio_valor": 20000,
+          "precio_origen": "precio único de sección"
+        },
+        {
+          "nombre": "ENSALADA FRESCA DE LA CASA",
+          "descripcion": null,
+          "precio": "$20.000 COP",
+          "precio_valor": 20000,
+          "precio_origen": "precio único de sección"
+        }
+      ]
+    },
+    {
+      "seccion": "POSTRES",
+      "ruta": [
+        "POSTRES"
+      ],
+      "fuente": "menu-comida",
+      "pagina_pdf": 4,
+      "platos": [
+        {
+          "nombre": "PANNA COTTA DE YLANG YLANG",
+          "descripcion": "Helado de yogurt de curuba, maracuyá y gulupa frescas y sus pieles confitadas.",
+          "precio": "$40.000 COP",
+          "precio_valor": 40000
+        },
+        {
+          "nombre": "RUIBARBO CONFITADO Y SORBETE DE COCO",
+          "descripcion": "Con espuma de uva isabelina, queso mascarpone y gelatina de flor de jamaica",
+          "precio": "$40.000 COP",
+          "precio_valor": 40000,
+          "variantes": [
+            {
+              "nombre": "VERSION VEGANA",
+              "precio": "$38.000 COP.",
+              "precio_valor": 38000
+            }
+          ]
+        },
+        {
+          "nombre": "TEOBROMAS EN TEXTURAS",
+          "descripcion": "Cremoso de chocolate, gel de mucílago de cacao, sorbete copoazú y crocante de pasta filo con Mocambo y nibs de cacao.",
+          "precio": "$40.000 COP",
+          "precio_valor": 40000
+        },
+        {
+          "nombre": "BIZCOCHO DE MAMBE Y HOJA DE YUCA",
+          "descripcion": "Con crema de feijoa y viche, ruda crocante y helado nitro de lulo y limonaria",
+          "precio": "$40.000 COP",
+          "precio_valor": 40000
+        },
+        {
+          "nombre": "PUDIN DE DÁTILES, GUINEO PASO Y CHOIBA",
+          "descripcion": "Con salsa toffe de guáimaro, helado de banano y crujiente de sus pieles.",
+          "precio": "$40.000 COP",
+          "precio_valor": 40000
+        }
+      ]
+    },
+    {
+      "seccion": "MOCKTAILS",
+      "ruta": [
+        "MOCKTAILS"
+      ],
+      "fuente": "menu-comida",
+      "pagina_pdf": 5,
+      "nota": "Esta sección también aparece en la carta de bebidas, con precios iguales y una diferencia de escritura (ver avisos).",
+      "platos": [
+        {
+          "nombre": "MANDARINO BRUMA",
+          "descripcion": "Cordial de limón mandarino, zumo de toronja, soda.",
+          "precio": "$40.000 COP",
+          "precio_valor": 40000
+        },
+        {
+          "nombre": "TROPICAL RECOVERY",
+          "descripcion": "Tequila blanco sin alcohol, zumo de limón Tahití, flor de jamaica deshidratada, maracuyá, vainilla, extracto de jengibre.",
+          "precio": "$40.000 COP",
+          "precio_valor": 40000
+        },
+        {
+          "nombre": "RED SMASH",
+          "descripcion": "Tequila blanco sin alcohol, ciruela, albahaca, cordial de limón Tahití, fresa.",
+          "precio": "$40.000 COP",
+          "precio_valor": 40000
+        },
+        {
+          "nombre": "GUAYUSA CITUS",
+          "descripcion": "Tequila sin alcohol, guayusa, cordial de limón, orégano, naranja tangelo, sal marina.",
+          "precio": "$40.000 COP",
+          "precio_valor": 40000
+        },
+        {
+          "nombre": "COCO SALADO",
+          "descripcion": "Gin sin alcohol, agua de coco orgánica, albahaca, limón, sal marina.",
+          "precio": "$40.000 COP",
+          "precio_valor": 40000
+        },
+        {
+          "nombre": "AMAZÓNICO",
+          "descripcion": "Açaí, flores, ají, uva, reducción de vino tinto, mango maduro, agua tónica",
+          "precio": "$40.000 COP",
+          "precio_valor": 40000
+        },
+        {
+          "nombre": "LIMÓN ENELDO",
+          "descripcion": "Gin sin alcohol, cordial de limón amarillo, eneldo.",
+          "precio": "$40.000 COP",
+          "precio_valor": 40000
+        }
+      ]
+    },
+    {
+      "seccion": "BEBIDAS > MOCKTAILS",
+      "ruta": [
+        "BEBIDAS",
+        "MOCKTAILS"
+      ],
+      "fuente": "menu-bebidas",
+      "pagina_pdf": 2,
+      "platos": [
+        {
+          "nombre": "MANDARINO BRUMA",
+          "descripcion": "Cordial de limón mandarino, zumo de toronja, soda.",
+          "precio": "$40.000",
+          "precio_valor": 40000
+        },
+        {
+          "nombre": "TROPICAL RECOVERY",
+          "descripcion": "Tequila blanco sin alcohol, zumo de limón Tahití, flor de jamaica deshidratada, maracuyá, vainilla, extracto de jengibre.",
+          "precio": "$40.000",
+          "precio_valor": 40000
+        },
+        {
+          "nombre": "RED SMASH",
+          "descripcion": "Tequila blanco sin alcohol, ciruela, albahaca, cordial de limón Tahití, fresa.",
+          "precio": "$40.000",
+          "precio_valor": 40000
+        },
+        {
+          "nombre": "GUAYUSA CITRUS",
+          "descripcion": "Tequila sin alcohol, guayusa, cordial de limón, orégano, naranja tangelo, sal marina.",
+          "precio": "$40.000",
+          "precio_valor": 40000
+        },
+        {
+          "nombre": "COCO SALADO",
+          "descripcion": "Gin sin alcohol, agua de coco orgánica, albahaca, limón, sal marina.",
+          "precio": "$40.000",
+          "precio_valor": 40000
+        },
+        {
+          "nombre": "AMAZÓNICO",
+          "descripcion": "Açaí, flores, ají, uva, reducción de vino tinto, mango maduro, agua tónica",
+          "precio": "$40.000",
+          "precio_valor": 40000
+        },
+        {
+          "nombre": "LIMÓN ENELDO",
+          "descripcion": "Gin sin alcohol, cordial de limón amarillo y eneldo.",
+          "precio": "$40.000",
+          "precio_valor": 40000
+        }
+      ]
+    },
+    {
+      "seccion": "BEBIDAS > AGUAS",
+      "ruta": [
+        "BEBIDAS",
+        "AGUAS"
+      ],
+      "fuente": "menu-bebidas",
+      "pagina_pdf": 2,
+      "platos": [
+        {
+          "nombre": "AGUA FILTRADA",
+          "descripcion": null,
+          "precio": "$20.000",
+          "precio_valor": 20000
+        },
+        {
+          "nombre": "SAN PELLEGRINO",
+          "descripcion": null,
+          "precio": "$25.000",
+          "precio_valor": 25000
+        },
+        {
+          "nombre": "ACQUA PANNA",
+          "descripcion": null,
+          "precio": "$25.000",
+          "precio_valor": 25000
+        },
+        {
+          "nombre": "AGUA OHRA",
+          "descripcion": null,
+          "precio": "$21.000",
+          "precio_valor": 21000
+        }
+      ]
+    },
+    {
+      "seccion": "BEBIDAS > OTROS",
+      "ruta": [
+        "BEBIDAS",
+        "OTROS"
+      ],
+      "fuente": "menu-bebidas",
+      "pagina_pdf": 2,
+      "platos": [
+        {
+          "nombre": "SODA BRETAÑA",
+          "descripcion": null,
+          "precio": "$12.000",
+          "precio_valor": 12000
+        },
+        {
+          "nombre": "GINGER BEER",
+          "descripcion": null,
+          "precio": "$12.000",
+          "precio_valor": 12000
+        },
+        {
+          "nombre": "AGUA TÓNICA",
+          "descripcion": null,
+          "precio": "$12.000",
+          "precio_valor": 12000
+        },
+        {
+          "nombre": "GINGER ALE",
+          "descripcion": null,
+          "precio": "$12.000",
+          "precio_valor": 12000
+        },
+        {
+          "nombre": "KOMBUCHA CAMELIA",
+          "descripcion": null,
+          "precio": "$20.000",
+          "precio_valor": 20000
+        }
+      ]
+    },
+    {
+      "seccion": "BEBIDAS > APERITIVOS",
+      "ruta": [
+        "BEBIDAS",
+        "APERITIVOS"
+      ],
+      "fuente": "menu-bebidas",
+      "pagina_pdf": 2,
+      "platos": [
+        {
+          "nombre": "CAMPARI",
+          "descripcion": null,
+          "precio": "$38.500",
+          "precio_valor": 38500
+        },
+        {
+          "nombre": "AMARETTO DISARONNO",
+          "descripcion": null,
+          "precio": "$45.000",
+          "precio_valor": 45000
+        },
+        {
+          "nombre": "COINTREAU",
+          "descripcion": null,
+          "precio": "$53.000",
+          "precio_valor": 53000
+        },
+        {
+          "nombre": "SAMBUCA",
+          "descripcion": null,
+          "precio": "$50.000",
+          "precio_valor": 50000
+        },
+        {
+          "nombre": "LICOR 43",
+          "descripcion": null,
+          "precio": "$48.000",
+          "precio_valor": 48000
+        },
+        {
+          "nombre": "LIMONCELLO",
+          "descripcion": null,
+          "precio": "$25.000",
+          "precio_valor": 25000
+        },
+        {
+          "nombre": "FRANGELICO",
+          "descripcion": null,
+          "precio": "$45.000",
+          "precio_valor": 45000
+        },
+        {
+          "nombre": "HENNESSY VSOP",
+          "descripcion": null,
+          "precio": "$92.000",
+          "precio_valor": 92000
+        }
+      ]
+    },
+    {
+      "seccion": "BEBIDAS > COCTELES DE AUTOR",
+      "ruta": [
+        "BEBIDAS",
+        "COCTELES DE AUTOR"
+      ],
+      "fuente": "menu-bebidas",
+      "pagina_pdf": 3,
+      "platos": [
+        {
+          "nombre": "CAFETO",
+          "descripcion": "Destilado de cereza de café, tequila reposado Olmeca, café orgánico, jerez amontillado, almíbar de vainilla zero, aceite de coco, bitter Old Fashioned.",
+          "precio": "$48.000",
+          "precio_valor": 48000
+        },
+        {
+          "nombre": "CAÑO CRISTALES",
+          "descripcion": "Gin Beefeater London Dry, aguardiente amarillo, cordial limón mandarino zero, arazá, guayaba roja, limonaria, flor de jamaica en polvo.",
+          "precio": "$48.000",
+          "precio_valor": 48000
+        },
+        {
+          "nombre": "MONTAÑA",
+          "descripcion": "Ron blanco Havana 3, gin Beefeater London Dry, brandy 472 feijoa, cordial de limón mandarino zero, flor de caléndula deshidratada.",
+          "precio": "$48.000",
+          "precio_valor": 48000
+        },
+        {
+          "nombre": "UTRÍA",
+          "descripcion": "Viche Herencia Guapireña, tequila blanco Olmeca, vainilla, limón Tahití, lulo, açaí.",
+          "precio": "$48.000",
+          "precio_valor": 48000
+        },
+        {
+          "nombre": "MAVECURE",
+          "descripcion": "Tequila blanco Olmeca, mezcal Ojo de Tigre, limón Tahití, maracuyá, albahaca, jengibre en polvo, flor de caléndula deshidratada.",
+          "precio": "$48.000",
+          "precio_valor": 48000
+        },
+        {
+          "nombre": "PERSEVERANCIA",
+          "descripcion": "Bitter de limón, ron Havana 7, pimienta negra molida, extracto de zanahoria, manzana verde.",
+          "precio": "$48.000",
+          "precio_valor": 48000
+        },
+        {
+          "nombre": "SOLANUM",
+          "descripcion": "Fermentado de lulo, tequila blanco Olmeca, extracto de uchuva, ají y uva Niá, albahaca.",
+          "precio": "$48.000",
+          "precio_valor": 48000
+        },
+        {
+          "nombre": "TAMARINDO",
+          "descripcion": "Fermentado de tamarindo, gin Beefeater London Dry, açaí y flores Niá, jerez amontillado, orégano.",
+          "precio": "$48.000",
+          "precio_valor": 48000
+        },
+        {
+          "nombre": "ORO VERDE",
+          "descripcion": "Ron blanco Havana 3, agua de banano, vainilla, prosecco, nibs de cacao, zumo de limón Tahití.",
+          "precio": "$48.000",
+          "precio_valor": 48000
+        },
+        {
+          "nombre": "BEE BORO",
+          "descripcion": "Gin Beefeater London Dry, vermouth de miel, flor de caléndula deshidratada, albahaca, solución salina, vino de miel.",
+          "precio": "$48.000",
+          "precio_valor": 48000
+        }
+      ]
+    },
+    {
+      "seccion": "BEBIDAS > CERVEZAS",
+      "ruta": [
+        "BEBIDAS",
+        "CERVEZAS"
+      ],
+      "fuente": "menu-bebidas",
+      "pagina_pdf": 3,
+      "platos": [
+        {
+          "nombre": "TORREALTA",
+          "descripcion": null,
+          "precio": "$22.000",
+          "precio_valor": 22000
+        },
+        {
+          "nombre": "CLUB COLOMBIA",
+          "descripcion": null,
+          "precio": "$14.000",
+          "precio_valor": 14000
+        },
+        {
+          "nombre": "STELLA ARTOIS",
+          "descripcion": null,
+          "precio": "$18.000",
+          "precio_valor": 18000
+        },
+        {
+          "nombre": "CORONA",
+          "descripcion": null,
+          "precio": "$18.000",
+          "precio_valor": 18000
+        }
+      ]
+    },
+    {
+      "seccion": "BEBIDAS > TEQUILA",
+      "ruta": [
+        "BEBIDAS",
+        "TEQUILA"
+      ],
+      "fuente": "menu-bebidas",
+      "pagina_pdf": 3,
+      "platos": [
+        {
+          "nombre": "DON JULIO 70",
+          "descripcion": null,
+          "precio": "$87.000",
+          "precio_valor": 87000
+        },
+        {
+          "nombre": "DON JULIO REPOSADO",
+          "descripcion": null,
+          "precio": "$79.000",
+          "precio_valor": 79000
+        },
+        {
+          "nombre": "DON JULIO BLANCO",
+          "descripcion": null,
+          "precio": "$63.000",
+          "precio_valor": 63000
+        },
+        {
+          "nombre": "MAESTRO DOBEL",
+          "descripcion": null,
+          "precio": "$52.000",
+          "precio_valor": 52000
+        }
+      ]
+    },
+    {
+      "seccion": "BEBIDAS > RON",
+      "ruta": [
+        "BEBIDAS",
+        "RON"
+      ],
+      "fuente": "menu-bebidas",
+      "pagina_pdf": 4,
+      "platos": [
+        {
+          "nombre": "LA HECHICERA",
+          "descripcion": null,
+          "precio": "$58.000",
+          "precio_valor": 58000
+        },
+        {
+          "nombre": "HAVANA CLUB 7",
+          "descripcion": null,
+          "precio": "$35.000",
+          "precio_valor": 35000
+        },
+        {
+          "nombre": "DICTADOR 12",
+          "descripcion": null,
+          "precio": "$64.000",
+          "precio_valor": 64000
+        }
+      ]
+    },
+    {
+      "seccion": "BEBIDAS > VODKA",
+      "ruta": [
+        "BEBIDAS",
+        "VODKA"
+      ],
+      "fuente": "menu-bebidas",
+      "pagina_pdf": 4,
+      "platos": [
+        {
+          "nombre": "GREY GOOSE",
+          "descripcion": null,
+          "precio": "$62.000",
+          "precio_valor": 62000
+        },
+        {
+          "nombre": "ABSOLUT",
+          "descripcion": null,
+          "precio": "$42.000",
+          "precio_valor": 42000
+        },
+        {
+          "nombre": "TITO’S",
+          "descripcion": null,
+          "precio": "$40.000",
+          "precio_valor": 40000
+        }
+      ]
+    },
+    {
+      "seccion": "BEBIDAS > WHISKY",
+      "ruta": [
+        "BEBIDAS",
+        "WHISKY"
+      ],
+      "fuente": "menu-bebidas",
+      "pagina_pdf": 4,
+      "platos": [
+        {
+          "nombre": "THE GLENLIVET CARIBBEAN",
+          "descripcion": null,
+          "precio": "$48.000",
+          "precio_valor": 48000
+        },
+        {
+          "nombre": "THE GLENLIVET FOUNDER’S",
+          "descripcion": null,
+          "precio": "$47.000",
+          "precio_valor": 47000
+        },
+        {
+          "nombre": "THE GLENLIVET 12",
+          "descripcion": null,
+          "precio": "$45.000",
+          "precio_valor": 45000
+        },
+        {
+          "nombre": "THE MACALLAN 12",
+          "descripcion": null,
+          "precio": "$92.000",
+          "precio_valor": 92000
+        },
+        {
+          "nombre": "GLENFIDDICH 12",
+          "descripcion": null,
+          "precio": "$66.000",
+          "precio_valor": 66000
+        },
+        {
+          "nombre": "GLENFIDDICH 15",
+          "descripcion": null,
+          "precio": "$80.000",
+          "precio_valor": 80000
+        },
+        {
+          "nombre": "GLENFIDDICH 18",
+          "descripcion": null,
+          "precio": "$95.000",
+          "precio_valor": 95000
+        },
+        {
+          "nombre": "BLUE LABEL",
+          "descripcion": null,
+          "precio": "$171.000",
+          "precio_valor": 171000
+        },
+        {
+          "nombre": "CHIVAS 18",
+          "descripcion": null,
+          "precio": "$65.000",
+          "precio_valor": 65000
+        },
+        {
+          "nombre": "BUCHANAN’S 18",
+          "descripcion": null,
+          "precio": "$87.000",
+          "precio_valor": 87000
+        },
+        {
+          "nombre": "BULLEIT RYE",
+          "descripcion": null,
+          "precio": "$42.000",
+          "precio_valor": 42000
+        }
+      ]
+    },
+    {
+      "seccion": "BEBIDAS > AGUARDIENTE",
+      "ruta": [
+        "BEBIDAS",
+        "AGUARDIENTE"
+      ],
+      "fuente": "menu-bebidas",
+      "pagina_pdf": 4,
+      "platos": [
+        {
+          "nombre": "DESQUITE",
+          "descripcion": null,
+          "precio": "$26.000",
+          "precio_valor": 26000
+        },
+        {
+          "nombre": "ANTIOQUEÑO REAL",
+          "descripcion": null,
+          "precio": "$20.000",
+          "precio_valor": 20000
+        }
+      ]
+    },
+    {
+      "seccion": "BEBIDAS > MEZCAL",
+      "ruta": [
+        "BEBIDAS",
+        "MEZCAL"
+      ],
+      "fuente": "menu-bebidas",
+      "pagina_pdf": 4,
+      "platos": [
+        {
+          "nombre": "OJO DE TIGRE",
+          "descripcion": null,
+          "precio": "$50.000",
+          "precio_valor": 50000
+        },
+        {
+          "nombre": "400 CONEJOS",
+          "descripcion": null,
+          "precio": "$63.000",
+          "precio_valor": 63000
+        },
+        {
+          "nombre": "UNIÓN JOVEN",
+          "descripcion": null,
+          "precio": "$42.000",
+          "precio_valor": 42000
+        }
+      ]
+    },
+    {
+      "seccion": "BEBIDAS > GINEBRA",
+      "ruta": [
+        "BEBIDAS",
+        "GINEBRA"
+      ],
+      "fuente": "menu-bebidas",
+      "pagina_pdf": 4,
+      "platos": [
+        {
+          "nombre": "SELVA",
+          "descripcion": null,
+          "precio": "$45.000",
+          "precio_valor": 45000
+        },
+        {
+          "nombre": "BOMBAY SAPPHIRE",
+          "descripcion": null,
+          "precio": "$42.000",
+          "precio_valor": 42000
+        },
+        {
+          "nombre": "TANQUERAY TEN",
+          "descripcion": null,
+          "precio": "$42.000",
+          "precio_valor": 42000
+        },
+        {
+          "nombre": "BEEFEATER",
+          "descripcion": null,
+          "precio": "$42.000",
+          "precio_valor": 42000
+        },
+        {
+          "nombre": "HENDRICK’S",
+          "descripcion": null,
+          "precio": "$42.000",
+          "precio_valor": 42000
+        },
+        {
+          "nombre": "MONKEY 47",
+          "descripcion": null,
+          "precio": "$65.000",
+          "precio_valor": 65000
+        }
+      ]
+    },
+    {
+      "seccion": "BEBIDAS > VINOS > ESPUMOSOS",
+      "ruta": [
+        "BEBIDAS",
+        "VINOS",
+        "ESPUMOSOS"
+      ],
+      "fuente": "menu-bebidas",
+      "pagina_pdf": 5,
+      "platos": [
+        {
+          "nombre": "AGUSTI TORELLO MATA BRUT RESERVA",
+          "varietal": "CAVA",
+          "origen": "ESPAÑA",
+          "descripcion": null,
+          "precio": "B $250.000 | C $65.000",
+          "precio_valor": null,
+          "precios": [
+            {
+              "etiqueta": "B",
+              "significado": "botella",
+              "texto": "$250.000",
+              "valor": 250000
+            },
+            {
+              "etiqueta": "C",
+              "significado": "copa",
+              "texto": "$65.000",
+              "valor": 65000
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "seccion": "BEBIDAS > VINOS > BLANCOS",
+      "ruta": [
+        "BEBIDAS",
+        "VINOS",
+        "BLANCOS"
+      ],
+      "fuente": "menu-bebidas",
+      "pagina_pdf": 5,
+      "platos": [
+        {
+          "nombre": "MONTESCO AGUA DE ROCA",
+          "varietal": "SAUVIGNON BLANC",
+          "origen": "ARGENTINA",
+          "descripcion": null,
+          "precio": "B $230.000 | C $65.000",
+          "precio_valor": null,
+          "precios": [
+            {
+              "etiqueta": "B",
+              "significado": "botella",
+              "texto": "$230.000",
+              "valor": 230000
+            },
+            {
+              "etiqueta": "C",
+              "significado": "copa",
+              "texto": "$65.000",
+              "valor": 65000
+            }
+          ]
+        },
+        {
+          "nombre": "QUINTALUNA",
+          "varietal": "VERDEJO",
+          "origen": "SEGOVIA, ESPAÑA",
+          "descripcion": null,
+          "precio": "B $255.000 | C $68.000",
+          "precio_valor": null,
+          "precios": [
+            {
+              "etiqueta": "B",
+              "significado": "botella",
+              "texto": "$255.000",
+              "valor": 255000
+            },
+            {
+              "etiqueta": "C",
+              "significado": "copa",
+              "texto": "$68.000",
+              "valor": 68000
+            }
+          ]
+        },
+        {
+          "nombre": "CLOUS DE FOUS LOCURA 1",
+          "varietal": "CHARDONNAY",
+          "origen": "CHILE",
+          "descripcion": null,
+          "precio": "B $230.000 | C $68.000",
+          "precio_valor": null,
+          "precios": [
+            {
+              "etiqueta": "B",
+              "significado": "botella",
+              "texto": "$230.000",
+              "valor": 230000
+            },
+            {
+              "etiqueta": "C",
+              "significado": "copa",
+              "texto": "$68.000",
+              "valor": 68000
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "seccion": "BEBIDAS > VINOS > ROSADOS",
+      "ruta": [
+        "BEBIDAS",
+        "VINOS",
+        "ROSADOS"
+      ],
+      "fuente": "menu-bebidas",
+      "pagina_pdf": 5,
+      "platos": [
+        {
+          "nombre": "SOALHEIRO MINERAL ROSE",
+          "varietal": null,
+          "origen": "ESPAÑA",
+          "descripcion": null,
+          "precio": "B $198.000 | C $60.000",
+          "precio_valor": null,
+          "precios": [
+            {
+              "etiqueta": "B",
+              "significado": "botella",
+              "texto": "$198.000",
+              "valor": 198000
+            },
+            {
+              "etiqueta": "C",
+              "significado": "copa",
+              "texto": "$60.000",
+              "valor": 60000
+            }
+          ]
+        },
+        {
+          "nombre": "ALTA ALELLA ORANGE",
+          "varietal": null,
+          "origen": "ESPAÑA",
+          "descripcion": null,
+          "precio": "B $285.000 | C $69.000",
+          "precio_valor": null,
+          "precios": [
+            {
+              "etiqueta": "B",
+              "significado": "botella",
+              "texto": "$285.000",
+              "valor": 285000
+            },
+            {
+              "etiqueta": "C",
+              "significado": "copa",
+              "texto": "$69.000",
+              "valor": 69000
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "seccion": "BEBIDAS > VINOS > TINTOS LIGEROS",
+      "ruta": [
+        "BEBIDAS",
+        "VINOS",
+        "TINTOS LIGEROS"
+      ],
+      "fuente": "menu-bebidas",
+      "pagina_pdf": 5,
+      "platos": [
+        {
+          "nombre": "LOSADA, VINOS DE FINCA",
+          "varietal": "MENCIA",
+          "origen": "BIERZO, ESPAÑA",
+          "descripcion": null,
+          "precio": "B $240.000 | C $60.000",
+          "precio_valor": null,
+          "precios": [
+            {
+              "etiqueta": "B",
+              "significado": "botella",
+              "texto": "$240.000",
+              "valor": 240000
+            },
+            {
+              "etiqueta": "C",
+              "significado": "copa",
+              "texto": "$60.000",
+              "valor": 60000
+            }
+          ]
+        },
+        {
+          "nombre": "FLEURIE",
+          "varietal": "GAMAY",
+          "origen": "FRANCIA",
+          "descripcion": null,
+          "precio": "B $285.000 | C $75.000",
+          "precio_valor": null,
+          "precios": [
+            {
+              "etiqueta": "B",
+              "significado": "botella",
+              "texto": "$285.000",
+              "valor": 285000
+            },
+            {
+              "etiqueta": "C",
+              "significado": "copa",
+              "texto": "$75.000",
+              "valor": 75000
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "seccion": "BEBIDAS > VINOS > TINTOS MEDIOS",
+      "ruta": [
+        "BEBIDAS",
+        "VINOS",
+        "TINTOS MEDIOS"
+      ],
+      "fuente": "menu-bebidas",
+      "pagina_pdf": 5,
+      "platos": [
+        {
+          "nombre": "LA BRUJA, COMANDO G",
+          "varietal": "GARNACHA",
+          "origen": "GREDOS, ESPAÑA",
+          "descripcion": null,
+          "precio": "B $310.000 | C $80.000",
+          "precio_valor": null,
+          "precios": [
+            {
+              "etiqueta": "B",
+              "significado": "botella",
+              "texto": "$310.000",
+              "valor": 310000
+            },
+            {
+              "etiqueta": "C",
+              "significado": "copa",
+              "texto": "$80.000",
+              "valor": 80000
+            }
+          ]
+        },
+        {
+          "nombre": "FOCASOLE ROSSO DE MONTALCINO",
+          "varietal": "SANGIOVESE",
+          "origen": null,
+          "descripcion": null,
+          "precio": "B $280.000 | C $75.000",
+          "precio_valor": null,
+          "precios": [
+            {
+              "etiqueta": "B",
+              "significado": "botella",
+              "texto": "$280.000",
+              "valor": 280000
+            },
+            {
+              "etiqueta": "C",
+              "significado": "copa",
+              "texto": "$75.000",
+              "valor": 75000
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "seccion": "BEBIDAS > VINOS > TINTOS COMPLEJOS",
+      "ruta": [
+        "BEBIDAS",
+        "VINOS",
+        "TINTOS COMPLEJOS"
+      ],
+      "fuente": "menu-bebidas",
+      "pagina_pdf": 5,
+      "platos": [
+        {
+          "nombre": "MONSANTO ANNATA",
+          "varietal": "CHIANTI",
+          "origen": null,
+          "descripcion": null,
+          "precio": "B $320.000 | C $80.000",
+          "precio_valor": null,
+          "precios": [
+            {
+              "etiqueta": "B",
+              "significado": "botella",
+              "texto": "$320.000",
+              "valor": 320000
+            },
+            {
+              "etiqueta": "C",
+              "significado": "copa",
+              "texto": "$80.000",
+              "valor": 80000
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "avisos": [
+    "Boro publica dos cartas separadas en su sitio: «Menú» (comida) y «Menú Bebidas». Cada sección lleva el campo 'fuente' indicando de cuál salió.",
+    "Los MOCKTAILS aparecen en las dos cartas con los mismos precios ($40.000). Hay una diferencia de escritura entre ellas: la carta de comida dice «GUAYUSA CITUS» y la de bebidas «GUAYUSA CITRUS». Se transcribió cada una tal cual figura en su propia fuente, sin corregir.",
+    "La carta de comida escribe los precios con el sufijo «COP» ($55.000 COP) y la de bebidas sin él ($40.000). Se respetó la escritura de cada fuente en el campo 'precio'.",
+    "OSTIONES A LA BRASA... tiene dos formatos (X3 y X5) y por eso 'precio_valor' va en null; los dos valores están en 'precios'.",
+    "Varios platos ofrecen versión vegana/vegetariana con otro precio: van en 'variantes', no como platos aparte.",
+    "La sección ADICIONES tiene un precio único de sección ($20.000 COP) impreso en el título; se replicó en cada ítem y se marcó con 'precio_origen'.",
+    "Los vinos se venden por botella (B) y copa (C); ambos valores están en 'precios' y 'precio_valor' queda en null.",
+    "Verificación visual: se renderizaron las páginas 2 y 3 de la carta de comida y 2 y 5 de la de bebidas y se contrastaron contra el texto extraído. Coinciden carácter por carácter.",
+    "Ningún precio quedó en PENDIENTE: todos se leen sin ambigüedad en el PDF."
+  ]
+}

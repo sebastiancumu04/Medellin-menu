@@ -1,0 +1,651 @@
+{
+  "slug": "chagra",
+  "restaurante": "La Chagra",
+  "ciudad": "Medellín",
+  "moneda": "COP",
+  "extraido_el": "2026-08-19",
+  "fuentes": [
+    {
+      "id": "carta-pdf",
+      "url_indicada": "https://linktr.ee/la_chagra",
+      "url_carta": "https://drive.google.com/file/d/1_1mDZN2i5XHKncJbs4S0veiUbfQBsoL0/view?usp=sharing",
+      "url_descarga_directa": "https://drive.usercontent.google.com/download?id=1_1mDZN2i5XHKncJbs4S0veiUbfQBsoL0&export=download",
+      "etiqueta_en_el_sitio": "Menu",
+      "como_se_llego": "El Linktree de @la_chagra tiene tres botones (Menu, Booking, Location, Tripadvisor). El botón «Menu» apunta a un archivo de Google Drive.",
+      "nombre_de_archivo": "Carta La chagra español - inglés.pdf",
+      "formato": "PDF, 8 páginas, 612 × 1200,87 pt, texto vectorial (no escaneado). Carta bilingüe español/inglés.",
+      "metadatos_pdf": {
+        "title": "Carta La chagra español - inglés",
+        "creator": "Adobe Illustrator CS6 (Windows)",
+        "producer": "Adobe PDF library 10.01",
+        "creation_date": "2025-10-09T15:19:30-05:00",
+        "mod_date": "2025-10-09T16:19:30-05:00"
+      },
+      "fechas": {
+        "impresa_en_la_carta": null,
+        "en_la_url": null,
+        "http_last_modified": "2025-10-09T21:45:01Z",
+        "pdf_creation_date": "2025-10-09T15:19:30-05:00",
+        "pdf_mod_date": "2025-10-09T16:19:30-05:00",
+        "observacion": "El nombre del archivo y la URL de Drive no llevan fecha. Los tres marcadores disponibles (creación, modificación y Last-Modified de Drive) coinciden en el 9 de octubre de 2025: es la carta más vieja de las cinco."
+      },
+      "consultado_el": "2026-08-19"
+    }
+  ],
+  "mapa_del_pdf": {
+    "1": "Texto de bienvenida (español)",
+    "2": "Texto de bienvenida (inglés)",
+    "3": "CASA DEL CHAMÁN — menú degustación amazónico (español)",
+    "4": "SHAMAN'S HOUSE — amazonic tasting menu (inglés, traducción de la p. 3)",
+    "5": "COCTELES / COCKTAILS",
+    "6": "COCTELES SIN LICOR / MOCKTAILS + Aperitivos vínicos",
+    "7": "VINOS / WINE",
+    "8": "LICORES / LIQUORS"
+  },
+  "secciones": [
+    {
+      "seccion": "CASA DEL CHAMÁN (menú degustación amazónico) > EXPERIENCIA",
+      "ruta": [
+        "CASA DEL CHAMÁN",
+        "EXPERIENCIA"
+      ],
+      "fuente": "carta-pdf",
+      "pagina_pdf": 3,
+      "precio_del_menu": {
+        "texto": "$ 330.000",
+        "valor": 330000
+      },
+      "nota": "Menú degustación de precio fijo. La carta titula «EXPERIENCIA: $ 330.000» y debajo lista los momentos, ninguno con precio propio.",
+      "platos": [
+        {
+          "nombre": "Permiso a la selva",
+          "descripcion": "Limpieza energética con plantas de poder.",
+          "precio": null,
+          "precio_valor": null,
+          "precio_nota": "sin precio individual: incluido en EXPERIENCIA $ 330.000"
+        },
+        {
+          "nombre": "Pachamama",
+          "descripcion": "Camucamu, fareka en osmosis",
+          "precio": null,
+          "precio_valor": null,
+          "precio_nota": "sin precio individual: incluido en EXPERIENCIA $ 330.000"
+        },
+        {
+          "nombre": "Fiesta de chontaduro",
+          "descripcion": "Fruto en texturas",
+          "precio": null,
+          "precio_valor": null,
+          "precio_nota": "sin precio individual: incluido en EXPERIENCIA $ 330.000"
+        },
+        {
+          "nombre": "Primitivo",
+          "descripcion": "Pirarucú, casabe, mantequilla de selva.",
+          "precio": null,
+          "precio_valor": null,
+          "precio_nota": "sin precio individual: incluido en EXPERIENCIA $ 330.000"
+        },
+        {
+          "nombre": "Flor de selva",
+          "descripcion": "Palmito acevichado, mayonesa de yarumo.",
+          "precio": null,
+          "precio_valor": null,
+          "precio_nota": "sin precio individual: incluido en EXPERIENCIA $ 330.000"
+        },
+        {
+          "nombre": "Manguaré",
+          "descripcion": "Crocante de yuca, queso 7 cueros, panceta de cerdo.",
+          "precio": null,
+          "precio_valor": null,
+          "precio_nota": "sin precio individual: incluido en EXPERIENCIA $ 330.000"
+        },
+        {
+          "nombre": "Ciclo salvaje",
+          "descripcion": "Mojojoy, frutos secos de monte.",
+          "precio": null,
+          "precio_valor": null,
+          "precio_nota": "sin precio individual: incluido en EXPERIENCIA $ 330.000"
+        },
+        {
+          "nombre": "Selva inflada",
+          "descripcion": "Tubérculos, trufa de selva, espuma de tucupí.",
+          "precio": null,
+          "precio_valor": null,
+          "precio_nota": "sin precio individual: incluido en EXPERIENCIA $ 330.000"
+        },
+        {
+          "nombre": "Enigma",
+          "descripcion": "Espuma de hormiga, crocante de setas.",
+          "precio": null,
+          "precio_valor": null,
+          "precio_nota": "sin precio individual: incluido en EXPERIENCIA $ 330.000"
+        },
+        {
+          "nombre": "Rio triste",
+          "descripcion": "Variedad de cacaos amazóncios, espuma de copoazú y miel de cacao.",
+          "precio": null,
+          "precio_valor": null,
+          "precio_nota": "sin precio individual: incluido en EXPERIENCIA $ 330.000"
+        },
+        {
+          "nombre": "Rio volador",
+          "descripcion": "Papel de cocona, caramelo de aguaje y asaí.",
+          "precio": null,
+          "precio_valor": null,
+          "precio_nota": "sin precio individual: incluido en EXPERIENCIA $ 330.000"
+        },
+        {
+          "nombre": "Circulo de palabra",
+          "descripcion": "Galleta de fariña, helado de copoazú y gel de camucamu.",
+          "precio": null,
+          "precio_valor": null,
+          "precio_nota": "sin precio individual: incluido en EXPERIENCIA $ 330.000"
+        },
+        {
+          "nombre": "Salvazonas",
+          "descripcion": "De la selva a la mesa y de la mesa a la selva.",
+          "precio": null,
+          "precio_valor": null,
+          "precio_nota": "sin precio individual: incluido en EXPERIENCIA $ 330.000"
+        }
+      ],
+      "pie_de_seccion": "* Opción vegana"
+    },
+    {
+      "seccion": "CASA DEL CHAMÁN (menú degustación amazónico) > MARIDAJE",
+      "ruta": [
+        "CASA DEL CHAMÁN",
+        "MARIDAJE"
+      ],
+      "fuente": "carta-pdf",
+      "pagina_pdf": 3,
+      "precio_del_menu": {
+        "texto": "$ 250.000",
+        "valor": 250000
+      },
+      "nota": "Maridaje de precio fijo. La carta titula «MARIDAJE: $ 250.000»; los tragos no llevan precio propio.",
+      "platos": [
+        {
+          "nombre": "Motelo mama",
+          "descripcion": "Licor de mambe y ginebra, inspirado en el mito cosmogónico de las tribus del Amazonas.",
+          "precio": null,
+          "precio_valor": null,
+          "precio_nota": "sin precio individual: incluido en MARIDAJE $ 250.000"
+        },
+        {
+          "nombre": "Árbol de los deseos",
+          "descripcion": "A base de camucamu, ginebra, uña de gato y clavos de olor.",
+          "precio": null,
+          "precio_valor": null,
+          "precio_nota": "sin precio individual: incluido en MARIDAJE $ 250.000"
+        },
+        {
+          "nombre": "Chuyachaki",
+          "descripcion": "A base de cocona, sal de monte, ojo de pez, panela orgánica y tequila.",
+          "precio": null,
+          "precio_valor": null,
+          "precio_nota": "sin precio individual: incluido en MARIDAJE $ 250.000"
+        },
+        {
+          "nombre": "Negroni de chondur",
+          "descripcion": "Macerado de chondur, vermouth de la casa, especias y ginebra.",
+          "precio": null,
+          "precio_valor": null,
+          "precio_nota": "sin precio individual: incluido en MARIDAJE $ 250.000"
+        },
+        {
+          "nombre": "Sorbet de borojó,.",
+          "descripcion": null,
+          "precio": null,
+          "precio_valor": null,
+          "precio_nota": "sin precio individual: incluido en MARIDAJE $ 250.000"
+        },
+        {
+          "nombre": "Vinico de asaí",
+          "descripcion": "Maceración de asaí en vino blanco.",
+          "precio": null,
+          "precio_valor": null,
+          "precio_nota": "sin precio individual: incluido en MARIDAJE $ 250.000"
+        },
+        {
+          "nombre": "Trago de ron colombiano.",
+          "descripcion": null,
+          "precio": null,
+          "precio_valor": null,
+          "precio_nota": "sin precio individual: incluido en MARIDAJE $ 250.000"
+        }
+      ]
+    },
+    {
+      "seccion": "COCTELES / COCKTAILS",
+      "ruta": [
+        "COCTELES / COCKTAILS"
+      ],
+      "fuente": "carta-pdf",
+      "pagina_pdf": 5,
+      "platos": [
+        {
+          "nombre": "Árbol de los deseos",
+          "descripcion": "Camu camu, ginebra, clavos de olor.",
+          "precio": "$78.000",
+          "precio_valor": 78000,
+          "descripcion_en": "Camu camu, gin, cloves."
+        },
+        {
+          "nombre": "Chuyachaki",
+          "descripcion": "Cocona, sal de monte, ojo de pez, panela orgánica y tequila.",
+          "precio": "$68.000",
+          "precio_valor": 68000,
+          "descripcion_en": "Cocona, herbal salt, fish eye aji, organic panela and tequila."
+        },
+        {
+          "nombre": "Karamakate",
+          "descripcion": "Chuchuaza, tucupí, whisky",
+          "precio": "$72.000",
+          "precio_valor": 72000
+        },
+        {
+          "nombre": "Kurupira",
+          "descripcion": "Copoazú, jengibre y cachaza",
+          "precio": "$62.000",
+          "precio_valor": 62000,
+          "descripcion_en": "Copoazú, ginger and cachaza"
+        },
+        {
+          "nombre": "Anaconda",
+          "descripcion": "Tequila, almíbar de copoazú y espina con nectar de reducción de musílago de copoazú ( 40 días ).",
+          "precio": "$68.000",
+          "precio_valor": 68000,
+          "descripcion_en": "Tequila, copoazú sirope, copoazú nectar and thorn with cupuacu mucilage reduction nectar."
+        },
+        {
+          "nombre": "Tunchi",
+          "descripcion": "Macerado de arazá en chuchuaza y tequila.",
+          "precio": "$72.000",
+          "precio_valor": 72000,
+          "descripcion_en": "Macerated arazá in chuchuaza and tequila."
+        },
+        {
+          "nombre": "Ñengu",
+          "descripcion": "Ron y chuchuaza con almibar de coco, piña y crema de copoazú.",
+          "precio": "$75.000",
+          "precio_valor": 75000,
+          "descripcion_en": "Rum and chuchuaza with coconut syrup, pineapple and copoazú cream."
+        },
+        {
+          "nombre": "Waira",
+          "descripcion": "Chondur, vermouth de la casa, especias y ginebra.",
+          "precio": "$85.000",
+          "precio_valor": 85000,
+          "descripcion_en": "Chondur, house vermouth, açai, spices and gin."
+        }
+      ]
+    },
+    {
+      "seccion": "COCTELES SIN LICOR / MOCKTAILS",
+      "ruta": [
+        "COCTELES SIN LICOR / MOCKTAILS"
+      ],
+      "fuente": "carta-pdf",
+      "pagina_pdf": 6,
+      "platos": [
+        {
+          "nombre": "Taita",
+          "descripcion": "Copoazú y mambe.",
+          "precio": "$56.000",
+          "precio_valor": 56000,
+          "beneficios": "anti- inflamatorio, ayuda a mejorar el sistema digestivo y el funcionamiento del hígado, regula el metabolismo, estimula la circulación sanguínea, aumenta la resistencia física y mejora el estado de ánimo."
+        },
+        {
+          "nombre": "Hitoma",
+          "descripcion": "Arazá, panela orgánica, tucupí y agua tónica.",
+          "precio": "$54.000",
+          "precio_valor": 54000,
+          "descripcion_en": "Arazá, organic panela, tucupí and tonic water.",
+          "beneficios": "regula la presión arterial y el colesterol, el asma, el reumatismo y los dolores musculares. Afrodisíaco."
+        },
+        {
+          "nombre": "Aperitivos vínicos ( copa )",
+          "descripcion": null,
+          "precio": "$30.000",
+          "precio_valor": 30000,
+          "opciones": [
+            "Cocona",
+            "Asaí"
+          ],
+          "nota": "La carta imprime un solo precio para el renglón «Aperitivos vínicos ( copa )» y debajo lista las dos opciones sin precio propio."
+        }
+      ]
+    },
+    {
+      "seccion": "VINOS / WINE > CAVA / SPARKLIN WINE",
+      "ruta": [
+        "VINOS / WINE",
+        "CAVA / SPARKLIN WINE"
+      ],
+      "fuente": "carta-pdf",
+      "pagina_pdf": 7,
+      "platos": [
+        {
+          "nombre": "Don Roman",
+          "descripcion": null,
+          "precio": "$300.000",
+          "precio_valor": 300000
+        },
+        {
+          "nombre": "Don Roman rosé",
+          "descripcion": null,
+          "precio": "$350.000",
+          "precio_valor": 350000
+        }
+      ]
+    },
+    {
+      "seccion": "VINOS / WINE > BLANCOS / WHITE WINE",
+      "ruta": [
+        "VINOS / WINE",
+        "BLANCOS / WHITE WINE"
+      ],
+      "fuente": "carta-pdf",
+      "pagina_pdf": 7,
+      "platos": [
+        {
+          "nombre": "Menade, Verdejo ecológico",
+          "descripcion": null,
+          "precio": "$350.000",
+          "precio_valor": 350000
+        },
+        {
+          "nombre": "Menade Nosso, Verdejo",
+          "descripcion": null,
+          "precio": "$450.000",
+          "precio_valor": 450000
+        },
+        {
+          "nombre": "Nuestro, Verdejo",
+          "descripcion": null,
+          "precio": "$400.000",
+          "precio_valor": 400000
+        },
+        {
+          "nombre": "Solaheiro, Albariño",
+          "descripcion": null,
+          "precio": "$350.000",
+          "precio_valor": 350000
+        },
+        {
+          "nombre": "Chan de rosas Cuvee , Albariño",
+          "descripcion": null,
+          "precio": "$330.000",
+          "precio_valor": 330000
+        },
+        {
+          "nombre": "Tedeschi, Pinotgrigio",
+          "descripcion": null,
+          "precio": "$350.000",
+          "precio_valor": 350000
+        },
+        {
+          "nombre": "Alta Alella, Pansa Blanca",
+          "descripcion": null,
+          "precio": "$330.000",
+          "precio_valor": 330000
+        }
+      ]
+    },
+    {
+      "seccion": "VINOS / WINE > VINO TINTO / RED WINE",
+      "ruta": [
+        "VINOS / WINE",
+        "VINO TINTO / RED WINE"
+      ],
+      "fuente": "carta-pdf",
+      "pagina_pdf": 7,
+      "platos": [
+        {
+          "nombre": "Marqués de Tomares Gran reserva, Tempranillo",
+          "descripcion": null,
+          "precio": "$470.000",
+          "precio_valor": 470000
+        },
+        {
+          "nombre": "Marqués de Tomares Excellence, Tempranillo",
+          "descripcion": null,
+          "precio": "$350.000",
+          "precio_valor": 350000
+        },
+        {
+          "nombre": "Monteleiva Gran Reserva, Tempranillo",
+          "descripcion": null,
+          "precio": "$400.000",
+          "precio_valor": 400000
+        },
+        {
+          "nombre": "Nuestro, Tempranillo",
+          "descripcion": null,
+          "precio": "$400.000",
+          "precio_valor": 400000
+        }
+      ]
+    },
+    {
+      "seccion": "VINOS / WINE > ESPECIALES",
+      "ruta": [
+        "VINOS / WINE",
+        "ESPECIALES"
+      ],
+      "fuente": "carta-pdf",
+      "pagina_pdf": 7,
+      "platos": [
+        {
+          "nombre": "Alta Alella Orange, Pansa Rosada",
+          "descripcion": null,
+          "precio": "$450.000",
+          "precio_valor": 450000
+        },
+        {
+          "nombre": "Fossacolle DOCG italia, 2016",
+          "descripcion": null,
+          "precio": "$1’280.000",
+          "precio_valor": 1280000
+        },
+        {
+          "nombre": "Monsanto Chianti Classico DOCG italia, 2017",
+          "descripcion": null,
+          "precio": "$1’100.000",
+          "precio_valor": 1100000
+        },
+        {
+          "nombre": "Quinta Do Vale Meao, DOC, Douro, 2020",
+          "descripcion": null,
+          "precio": "$1’600.000",
+          "precio_valor": 1600000
+        },
+        {
+          "nombre": "Tedeschi, Amarone Monte Olmy",
+          "descripcion": null,
+          "precio": "$1’200.000",
+          "precio_valor": 1200000
+        }
+      ]
+    },
+    {
+      "seccion": "LICORES / LIQUORS > MEZCAL",
+      "ruta": [
+        "LICORES / LIQUORS",
+        "MEZCAL"
+      ],
+      "fuente": "carta-pdf",
+      "pagina_pdf": 8,
+      "platos": [
+        {
+          "nombre": "Siete misterios",
+          "descripcion": null,
+          "precio": "$650.000",
+          "precio_valor": 650000
+        },
+        {
+          "nombre": "Amores",
+          "descripcion": null,
+          "precio": "$630.000",
+          "precio_valor": 630000
+        },
+        {
+          "nombre": "Mezcal verde",
+          "descripcion": null,
+          "precio": "$500.000",
+          "precio_valor": 500000
+        }
+      ]
+    },
+    {
+      "seccion": "LICORES / LIQUORS > TEQUILA",
+      "ruta": [
+        "LICORES / LIQUORS",
+        "TEQUILA"
+      ],
+      "fuente": "carta-pdf",
+      "pagina_pdf": 8,
+      "platos": [
+        {
+          "nombre": "Don Julio 1942",
+          "descripcion": null,
+          "precio": "$2’100.000",
+          "precio_valor": 2100000
+        },
+        {
+          "nombre": "Don Julio 70",
+          "descripcion": null,
+          "precio": "$780.000",
+          "precio_valor": 780000
+        },
+        {
+          "nombre": "Don Julio añejo",
+          "descripcion": null,
+          "precio": "$710.000",
+          "precio_valor": 710000
+        },
+        {
+          "nombre": "Don Julio reposado",
+          "descripcion": null,
+          "precio": "$660.000",
+          "precio_valor": 660000
+        },
+        {
+          "nombre": "Don Julio Blanco",
+          "descripcion": null,
+          "precio": "$590.000",
+          "precio_valor": 590000
+        },
+        {
+          "nombre": "Patron Silver",
+          "descripcion": null,
+          "precio": "$480.000",
+          "precio_valor": 480000
+        },
+        {
+          "nombre": "Altos Plata",
+          "descripcion": null,
+          "precio": "$480.000",
+          "precio_valor": 480000
+        },
+        {
+          "nombre": "Altos reposado",
+          "descripcion": null,
+          "precio": "$470.000",
+          "precio_valor": 470000
+        }
+      ]
+    },
+    {
+      "seccion": "LICORES / LIQUORS > CHAMPAÑAS",
+      "ruta": [
+        "LICORES / LIQUORS",
+        "CHAMPAÑAS"
+      ],
+      "fuente": "carta-pdf",
+      "pagina_pdf": 8,
+      "platos": [
+        {
+          "nombre": "Moet & Chandon Imperial",
+          "descripcion": null,
+          "precio": "$900.000",
+          "precio_valor": 900000
+        },
+        {
+          "nombre": "Veuve Clicquot Brut",
+          "descripcion": null,
+          "precio": "$900.000",
+          "precio_valor": 900000
+        },
+        {
+          "nombre": "Don Perignon Brut 2010",
+          "descripcion": null,
+          "precio": "$3’000.000",
+          "precio_valor": 3000000
+        },
+        {
+          "nombre": "Don Perignon Rose 2006",
+          "descripcion": null,
+          "precio": "$4’200.000",
+          "precio_valor": 4200000
+        }
+      ]
+    },
+    {
+      "seccion": "LICORES / LIQUORS > GINEBRAS",
+      "ruta": [
+        "LICORES / LIQUORS",
+        "GINEBRAS"
+      ],
+      "fuente": "carta-pdf",
+      "pagina_pdf": 8,
+      "platos": [
+        {
+          "nombre": "Gin Selva",
+          "descripcion": null,
+          "precio": "$359.000",
+          "precio_valor": 359000
+        },
+        {
+          "nombre": "Hendricks’s",
+          "descripcion": null,
+          "precio": "$612.000",
+          "precio_valor": 612000
+        },
+        {
+          "nombre": "Tanqueary",
+          "descripcion": null,
+          "precio": "$380.000",
+          "precio_valor": 380000
+        }
+      ]
+    },
+    {
+      "seccion": "LICORES / LIQUORS > WHISKEY IRLANDES",
+      "ruta": [
+        "LICORES / LIQUORS",
+        "WHISKEY IRLANDES"
+      ],
+      "fuente": "carta-pdf",
+      "pagina_pdf": 8,
+      "platos": [
+        {
+          "nombre": "Jameson",
+          "descripcion": null,
+          "precio": "$320.000",
+          "precio_valor": 320000
+        }
+      ]
+    }
+  ],
+  "avisos": [
+    "La carta es bilingüe. Se extrajo la versión en español; la página 4 es la traducción al inglés de la página 3 y no se duplicó como sección. En cocteles y mocktails, donde ambos idiomas conviven en el mismo bloque, la línea en inglés quedó en 'descripcion_en'.",
+    "El menú degustación es de precio fijo: EXPERIENCIA $ 330.000 y MARIDAJE $ 250.000. Los momentos y los tragos no tienen precio individual impreso, así que 'precio' va en null con la aclaración en 'precio_nota'. No se estimó ningún valor.",
+    "Se respetó la ortografía original sin corregir: «cacaos amazóncios», «Sorbet de borojó,.», «Hendricks’s», «Tanqueary», «Solaheiro», «Pinotgrigio», «Chan de rosas Cuvee ,», «CAVA / SPARKLIN WINE», «WHISKEY IRLANDES», «musílago», «almibar».",
+    "Los precios de cinco cifras usan apóstrofo tipográfico como separador de millón tal como los imprime la carta ($2’100.000). 'precio_valor' lleva el entero equivalente.",
+    "Verificación visual: se renderizó la página 8 y se contrastó contra el texto extraído. Coincide carácter por carácter.",
+    "La carta imprime al pie de las páginas 5 y 6: «El valor correspondiente al servicio puede ser aceptado, rechazado o modificado al momento de la cancelación de su cuenta, teniendo en cuenta su valoración de la experiencia.»",
+    "Ningún precio quedó en PENDIENTE: todos se leen sin ambigüedad en el PDF."
+  ]
+}

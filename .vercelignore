@@ -1,0 +1,22 @@
+# El deploy es estático: sólo viajan las cinco cartas.
+node_modules
+.next
+app
+components
+lib
+types
+themes
+content
+public
+data
+docs
+RESTAURANTES_BRAND_KITS
+package.json
+package-lock.json
+tsconfig.json
+next-env.d.ts
+eslint.config.mjs
+postcss.config.mjs
+next.config.ts
+serve.js
+.claude

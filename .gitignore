@@ -39,3 +39,11 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# --- añadido para el repo de las cartas ---
+.DS_Store
+**/.DS_Store
+.claude/
+
+# Material de marca de los restaurantes: no se publica (173 MB de terceros)
+RESTAURANTES_BRAND_KITS/
