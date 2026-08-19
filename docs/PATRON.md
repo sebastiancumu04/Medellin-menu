@@ -80,7 +80,10 @@ Token de easing global: `--ease: cubic-bezier(.19,1,.22,1)` (ease-out fuerte, ti
 - **Duración/easing:** ninguna; está **atada directamente al scroll** (no hay transition).
 - **Layout del texto de cada cue:** el rótulo (`.label`) va **absolute arriba** (`top:
   calc(safe-area + 10vh)`); el titular grande (`.cue__big`) va **abajo** (`align-content:end;
-  padding-bottom:22vh`). Así ningún texto tapa el letrero/ingreso del video.
+  padding-bottom:var(--cue-pb)`). Así ningún texto tapa el letrero/ingreso del video.
+- **`--cue-pb` se calibra POR CARTA** contra su propio video: si el plano tiene un letrero, una
+  fachada o un logo físico a media altura, se baja el valor hasta que el titular lo despeje.
+  Hoy: 22vh en boro/cannario/chagra/ocio y **15vh en egeo** (el cartel ΕΓΣΟ de la barra).
 
 ### 2.3 Zoom del logo en la portada  ·  técnica B
 - **Dispara:** `p`. **Qué hace:** `scale = 1 + clamp(p*3,0,1) * 0.12` (1→1.12, sutil).
@@ -226,6 +229,37 @@ botón cerrar reverso            50%
 barras de acento                2px
 ```
 Estética general: **filos rectos/editorial**, radios sólo donde son funcionales.
+
+### Copy de las cues  ·  UNO POR MARCA, nunca compartido
+```
+cue1k / cue1t / cue1s   rótulo, titular y bajada de la portada
+cue2k / cue2t / cue2s   rótulo, titular y bajada de la carta
+--cue-pb                separación del titular al borde inferior (calibrar contra el video)
+```
+El titular de la cue 1 es **la línea editorial de la marca** y es DISTINTO en cada carta:
+
+| carta | cue1t (ES) | cue1t (EN) | cue2t / cue2s |
+|---|---|---|---|
+| boro | El fuego no se apura | Fire won't be rushed | Todo lo de hoy / Cocina y barra |
+| cannario | El mar llega temprano | The sea arrives early | Todo lo de hoy / Cocina y barra |
+| chagra | Comer es un rito | Eating is a ritual | Todo lo de hoy / Degustación y barra |
+| egeo | Comer juntos, siempre | Eat together, always | Todo lo de hoy / Cocina y barra |
+| ocio | Menos carta, más mesa | Less menu, more table | 28 platos / Ni uno de más |
+
+⚠️ **Al regenerar una carta desde el template (`boro/index.html`) NO se arrastran estos valores.**
+Se copian el motor, el CSS y la estructura; el copy de las cues y `--cue-pb` se reponen desde esta
+tabla. Ya pasó una vez: una regeneración propagó el titular de boro a las cinco y las dejó diciendo
+todas lo mismo.
+
+Dos lugares por archivo, y hay que dejarlos **en espejo**:
+1. diccionario i18n — `cue1t:"…"` en el bloque ES (~línea 703) y en el EN (~727).
+2. fallback sin JS — `<h1 class="cue__big" data-tx="cue1t">…</h1>` (~línea 542).
+
+El diccionario **pisa** al fallback: si editás sólo el HTML no vas a ver ningún cambio en pantalla.
+
+Regla de la bajada (`cue2s`): el conteo de platos **sólo se muestra cuando es chico**. En ocio (28)
+la curaduría es el argumento; en egeo (360) o cannario (301) el número produce parálisis, así que
+ahí va la naturaleza de la oferta ("Cocina y barra") en vez del número.
 
 ### Parámetros de motion (los que dan "la sensación")
 ```

@@ -273,7 +273,7 @@ Las traducciones tienen que venir del restaurante. OCIO ya tiene su carta en ing
 `video/` y `fonts/` se cachean `immutable` y el HTML revalida. `.vercelignore` deja fuera
 `node_modules`, la app Next, `data/` y los brand kits.
 
-> **En el deploy, la raíz `/` no tiene página.** Entrá directo a `/boro/` etc.
+La raíz `/` sirve `index.html`, una portada con las cinco cartas.
 
 Peso por carta: HTML 68–108 KB + fuentes 76–220 KB + imágenes 40–100 KB.
 
@@ -283,7 +283,7 @@ Peso por carta: HTML 68–108 KB + fuentes 76–220 KB + imágenes 40–100 KB.
 node serve.js
 ```
 
-Abre en `http://localhost:4321` con un índice de las cinco. Para otro puerto: `node serve.js 8080`.
+Abre en `http://localhost:4321` con la portada. Para otro puerto: `node serve.js 8080`.
 
 **Usá este y no `python3 -m http.server`.** El de Python **no implementa Range**: ante un
 `Range: bytes=100-199` responde `200` con el archivo entero en vez de `206` con los 100 bytes.

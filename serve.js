@@ -26,8 +26,8 @@ http.createServer((req, res) => {
   try { p = decodeURIComponent(req.url.split('?')[0]); }
   catch { res.writeHead(400); return res.end('URL invalida'); }
 
-  /* índice simple en la raíz: las cinco cartas */
-  if (p === '/' || p === '/index.html') {
+  /* índice de la raíz: si existe index.html propio se sirve ese */
+  if ((p === '/' || p === '/index.html') && !fs.existsSync(path.join(ROOT,'index.html'))) {
     const html = '<!doctype html><meta charset="utf-8"><title>Cartas SYNCRA</title>' +
       '<style>body{font:16px/1.7 -apple-system,sans-serif;background:#111;color:#eee;' +
       'display:grid;place-content:center;min-height:100vh;gap:.4rem}' +
